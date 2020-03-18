@@ -1,0 +1,531 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+
+    </div>
+    <div class="col-md-8 order-md-1">
+
+      <!-- Profile Header Section -->
+      <app-intro-section></app-intro-section>
+
+      <!-- About section -->
+      <app-about-section></app-about-section>
+
+      <!-- Dashboard section -->
+      <app-dashboard-section></app-dashboard-section>
+
+      <!-- background section -->
+      <app-background-section></app-background-section>
+
+      <!-- Skills Section -->
+      <app-skills-section></app-skills-section>
+
+      <!-- Accomplishments -->
+      <app-accomplishments-section></app-accomplishments-section>
+
+      <!-- The Interests section displays the companies that a user following -->
+      <app-interests></app-interests>
+
+      <!-- Modals -->
+      <!-- Modal  More Button-->
+      <div class="modal fade" id="Connection" tabindex="-1" role="dialog" aria-labelledby="ConnectionLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Nora Mohamed</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="d-block p-2">
+                <div class="d-flex justify-content-between">
+                  <h2>Contact info </h2>
+                  <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                </div>
+                <div>
+                  <div class="d-flex p-2 ">
+                    <div class="d-block p-2">
+                      <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="d-flex flex-column p-2">
+                      <span> your profile</span>
+                      <a href="#" style="padding: 0%;" class="btn btn-link">noura.mohamed@linkedin.com</a>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="d-flex p-2 ">
+                    <div class="d-block p-2">
+                      <i class="far fa-envelope"></i>
+                    </div>
+                    <div class="d-flex flex-column p-2">
+                      <span> Email</span>
+                      <a href="#" style="padding: 0%;" class="btn btn-link">noura.mohamed@gmail.com</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Skill -->
+      <div class="modal fade edit-skills" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Reorder Skills & Endorsements (12)
+              </h2>
+
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h3 class="skill-title">Top Skills
+              </h3>
+              <div class="row">
+                <div class="col-md-12">
+
+                  <div class="skill-edit">
+                    <span class="skill-edit__skill">HTML5</span>
+                    <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
+                    <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"></i>
+                  </div>
+                  <div class="skill-edit">
+                    <span class="skill-edit__skill">HTML5</span>
+                    <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
+                    <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"></i>
+                  </div>
+                  <div class="skill-edit">
+                    <span class="skill-edit__skill">HTML5</span>
+                    <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
+                    <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"></i>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- bootstrap form popup -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Form
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Modal -->
+      <div class="modal fade" id="FullModal" tabindex="-1" role="dialog" aria-labelledby="FullModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content row">
+            <div class="modal-header">
+              <h5 class="modal-title" id="FullModalLabel">Add Bla Bla Bla</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="">
+                <div class="form-controls">
+                  <div class="form-group">
+                    <label for="" class="required">Title</label>
+                    <input class="form-control" type="text" name="" id="" placeholder="Bla Bla Bla">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Employment type</label>
+                    <select class="form-control" name="" id="">
+                      <option value="" disabled selected hidden>-</option>
+                      <option value="">Opa</option>
+                      <option value="">Opaa</option>
+                      <option value="">Opaaa</option>
+                      <option value="">Opaaaa</option>
+                      <option value="">Opaaaaa</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Description</label>
+                    <textarea class="form-control" name="" id="" cols="30" rows="4"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <div><input type="checkbox" name="" id="CurrentlyWorking"><span> I am
+                        currently working in this role
+                        Transfare</span></div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <label for="" class="required">Start Date</label>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <select class="form-control" name="" id="">
+                              <option value="" disabled selected hidden>Month</option>
+                              <option value="">Opa</option>
+                              <option value="">Opaa</option>
+                              <option value="">Opaaa</option>
+                              <option value="">Opaaaa</option>
+                              <option value="">Opaaaaa</option>
+                            </select>
+                          </div>
+                          <div class="col-sm-12">
+                            <select class="form-control" name="" id="">
+                              <option value="" disabled selected hidden>Year</option>
+                              <option value="">Opa</option>
+                              <option value="">Opaa</option>
+                              <option value="">Opaaa</option>
+                              <option value="">Opaaaa</option>
+                              <option value="">Opaaaaa</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <label for="" class="required">End Date</label>
+                        <h4 id="PresentWorkDate">Present</h4>
+                        <div class="row" id="EndWorkDate">
+                          <div class="col-sm-12">
+                            <select class="form-control" name="" id="">
+                              <option value="" disabled selected hidden>Month</option>
+                              <option value="">Opa</option>
+                              <option value="">Opaa</option>
+                              <option value="">Opaaa</option>
+                              <option value="">Opaaaa</option>
+                              <option value="">Opaaaaa</option>
+                            </select>
+                          </div>
+                          <div class="col-sm-12">
+                            <select class="form-control" name="" id="">
+                              <option value="" disabled selected hidden>Year</option>
+                              <option value="">Opa</option>
+                              <option value="">Opaa</option>
+                              <option value="">Opaaa</option>
+                              <option value="">Opaaaa</option>
+                              <option value="">Opaaaaa</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Modal -->
+      <div class="modal fade" id="SkillsModal" tabindex="-1" role="dialog" aria-labelledby="SkillsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content row">
+            <div class="modal-header">
+              <h5 class="modal-title" id="SkillsModalLabel">Add Some SKills N00B</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="">
+                <div class="form-controls">
+
+                  <div class="taged-textbox form-group">
+
+                    <input class="taged-textbox__textbox form-control" type="text" name="" id=""
+                      placeholder="Add Some Skills N00B">
+                  </div>
+
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Profile Section Modal -->
+      <div class=" dropdown-menu " aria-labelledby="opaDropDown">
+        <!-- Add Profile Section form -->
+        <form class="accordion list " id="accordionExample">
+          <!-- intro card -->
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <a class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                  aria-controls="collapseOne">
+                  <span class="card-title"> Intro</span>
+                </a>
+              </h2>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div>
+                  <p class="font-weight-normal">Help the right people find you by showing what opportunities you’re open to.
+                  </p>
+                </div>
+                <div style=" display: flex; align-items: center; font-size: 2rem;">
+                  <i class="fab fa-stumbleupon-circle p-2"></i>
+                  <p class="p-2 font-weight-light">Looking for job opportunities Show recruiters and others you’re open to
+                    job opportunities.
+                  </p>
+                  <a> <i class="far fa-plus-square p-2"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- About card -->
+          <div class="card">
+            <div class="card-header d-flex justify-content-between " id="headingTwo">
+              <!-- <h2 class="mb-0 justify-content-between "> -->
+              <div class="p-2">
+                <a class="btn btn-link collapsed text-reset" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  About
+                </a>
+              </div>
+              <div class="p-2" style="margin: auto 0;">
+                <i class="fas fa-chevron-down "></i>
+              </div>
+              <!-- </h2> -->
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+
+                <div style=" display: flex; align-items: center; font-size: 2rem;">
+                  <i class="fas fa-indent"></i>
+                  <div class="d-block">
+                    <p>Education</p>
+                    <p class=" font-weight-lighter p-0 m-0">
+                      Use summary to share what you do or the opportunities you’re looking for.
+                    </p>
+                  </div>
+                  <a> <i class="far fa-plus-square p-2"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Background card -->
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h2 class="mb-0">
+                <a class="btn btn-link collapsed text-reset" type="button" data-toggle="collapse"
+                  data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Background
+                </a>
+              </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body" style="font-size: 2rem;">
+                <a class="work text-reset" href="#">
+                  <div class="d-flex m-auto p-2">
+                    <div class="p-2" style=" display: flex; align-items: center; ">
+                      <i class="fas fa-briefcase" style="margin-right: 1rem;"></i>
+                      <div class="d-block">
+                        <p class=" font-weight-light p-0 m-0">3 positions on your profile.</p>
+                        <p>Work experience</p>
+
+                      </div>
+                    </div>
+                    <div class="p-2" style="margin: auto 0;">
+                      <i class="far fa-plus-square"></i>
+                    </div>
+                  </div>
+                </a>
+                <a class="education text-reset " href="# ">
+                  <div class="d-flex m-auto p-2">
+                    <div class="p-2" style=" display: flex; align-items: center; ">
+                      <i class="fas fa-university" style="margin-right: 1rem;"></i>
+                      <div class="d-block">
+                        <p>Education</p>
+                        <p class=" font-weight-lighter p-0 m-0">1 school in your profile.</p>
+
+                      </div>
+                    </div>
+                    <div class="p-2" style="margin: auto 0;">
+                      <i class="far fa-plus-square"></i>
+                    </div>
+                  </div>
+                </a>
+                <a class="licenses  text-reset" href="# ">
+                  <div class="d-flex m-auto p-2">
+
+                    <div class="p-2" style=" display: flex; align-items: center; ">
+
+                      <i class="fas fa-pager" style="margin-right: 1rem;"></i>
+                      <div class="d-block">
+                        <p>Licenses & Certifications</p>
+                        <p class=" font-weight-light p-0 m-0">
+                          Showcase your expertise with your credentials.</p>
+
+                      </div>
+                    </div>
+                    <div class="p-2" style="margin: auto 0;">
+                      <i class="far fa-plus-square"></i>
+                    </div>
+                  </div>
+                </a>
+
+                <a class="volunteer  text-reset" href="# ">
+                  <div class="d-flex j m-auto p-2">
+                    <div class="p-2" style=" display: flex; align-items: center; ">
+                      <i class="far fa-heart" style="margin-right: 1rem;"></i>
+                      <div class="d-block">
+                        <p class=" font-weight-light p-0 m-0">3 positions on your profile.</p>
+                        <p>Work experience</p>
+                      </div>
+                    </div>
+                    <div class="p-2" style="margin: auto 0;">
+                      <i class="far fa-plus-square"></i>
+                    </div>
+                  </div>
+                </a>
+
+              </div>
+            </div>
+          </div>
+          <!-- skills card -->
+          <div class="card">
+            <div class="card-header d-flex justify-content-between " id="headingFour">
+              <!-- <h2 class="mb-0 justify-content-between "> -->
+              <div class="p-2">
+                <a class="btn btn-link collapsed text-reset" type="button" data-toggle="collapse"
+                  data-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+                  Skills
+                </a>
+              </div>
+              <div class="p-2" style="margin: auto 0;">
+                <i class="fas fa-chevron-down "></i>
+              </div>
+              <!-- </h2> -->
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+              <div class="card-body">
+
+                <div style=" display: flex;  justify-content:space-between; align-items: center; font-size: 2rem;">
+                  <i class="fas fa-medal"></i>
+                  <div class="d-block">
+                    <p class=" font-weight-bold">Slills</p>
+                    <p class=" font-weight-lighter p-0 m-0">
+                      11 skills on your profile.
+                    </p>
+                  </div>
+                  <div class="p-2" style="margin: auto 0;">
+                    <i class="far fa-plus-square"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- accomplishment -->
+          <div class="card">
+            <div class="card-header d-flex justify-content-between " id="headingFive">
+              <!-- <h2 class="mb-0 justify-content-between "> -->
+              <div class="p-2">
+                <a class="btn btn-link collapsed text-reset" type="button" data-toggle="collapse"
+                  data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  Acccomplishment
+                </a>
+              </div>
+              <div class="p-2" style="margin: auto 0;">
+                <i class="fas fa-chevron-down "></i>
+              </div>
+              <!-- </h2> -->
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+              <div class="card-body">
+                <p class=" font-weight-bold">Additional Information</p>
+                <div style=" display: flex;  justify-content:space-between; align-items: center; font-size: 2rem;">
+                  <i class="fas fa-medal"></i>
+                  <div class="d-block">
+                    <p>Request & Recommendation</p>
+                    <p class=" font-weight-lighter p-0 m-0">
+                      Ask your connections to write you a recommendation.
+                    </p>
+                  </div>
+                  <div class="p-2" style="margin: auto 0;">
+                    <i class="far fa-plus-square"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Supported language -->
+          <div class="card">
+            <div class="card-header d-flex justify-content-between " id="headingSix">
+              <!-- <h2 class="mb-0 justify-content-between "> -->
+              <div class="p-2">
+                <a class="btn btn-link collapsed text-reset" type="button" data-toggle="collapse" data-target="#collapseSix"
+                  aria-expanded="false" aria-controls="collapseSix">
+                  Supported & Language
+                </a>
+              </div>
+              <div class="p-2" style="margin: auto 0;">
+                <i class="fas fa-chevron-down "></i>
+              </div>
+              <!-- </h2> -->
+            </div>
+            <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+              <div class="card-body">
+
+                <div style=" display: flex;  justify-content:space-between; align-items: center; font-size: 2rem;">
+                  <i class="fas fa-globe"></i>
+                  <div class="d-block">
+                    <p>Add profile IN another language</p>
+                    <p class=" font-weight-lighter p-0 m-0">
+                      You can add the above sections in other languages to make it easier for people to find you.
+                    </p>
+                  </div>
+                  <div class="p-2" style="margin: auto 0;">
+                    <i class="far fa-plus-square"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Scripts -->
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+crossorigin="anonymous"></script> -->
