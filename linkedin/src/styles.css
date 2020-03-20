@@ -54,6 +54,10 @@ label.required::after {
   color: #0073b1;
   margin-left: 2px; }
 
+  #country, #location{
+    font-size: 1.6rem;
+  }
+
 .dashboard {
   display: flex;
   background-color: #f3f6f8;
@@ -196,6 +200,7 @@ padding: 24px; }
   color: #FFFFFF;
   font-weight: bold;
   text-decoration: none;
+  cursor: pointer;
 }
 
 #ProfileSummary .edit-profile .add-section i {

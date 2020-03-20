@@ -7,39 +7,16 @@
               class="fas fa-pencil-alt"></i></a>
           <a href="#" class="btn btn--add btn--inline float-md-right" data-toggle="modal" data-target="#SkillsModal">Add
             a New Skill</a>
-          <div class="skill">
+          <div class="skill" *ngFor="let skill of profileSkills">
             <div class="skill__title">
-              <h4 class="skill__name">C++ . </h4>
-              <span class="skill__no-of-endorsments">2</span>
+              <h4 class="skill__name">{{skill.skillTitle}} .</h4>
+              <span class="skill__no-of-endorsments">{{skill.endorsements.length}}</span>
             </div>
             <div class="skill__description">
-              <p class="skill__endorsed-person">Abdallah Ragab and 1 connection</p>
-              <p class="skill__endorsment-description">have given endorsements for this skill </p>
+              <p class="skill__endorsed-person" *ngIf="skill.endorsements">{{skill.endorsements[0]}} and {{skill.endorsements.length - 1}} connection </p>
+              <p class="skill__endorsment-description"> have given endorsements for this skill </p>
             </div>
           </div>
-          <div class="skill">
-            <div class="skill__title">
-              <h4 class="skill__name">Java . </h4>
-              <span class="skill__no-of-endorsments">2</span>
-            </div>
-            <div class="skill__description">
-              <p class="skill__endorsed-person">Abdallah Ragab and 1 connection</p>
-              <p class="skill__endorsment-description">have given endorsements for this skill </p>
-            </div>
-
-          </div>
-          <div class="skill">
-            <div class="skill__title">
-              <h4 class="skill__name">Django Framework . </h4>
-              <span class="skill__no-of-endorsments">3</span>
-            </div>
-            <div class="skill__description">
-              <p class="skill__endorsed-person">Mohamed Abo Alfotouh and 2 connection</p>
-              <p class="skill__endorsment-description">have given endorsements for this skill </p>
-            </div>
-
-          </div>
-
         </div>
       </div>
       <div class="row">

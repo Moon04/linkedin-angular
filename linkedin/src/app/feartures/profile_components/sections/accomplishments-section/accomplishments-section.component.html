@@ -6,30 +6,46 @@
           <div href="" class="btn btn--inline float-md-right btn--plus mr-4" data-toggle="tooltip"
             data-placement="bottom"><i class="fas fa-plus"></i></div>
 
-          <div class="accomplishment">
+          <div class="accomplishment" *ngIf="profileAccomplishments.courses">
             <div class="accomplishment__section accomplishment__section1">
-              <p class="accomplishment__number">4</p>
+              <p class="accomplishment__number">{{profileAccomplishments.courses.length}}</p>
             </div>
             <div class="accomplishment__section accomplishment__section2 mr-3">
               <h4 class="accomplishment__type">
                 Courses
               </h4>
-              <p class="accomplishment__description">Arduino . CSS . HTML . Python</p>
+              <p class="accomplishment__description"><span *ngFor="let course of profileAccomplishments.courses">{{course.courseName}} . </span></p>
             </div>
             <div class="accomplishment__section accomplishment__section3 float-md-right">
               <a class="btn btn--arrow  btn--active" id="btn-1"><i class="fas fa-chevron-down"></i></a>
               <a class="btn btn--arrow" id="btn-2"> <i class="fas fa-chevron-up"></i></a>
             </div>
           </div>
-          <div class="accomplishment">
+          <div class="accomplishment" *ngIf="profileAccomplishments.projects">
             <div class="accomplishment__section accomplishment__section1">
-              <p class="accomplishment__number">2</p>
+              <p class="accomplishment__number">{{profileAccomplishments.projects.length}}</p>
+            </div>
+            <div class="accomplishment__section accomplishment__section2 mr-3">
+              <h4 class="accomplishment__type">
+                Projects
+              </h4>
+              <p class="accomplishment__description"><span *ngFor="let project of profileAccomplishments.projects">{{project.projectName}} . </span></p>
+            </div>
+            <div class="accomplishment__section accomplishment__section3 float-md-right">
+              <a class="btn btn--arrow  btn--active" id="btn-1"><i class="fas fa-chevron-down"></i></a>
+              <a class="btn btn--arrow" id="btn-2"> <i class="fas fa-chevron-up"></i></a>
+            </div>
+          </div>
+
+          <div class="accomplishment" *ngIf="profileAccomplishments.languages">
+            <div class="accomplishment__section accomplishment__section1">
+              <p class="accomplishment__number">{{profileAccomplishments.languages.length}}</p>
             </div>
             <div class="accomplishment__section accomplishment__section2 mr-3">
               <h4 class="accomplishment__type">
                 Languages
               </h4>
-              <p class="accomplishment__description">Arabic . English, Middle(1100-1500)</p>
+              <p class="accomplishment__description"><span *ngFor="let language of profileAccomplishments.languages">{{language.language}} . </span></p>
             </div>
             <div class="accomplishment__section accomplishment__section3 float-md-right">
               <a class="btn btn--arrow  btn--active" id="btn-1"><i class="fas fa-chevron-down"></i></a>

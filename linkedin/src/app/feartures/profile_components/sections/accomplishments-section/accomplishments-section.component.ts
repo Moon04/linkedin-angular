@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProfileAccomplishments } from './../../../../_model/ProfileAccomplishments';
 
 @Component({
   selector: 'app-accomplishments-section',
   templateUrl: './accomplishments-section.component.html',
   styleUrls: ['./accomplishments-section.component.css']
 })
-export class AccomplishmentsSectionComponent implements OnInit {
+export class AccomplishmentsSectionComponent {
 
+  @Input() profileAccomplishments: ProfileAccomplishments;
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

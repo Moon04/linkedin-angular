@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProfileAbout } from 'src/app/_model/profileAbout';
 
 @Component({
   selector: 'app-about-section',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-section.component.css']
 })
 export class AboutSectionComponent implements OnInit {
+
+  @Input() profileAbout: ProfileAbout;
 
   constructor() { }
 

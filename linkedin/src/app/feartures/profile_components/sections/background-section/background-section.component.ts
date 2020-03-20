@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProfileBackground } from 'src/app/_model/profileBackground';
 
 @Component({
   selector: 'app-background-section',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackgroundSectionComponent implements OnInit {
 
+  @Input() profileBackground: ProfileBackground;
   constructor() { }
 
   ngOnInit(): void {

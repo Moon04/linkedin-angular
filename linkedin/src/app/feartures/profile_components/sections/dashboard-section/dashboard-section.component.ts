@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProfileDashboard } from 'src/app/_model/profileDashboard';
 
 @Component({
   selector: 'app-dashboard-section',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard-section.component.css']
 })
 export class DashboardSectionComponent implements OnInit {
+
+
+  @Input() profileDashboard: ProfileDashboard;
 
   constructor() { }
 

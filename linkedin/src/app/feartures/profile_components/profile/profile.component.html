@@ -6,72 +6,28 @@
     <div class="col-md-8 order-md-1">
 
       <!-- Profile Header Section -->
-      <app-intro-section></app-intro-section>
+      <app-intro-section [profileIntro]="profileIntro"></app-intro-section>
 
       <!-- About section -->
-      <app-about-section></app-about-section>
+      <app-about-section *ngIf="profileAbout" [profileAbout]="profileAbout"></app-about-section>
 
       <!-- Dashboard section -->
-      <app-dashboard-section></app-dashboard-section>
+      <app-dashboard-section [profileDashboard]="profileDashboard"></app-dashboard-section>
 
       <!-- background section -->
-      <app-background-section></app-background-section>
+      <app-background-section [profileBackground]="profileBackground"></app-background-section>
 
       <!-- Skills Section -->
-      <app-skills-section></app-skills-section>
+      <app-skills-section  [profileSkills]="profileSkills"></app-skills-section>
 
       <!-- Accomplishments -->
-      <app-accomplishments-section></app-accomplishments-section>
+      <app-accomplishments-section [profileAccomplishments]="profileAccomplishments"></app-accomplishments-section>
 
       <!-- The Interests section displays the companies that a user following -->
-      <app-interests></app-interests>
+      <app-interests [profileIterests]="profileInterests"></app-interests>
 
       <!-- Modals -->
-      <!-- Modal  More Button-->
-      <div class="modal fade" id="Connection" tabindex="-1" role="dialog" aria-labelledby="ConnectionLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Nora Mohamed</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="d-block p-2">
-                <div class="d-flex justify-content-between">
-                  <h2>Contact info </h2>
-                  <a href="#"><i class="fas fa-pencil-alt"></i></a>
-                </div>
-                <div>
-                  <div class="d-flex p-2 ">
-                    <div class="d-block p-2">
-                      <i class="fab fa-linkedin"></i>
-                    </div>
-                    <div class="d-flex flex-column p-2">
-                      <span> your profile</span>
-                      <a href="#" style="padding: 0%;" class="btn btn-link">noura.mohamed@linkedin.com</a>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div class="d-flex p-2 ">
-                    <div class="d-block p-2">
-                      <i class="far fa-envelope"></i>
-                    </div>
-                    <div class="d-flex flex-column p-2">
-                      <span> Email</span>
-                      <a href="#" style="padding: 0%;" class="btn btn-link">noura.mohamed@gmail.com</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      
       <!-- Edit Skill -->
       <div class="modal fade edit-skills" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
