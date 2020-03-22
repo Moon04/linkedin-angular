@@ -1,0 +1,125 @@
+<div [ngClass]="{'modal': true, 'show-modal': this.openWorkExperienceForm }" id="FullModal" tabindex="-1" role="dialog" aria-labelledby="FullModalLabel"
+aria-modal="true">
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content row">
+    <div class="modal-header">
+      <h5 class="modal-title" id="FullModalLabel">Add experience</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="workExperienceForm">
+        
+        <div class="form-controls">
+      
+        <div class="form-group">
+            <label for="title" class="required">Title</label>
+            <input formControlName="title" class="form-control" type="text" id="title">
+        </div>
+    
+        <div class="form-group">
+          <label for="employmentType">Employment type</label>
+          <select formControlName="employmentType" class="form-control" id="employmentType">
+            <option value="" disabled selected hidden>-</option>
+            <option value="">Full-time</option>
+            <option value="">Part-time</option>
+            <option value="">Self-employed</option>
+            <option value="">Freelance</option>
+            <option value="">Contract</option>
+            <option value="">Internship</option>
+            <option value="">Ao=pprenticeship</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="company" class="required">Company</label>
+          <input formControlName="company" class="form-control" type="text" id="company">
+        </div>
+
+        
+
+        <div class="form-group">
+          <label for="location" class="required">Location</label>
+          <input formControlName="location" class="form-control" type="text" id="location">
+        </div>
+
+        <div class="form-group">
+          <div><input type="checkbox" name="" id="CurrentlyWorking"><span> I am
+              currently working in this role
+              Transfare</span></div>
+          <div class="row">
+            <div class="col-sm-6">
+              <label for="" class="required">Start Date</label>
+              <div class="row">
+                <div class="col-sm-12">
+                  <select class="form-control" name="" id="">
+                    <option value="" disabled selected hidden>Month</option>
+                    <option value="">Opa</option>
+                    <option value="">Opaa</option>
+                    <option value="">Opaaa</option>
+                    <option value="">Opaaaa</option>
+                    <option value="">Opaaaaa</option>
+                  </select>
+                </div>
+                <div class="col-sm-12">
+                  <select class="form-control" name="" id="">
+                    <option value="" disabled selected hidden>Year</option>
+                    <option value="">Opa</option>
+                    <option value="">Opaa</option>
+                    <option value="">Opaaa</option>
+                    <option value="">Opaaaa</option>
+                    <option value="">Opaaaaa</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <label for="" class="required">End Date</label>
+              <h4 id="PresentWorkDate">Present</h4>
+              <div class="row" id="EndWorkDate">
+                <div class="col-sm-12">
+                  <select class="form-control" name="" id="">
+                    <option value="" disabled selected hidden>Month</option>
+                    <option value="">Opa</option>
+                    <option value="">Opaa</option>
+                    <option value="">Opaaa</option>
+                    <option value="">Opaaaa</option>
+                    <option value="">Opaaaaa</option>
+                  </select>
+                </div>
+                <div class="col-sm-12">
+                  <select class="form-control" name="" id="">
+                    <option value="" disabled selected hidden>Year</option>
+                    <option value="">Opa</option>
+                    <option value="">Opaa</option>
+                    <option value="">Opaaa</option>
+                    <option value="">Opaaaa</option>
+                    <option value="">Opaaaaa</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="headline" class="required">Headline</label>
+          <input formControlName="headline" class="form-control" type="text" id="headline">
+        </div>
+
+        
+        
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea formControlName="description" class="form-control" id="description" cols="30" rows="4"></textarea>
+        </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</div>
+</div>

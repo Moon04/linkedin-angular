@@ -10,6 +10,8 @@ export class AboutSectionComponent implements OnInit {
 
   @Input() profileAbout: ProfileAbout;
 
+  openAboutForm: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {

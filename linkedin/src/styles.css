@@ -420,3 +420,9 @@ padding: 24px; }
 
 .modal-body {
   padding: 2rem; }
+
+
+  .show-modal{
+    display: block;
+    padding-right: 17px;
+  }

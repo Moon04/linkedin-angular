@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProfileAccomplishments } from './../../../../_model/ProfileAccomplishments';
+import { ProfileAccomplishments } from 'src/app/_model/ProfileAccomplishments';
 
 @Component({
   selector: 'app-accomplishments-section',

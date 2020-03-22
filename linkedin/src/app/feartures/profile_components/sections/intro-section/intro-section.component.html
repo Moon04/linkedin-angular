@@ -16,13 +16,13 @@
             <div class="d-flex justify-content-end align-items-center edit-profile">
               <div class="p-2">
                 <a class="dropdown-toggle btn-primary btn-lg add-section"
-                  id="dropdownMenu1" (click)="changeDropdownStatus()">
+                  id="dropdownMenu1" (click)="this.dropdownStatus = !this.dropdownStatus">
                   Add Profile Section
                 </a>
                 <!-- Add Profile Section Modal -->
                 <div aria-labelledby="dropdownMenu1"  [ngClass]="{'dropdown-menu': true, 'show': this.dropdownStatus}">
                   <!-- Add Profile Section form -->
-                  <form class="accordion list " id="accordionExample">
+                  <!-- <form class="accordion list " id="accordionExample"> -->
                     <!-- intro card -->
                     <div class="card">
                       <div class="card-header" id="headingOne">
@@ -266,21 +266,20 @@
                         </div>
                       </div>
                     </div>
-                  </form>
+                  <!-- </form> -->
                 </div>
               </div>
               <div class="dropdown p-2">
-                <a class="btn border border-dark btn-light" id="dropdownMenu2" data-toggle="dropdown" (click)="changeMoreStatus()">
+                <a class="btn border border-dark btn-light" id="dropdownMenu2" data-toggle="dropdown" (click)="this.moreStatus = !this.moreStatus">
                   More....
                 </a>
                 <div aria-labelledby="dropdownMenu2" [ngClass]="{'dropdown-menu': true, 'show': this.moreStatus}">
-                  <a class="dropdown-item"> <i class="fas fa-share p-2"></i>Share Profile vs
-                    Message</a>
+                  <a class="dropdown-item"> <i class="fas fa-share p-2"></i>Share Profile as Message</a>
                   <a class="dropdown-item"> <i class="fas fa-share p-2"></i>Save as PDF</a>
                 </div>
               </div>
               <div class="p-2">
-                <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                <a href="#" (click)="this.openIntroForm = ! this.openIntroForm"><i class="fas fa-pencil-alt"></i></a>
               </div>
             </div>
           </div>
@@ -303,7 +302,7 @@
                   <li id="location" *ngIf="profileIntro.location">, {{profileIntro.location}}</li>
                   <li id="connection"><a href="#" class="btn btn-link">{{getConnectionsCount()}} Connections</a></li> <!-- if then 500+ Connections-->
                   <li id="contact">
-                    <a href="#" type="button" class="btn btn-link" (click)="showContactInfo()">Contact info</a>
+                    <a href="#"  type="button" class="btn btn-link" (click)="this.contactInfoStatus = !this.contactInfoStatus">Contact info</a>
                   </li>
                 </ul>
               </div>
@@ -321,14 +320,13 @@
   </div>
 
   <!-- Modal Contact Info-->
-  <div class="modal fade" id="Connection" tabindex="-1" role="dialog" aria-labelledby="ConnectionLabel"
-  aria-hidden="true">
+  <div [ngClass]="{'modal': true, 'show-modal': contactInfoStatus }" id="Connection" tabindex="-1" role="dialog" aria-labelledby="ConnectionLabel" aria-modal="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">{{profileIntro.firstName + ' ' + profileIntro.lastName}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span (click)="this.contactInfoStatus = !this.contactInfoStatus">&times;</span>
           </button>
         </div>
         <div class="modal-body">
@@ -344,29 +342,29 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Your profile</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link">mona.mohamed@linkedin.com</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link">{{profileIntro.firstName}}.{{profileIntro.lastName}}@linkedin.com</a>
                 </div>
               </div>
             </div>
             <div>
               <div class="d-flex p-2 ">
                 <div class="d-block p-2">
-                  <i class="far fa-envelope"></i>
+                  <i class="fas fa-phone-alt"></i>
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Phone</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link">noura.mohamed@gmail.com</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileIntro.phone">{{profileIntro.phone}}</a>
                 </div>
               </div>
             </div>
             <div>
               <div class="d-flex p-2 ">
                 <div class="d-block p-2">
-                  <i class="far fa-envelope"></i>
+                  <i class="fas fa-map-marker-alt"></i>
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Address</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link">noura.mohamed@gmail.com</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileIntro.address">{{profileIntro.address}}</a>
                 </div>
               </div>
             </div>
@@ -377,18 +375,18 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Email</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link">noura.mohamed@gmail.com</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileIntro.email">{{profileIntro.email}}</a>
                 </div>
               </div>
             </div>
             <div>
               <div class="d-flex p-2 ">
                 <div class="d-block p-2">
-                  <i class="far fa-envelope"></i>
+                  <i class="fas fa-birthday-cake"></i>
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Birthday</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link">noura.mohamed@gmail.com</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileIntro.birthday">{{profileIntro.birthday}}</a>
                 </div>
               </div>
             </div>
@@ -397,5 +395,7 @@
       </div>
     </div>
   </div>
+
+  <app-intro-form [openIntroForm]="this.openIntroForm"></app-intro-form>
 
 </section>

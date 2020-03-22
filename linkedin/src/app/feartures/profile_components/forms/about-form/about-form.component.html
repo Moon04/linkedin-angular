@@ -1,0 +1,30 @@
+<div [ngClass]="{'modal': true, 'show-modal': this.openAboutForm }" id="FullModal" tabindex="-1" role="dialog" aria-labelledby="FullModalLabel"
+aria-modal="true">
+<div class="modal-dialog modal-lg" role="document">
+  <div class="modal-content row">
+    <div class="modal-header">
+      <h5 class="modal-title" id="FullModalLabel">Add About</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span (click)="this.openAboutForm =!this.openAboutForm ">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="aboutForm">
+        <div class="form-controls">
+          <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="summary">Summary</label>
+                    <textarea formControlName="summary" class="form-control" id="summary" cols="30" rows="4"></textarea>
+                </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</div>
+</div>

@@ -12,19 +12,13 @@ export class IntroSectionComponent{
 
   dropdownStatus: boolean = false;
   moreStatus: boolean = false;
+  contactInfoStatus: boolean = false;
+  openIntroForm: boolean = false;
 
   constructor() { }
 
   getConnectionsCount(){
     return this.profileIntro.connectionsCount > 500? '500+' : this.profileIntro.connectionsCount;
-  }
-
-  changeDropdownStatus(){
-    this.dropdownStatus = !this.dropdownStatus;
-  }
-
-  changeMoreStatus(){
-    this.moreStatus = !this.moreStatus;
   }
 
   showContactInfo(){

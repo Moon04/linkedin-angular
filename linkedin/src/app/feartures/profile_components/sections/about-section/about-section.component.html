@@ -4,7 +4,7 @@
         <header class="col-12 d-flex justify-content-between">
           <h2>About</h2>
           <a href="#" data-toggle="modal" data-target="#FullModal">
-            <i class="fas fa-pencil-alt profile-icon"></i></a>
+            <i class="fas fa-pencil-alt profile-icon" (click)="this.openAboutForm =!this.openAboutForm "></i></a>
         </header>
         <div class="col-12 pt-3">
           <h5>
@@ -13,4 +13,6 @@
         </div>
       </div>
     </div>
+
+    <app-about-form [openAboutForm]="this.openAboutForm "></app-about-form>
   </section>
