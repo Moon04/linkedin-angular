@@ -21,12 +21,7 @@ export class ProfileService{
     openCourseForm: boolean = false;
     openProjectForm: boolean = false;
     openLanguageForm: boolean = false;
-
-
-
-    // educationEditForm(i){
-
-    // }
+    openEditSkills: boolean = false;
 
     organizations: Organization [] = [
         {id: "0", title: "Pixels Egypt", logoURL: "assets/images/pixels.png", followersCount: 160, location: "Cairo, Cairo", type: "Company", cause: "Education Management" },
@@ -82,9 +77,9 @@ export class ProfileService{
       };
 
     skills: ProfileSkills [] = [
-        {skillTitle: "C++", endorsements: ["Abdallah Ragab", "Moustafa Magdy"]},
-        {skillTitle: "Java", endorsements: ["Abdallah Ragab", "Moustafa Magdy"]},
-        {skillTitle: "Django Framework", endorsements: ["Mohamed Abo Alfotouh", "Abdallah Ragab", "Moustafa Magdy"]}
+        {id: 0, skillTitle: "C++", endorsements: ["Abdallah Ragab", "Moustafa Magdy"]},
+        {id: 1, skillTitle: "Java", endorsements: ["Abdallah Ragab", "Moustafa Magdy"]},
+        {id: 2, skillTitle: "Django Framework", endorsements: ["Mohamed Abo Alfotouh", "Abdallah Ragab", "Moustafa Magdy"]}
       ];
 
     accomplishments: ProfileAccomplishments = {

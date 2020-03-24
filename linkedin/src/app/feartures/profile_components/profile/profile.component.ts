@@ -3,6 +3,7 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { Organization } from 'src/app/_model/organization';
 import { ProfileService } from './../profile.service';
 import { Profile } from 'src/app/_model/profile';
+import { ProfileSkills } from 'src/app/_model/profileSkills';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +14,7 @@ export class ProfileComponent implements OnInit {
 
   profile: Profile;
   organizations: Organization[];
+  skills: ProfileSkills[] = [];
 
   moodEducationIndex: number = -1;
   moodWorkIndex: number = -1;
@@ -25,6 +27,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void{
     this.organizations = this.profileService.organizations;
+
+    for (let i = 0; i < this.profileService.skills.length; i++) {
+      this.skills.push(this.profileService.skills[i]);
+    }
+    
     this.profile = {
       id: "1",
       profileIntro: this.profileService.intro,
@@ -65,6 +72,21 @@ export class ProfileComponent implements OnInit {
   setMoodLanguageIndex(index: number){
     this.moodLanguageIndex = index;
     this.profileService.openLanguageForm = !this.profileService.openLanguageForm;
+  }
+
+
+
+  deleteSkillFromView(skill: ProfileSkills){
+    for (let index = 0; index < this.skills.length; index++) {
+      if (this.skills[index].id === skill.id) {
+          this.skills.splice(index, 1);
+      } 
+    }
+  }
+
+  saveSkills(){
+    this.profileService.skills = this.skills;
+    this.profileService.openEditSkills = !this.profileService.openEditSkills;
   }
 
 }

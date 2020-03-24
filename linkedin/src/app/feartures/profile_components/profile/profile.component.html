@@ -44,21 +44,17 @@
 
       <!-- The Interests section displays the companies that a user following -->
       <app-interests *ngIf="profile.profileInterests" [profileIterests]="profile.profileInterests"></app-interests>
-
-
-      <!-- Modals -->
       
       <!-- Edit Skill -->
-      <div class="modal fade edit-skills" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+      <div [ngClass]="{'modal': true, 'edit-skills': true, 'show-modal': profileService.openEditSkills}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h2 class="modal-title">Reorder Skills & Endorsements (12)
+              <h2 class="modal-title">Reorder Skills & Endorsements ({{profileService.skills.length}})
               </h2>
-
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                <span (click)="profileService.openEditSkills=!profileService.openEditSkills">&times;</span>
               </button>
             </div>
             <div class="modal-body">
@@ -66,94 +62,29 @@
               </h3>
               <div class="row">
                 <div class="col-md-12">
-
-                  <div class="skill-edit">
-                    <span class="skill-edit__skill">HTML5</span>
+                  <div class="skill-edit" *ngFor="let skill of skills">
+                    <a class="pointer">                    
+                      <i class="fas fa-thumbtack" style="font-size: 16px; margin-right: 2%; color: #1185c9;"></i>
+                    </a>
+                    <span class="skill-edit__skill">{{skill.skillTitle}}</span>
                     <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
-                    <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"></i>
-                  </div>
-                  <div class="skill-edit">
-                    <span class="skill-edit__skill">HTML5</span>
-                    <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
-                    <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"></i>
-                  </div>
-                  <div class="skill-edit">
-                    <span class="skill-edit__skill">HTML5</span>
-                    <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
-                    <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"></i>
+                    <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon pointer" (click)="deleteSkillFromView(skill)"></i>
                   </div>
                 </div>
-
               </div>
-
-
+              <br>
+              <br>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="saveSkills()">Save</button>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- bootstrap form popup -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              Form
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-
-      <!-- Skills Modal -->
-      <div class="modal fade" id="SkillsModal" tabindex="-1" role="dialog" aria-labelledby="SkillsModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content row">
-            <div class="modal-header">
-              <h5 class="modal-title" id="SkillsModalLabel">Add Some SKills N00B</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <!-- <form action=""> -->
-                <div class="form-controls">
-
-                  <div class="taged-textbox form-group">
-
-                    <input class="taged-textbox__textbox form-control" type="text" name="" id=""
-                      placeholder="Add Some Skills N00B">
-                  </div>
-
-                </div>
-              <!-- </form> -->
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save</button>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </div>
   </div>
-</div>
-
 
   <!--Form Modals-->
   <app-intro-form></app-intro-form>
@@ -166,3 +97,5 @@
   <app-course-form [moodIndex]="moodCourseIndex"></app-course-form>
   <app-project-form [moodIndex]="moodProjectIndex"></app-project-form>
   <app-language-form [moodIndex]="moodLanguageIndex"></app-language-form>
+
+</div>

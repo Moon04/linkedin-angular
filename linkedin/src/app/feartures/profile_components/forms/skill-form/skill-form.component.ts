@@ -20,6 +20,7 @@ export class SkillFormComponent implements OnInit {
 
   saveSkill(){
     this.profileService.skills.push({
+      id: this.profileService.skills[this.profileService.skills.length-1].id + 1,
       skillTitle: this.skillForm.value.skill,
       endorsements: []
     });
