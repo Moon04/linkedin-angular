@@ -34,7 +34,13 @@
       <app-skills-section *ngIf="profile.profileSkills"></app-skills-section>
 
       <!-- Accomplishments -->
-      <app-accomplishments-section *ngIf="profile.profileAccomplishments"></app-accomplishments-section>
+      <app-accomplishments-section 
+        *ngIf="profile.profileAccomplishments"
+        (courseMood)="setMoodCourseIndex($event)"
+        (projectMood)="setMoodProjectIndex($event)"
+        (languageMood)="setMoodVolunteerIndex($event)"
+      >
+      </app-accomplishments-section>
 
       <!-- The Interests section displays the companies that a user following -->
       <app-interests *ngIf="profile.profileInterests" [profileIterests]="profile.profileInterests"></app-interests>
