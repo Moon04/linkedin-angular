@@ -3,7 +3,6 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 
-// import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './features/landing-page/landing-page.component';
 import { NavlogoComponent } from './core/navlogo/navlogo.component';
@@ -41,12 +40,9 @@ import { ErrorpageComponent } from './core/errorpage/errorpage.component';
   imports: [
     BrowserModule,
     FormsModule,
-    // AppRoutingModule
     RouterModule.forRoot([
-      // { path: '', component: ListingComponent }, //hia hia elii ba3dihaa
-      // { path: '', redirectTo: 'home', pathMatch: 'full' },
-      // { path: 'home', component: HomeComponent },
-      // { path: '', component: LandingPageComponent },
+
+
       { path: '', redirectTo: 'landing', pathMatch: 'full' },
       { path: 'landing', component: LandingPageComponent },
       { path: 'login', component: LoginComponent },
@@ -55,6 +51,7 @@ import { ErrorpageComponent } from './core/errorpage/errorpage.component';
       { path: 'register3', component: Regform3Component },
       { path: 'register4', component: Regform4Component },
       { path: 'register5', component: Regform5Component },
+      // { path: 'home', component: home },
       { path: '**', component: ErrorpageComponent }
     ])
   ],
