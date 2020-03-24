@@ -9,22 +9,6 @@ export class UsersService {
 
   User: DataRequire[] = JSON.parse(localStorage.getItem('users')) || [
     {
-      id: 0,
-      email: "",
-      password: "",
-      firstName: "",
-      lastName: "",
-      location: "",
-      recentJob: "",
-      recentCompany: "",
-      college: "",
-      degree: "",
-      specialization: "",
-      startYear: "",
-      endYear: "",
-    },
-    {
-      id: 1,
       email: "esraa@gmail.com",
       password: "Esraa_12345",
       firstName: "Esraa",
@@ -39,7 +23,6 @@ export class UsersService {
       endYear: "2019",
     },
     {
-      id: 2,
       email: "mona@gmail.com",
       password: "Mona_12345",
       firstName: "Mona",
@@ -48,7 +31,7 @@ export class UsersService {
       recentJob: "Web Developer",
       recentCompany: "IBM",
       college: "Bla",
-      degree: "3.5",
+      degree: "4",
       specialization: "CompyScience",
       startYear: "2015",
       endYear: "2019",
