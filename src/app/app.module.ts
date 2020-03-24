@@ -10,6 +10,7 @@ import { HomeConnectorsCardsComponent } from "./home-page/home-connectors/home-c
 import { PostsComponent } from "./home-page/posts/posts.component";
 import { TagsComponent } from "./home-page/tags/tags.component";
 import { PostCardsComponent } from "./home-page/posts/post-cards/post-cards.component";
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,11 @@ import { PostCardsComponent } from "./home-page/posts/post-cards/post-cards.comp
     HomeConnectorsCardsComponent,
     PostsComponent,
     TagsComponent,
-    PostCardsComponent
+    PostCardsComponent,
+    HeaderComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
