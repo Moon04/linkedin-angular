@@ -20,7 +20,7 @@
   color: firebrick;
   font-weight: 500;
   font-size: small;
-  // padding: 10px;
+
 }
 .miniHelp{
   color: #0091ca;
@@ -32,26 +32,27 @@
     margin-top: 20px;
     text-align: center;
     width: 60%;
-  &--1{font-size: 4rem;
+}
+.h--1{font-size: 4rem;
       line-height: 1.2;
       font-weight: 200;
       color: rgba(0,0,0,.9);
       margin-bottom: 8px!important;
   }
-  &--2{
+.h--2{
       font-size: 2.5rem;
       line-height: 1.25;
       font-weight: 300;
       color: rgba(0,0,0,.9);
       margin-bottom: 8px!important;
   }
-  &--3{
+.h--3{
       font-size: 1.8rem;
       line-height: 1.33333;
       font-weight: 400;
       color: rgba(0,0,0,.6);
   }
-}
+
 
 .toggleage{
     border: 1px solid #0091ca;
@@ -146,12 +147,13 @@ input:checked + .slider:before {
 .preview {
   margin: 10px;
   display: none;
-  &--rounded {
+}
+  .preview--rounded {
     width: 160px;
     height: 160px;
     border-radius: 50%;
   }
-}
+
 .hide {
   display: none !important;
 }
@@ -162,13 +164,13 @@ input:checked + .slider:before {
   position: relative;
   padding-left: 22px;
   padding-right: 22px;
-
-& input[type=range] {
+}
+.photo__zoom 
+ input[type=range] {
   -webkit-appearance: none;
   width: 100%;
   background: transparent;
   height: 18px;
-}
 }
 .photo__zoom input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;

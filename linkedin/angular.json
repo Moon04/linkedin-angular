@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "css"
         }
       },
       "root": "",
@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -92,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -128,5 +128,10 @@
   "defaultProject": "linkedin",
   "cli": {
     "analytics": "cb271cab-d29c-4d42-a484-1efd4ddff969"
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "css"
+    }
   }
 }
