@@ -10,7 +10,7 @@ import { HomeConnectorsCardsComponent } from "./home-page/home-connectors/home-c
 import { PostsComponent } from "./home-page/posts/posts.component";
 import { TagsComponent } from "./home-page/tags/tags.component";
 import { PostCardsComponent } from "./home-page/posts/post-cards/post-cards.component";
-import { HeaderComponent } from './header/header.component';
+import { HomePageHeaderComponent } from './homepageheader/header.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { HeaderComponent } from './header/header.component';
     PostsComponent,
     TagsComponent,
     PostCardsComponent,
-    HeaderComponent
+    HomePageHeaderComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
   providers: [],
