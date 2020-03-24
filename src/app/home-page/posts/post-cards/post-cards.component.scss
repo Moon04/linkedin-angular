@@ -1,0 +1,173 @@
+.post-card {
+  &-container {
+    background-color: white;
+    box-shadow: 0px 0px 2px rgb(43, 43, 43);
+    margin: 1rem auto;
+    border-top-right-radius: 2rem;
+  }
+  &-header {
+    padding: 1rem 1rem 0rem;
+    display: flex;
+    &-sub:last-child {
+      padding-left: 1rem;
+      padding-top: 0.5rem;
+      width: 80%;
+    }
+  }
+  &-image {
+    height: 4rem;
+    width: 4rem;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+  }
+  &-title {
+    font-size: 0.8rem;
+  }
+  &-time {
+    font-size: 0.7rem;
+  }
+  &-body {
+    padding: 0.5rem 1.5rem;
+  }
+  &-name {
+    width: 95%;
+    display: inline-block;
+    box-sizing: border-box;
+  }
+  &-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    right: 0;
+    box-shadow: 0px 0px 2px rgb(43, 43, 43);
+    &-edit,
+    &-delete,
+    &-hide {
+      padding: 5px 20px;
+      text-align: center;
+      transition: all 0.2s linear;
+      
+      &:hover {
+        background-color: dimgray;
+        color: white;
+      }
+    }
+  }
+  &-menu-container {
+    width: 5%;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    &:hover .post-card-menu {
+      display: block;
+    }
+  }
+  &-editControls{
+    display: flex;
+    justify-content: flex-end;
+    button{
+      color:white;
+      background-color: dodgerblue;
+      border:none;
+      padding: 5px 10px;
+      margin: 20px 10px 5px;
+    }
+  }
+  &-likes{
+    color:dodgerblue;
+    font-size: 0.9rem;
+    padding: 10px 24px;
+  }
+  &-controls {
+    button {
+      width: 33.3%;
+      border: none;
+      box-sizing: border-box;
+      background-color: white;
+      color: dodgerblue;
+      padding: 0.5rem 0rem;
+      border-top: 1px solid dodgerblue;
+      transition: all 0.2s linear;
+      &:nth-child(2) {
+        border-left: 1px solid dodgerblue;
+        border-right: 1px solid dodgerblue;
+      }
+      &:hover {
+        background-color: dodgerblue;
+        color: white;
+      }
+    }
+  }
+  &-comment{
+    &-border{
+      border-bottom: 1px solid lightgray;
+    }
+    &-add{
+      input{
+        width: 80%;
+        border: 1px solid lightgray;
+        padding:5px 20px;
+        box-sizing: border-box;
+        outline: none;
+      }
+      button{
+        padding:6px 20px;
+        box-sizing: border-box;
+        width: 20%;
+        background-color: dodgerblue;
+        color: white;
+        border: none;
+      }
+      
+    }
+    &-card{
+      display: flex;
+      padding:10px 10px 0px 10px;
+      &-image{
+        width: 40px;
+        height:40px;
+      }  
+      &-title{
+        display: flex;
+        align-items: center;
+        padding: 0px 15px;
+        font-size: 1rem;
+        
+      }
+      &-body{
+        width: 100%;
+        padding: 0px 65px 10px ;
+        font-size: 0.9rem;
+        
+      }
+    }
+    
+  }
+}
+.hidden{
+  display: none;
+}
+.grey{
+  color: gray;
+}
+.shared-post-preview{
+  padding: 0px 50px;
+  &-sub{
+    &:first-child{
+      display:flex;
+      align-items:center ;
+      .post-card-image{
+        width: 40px;
+        height: 40px;
+      }
+      .post-card-name{
+        margin-left: 10px;
+      }
+    }
+    &:last-child{
+      padding: 5px 48px;
+    }
+  }
+}
