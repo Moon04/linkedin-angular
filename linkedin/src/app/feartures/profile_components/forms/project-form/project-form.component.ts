@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ProfileService } from '../../profile.service';
 
 @Component({
   selector: 'app-project-form',
@@ -7,8 +8,6 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./project-form.component.css']
 })
 export class ProjectFormComponent implements OnInit {
-
-  @Input() openProjectForm: boolean;
 
   projectForm = new FormGroup({
     projectName: new FormControl(''),
@@ -18,9 +17,20 @@ export class ProjectFormComponent implements OnInit {
     projectURL: new FormControl(''),
     description: new FormControl('')
   });
-  constructor() { }
+  constructor(public profileService: ProfileService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  saveProject(){
+    this.profileService.accomplishments.projects.push({
+      projectName: this.projectForm.value.projectName,
+      startDate: this.projectForm.value.startDate,
+      endDate: this.projectForm.value.endDate,
+      associatedWith: this.profileService.organizations[this.projectForm.value.associatedWith],
+      projectURL: this.projectForm.value.projectURL,
+      description: this.projectForm.value.description
+    });
+    this.profileService.openProjectForm = !this.profileService.openProjectForm;
   }
 
 }

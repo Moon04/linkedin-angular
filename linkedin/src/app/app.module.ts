@@ -25,6 +25,7 @@ import { CourseFormComponent } from './feartures/profile_components/forms/course
 import { ProjectFormComponent } from './feartures/profile_components/forms/project-form/project-form.component';
 import { LanguageFormComponent } from './feartures/profile_components/forms/language-form/language-form.component';
 import { from } from 'rxjs';
+import { ContactInfoFormComponent } from './feartures/profile_components/forms/contact-info-form/contact-info-form.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { from } from 'rxjs';
     IntroFormComponent,
     CourseFormComponent,
     ProjectFormComponent,
-    LanguageFormComponent
+    LanguageFormComponent,
+    ContactInfoFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,113 +1,34 @@
-<div class="modal fade" id="FullModal" tabindex="-1" role="dialog" aria-labelledby="FullModalLabel"
-aria-hidden="true">
-<div class="modal-dialog modal-lg" role="document">
-  <div class="modal-content row">
-    <div class="modal-header">
-      <h5 class="modal-title" id="FullModalLabel">Edit intro</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <form [formGroup]="">
-        <div class="form-controls">
-          <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="firstName" class="required">First Name</label>
-                    <input formControlName="firstName" class="form-control" type="text" id="firstName">
-                </div>
+<div [ngClass]="{'modal': true, 'show-modal': this.profileService.openCourseForm }" id="FullModal" 
+  tabindex="-1" role="dialog" aria-labelledby="FullModalLabel" aria-modal="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content row">
+      <div class="modal-header">
+        <h5 class="modal-title" id="FullModalLabel">Add Course</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span (click)="this.profileService.openCourseForm=!this.profileService.openCourseForm">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="courseForm">
+          <div class="form-controls">
+            <div class="form-group">
+              <label for="courseName" class="required">Course Name</label>
+              <input formControlName="courseName" class="form-control" type="text" id="courseName">
             </div>
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label for="lastName" class="required">Last Name</label>
-                    <input formControlName="firstName" class="form-control" type="text" id="lastName">
-                </div>
-            </div>
-          </div>  
-          <div class="form-group">
-            <label for="headline" class="required">Headline</label>
-            <input formControlName="headline" class="form-control" type="text" id="headline">
-          </div>
-          <div class="form-group">
-            <label for="">Employment type</label>
-            <select class="form-control" name="" id="">
-              <option value="" disabled selected hidden>-</option>
-              <option value="">Opa</option>
-              <option value="">Opaa</option>
-              <option value="">Opaaa</option>
-              <option value="">Opaaaa</option>
-              <option value="">Opaaaaa</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="">Description</label>
-            <textarea class="form-control" name="" id="" cols="30" rows="4"></textarea>
-          </div>
-          <div class="form-group">
-            <div><input type="checkbox" name="" id="CurrentlyWorking"><span> I am
-                currently working in this role
-                Transfare</span></div>
-            <div class="row">
-              <div class="col-sm-6">
-                <label for="" class="required">Start Date</label>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <select class="form-control" name="" id="">
-                      <option value="" disabled selected hidden>Month</option>
-                      <option value="">Opa</option>
-                      <option value="">Opaa</option>
-                      <option value="">Opaaa</option>
-                      <option value="">Opaaaa</option>
-                      <option value="">Opaaaaa</option>
-                    </select>
-                  </div>
-                  <div class="col-sm-12">
-                    <select class="form-control" name="" id="">
-                      <option value="" disabled selected hidden>Year</option>
-                      <option value="">Opa</option>
-                      <option value="">Opaa</option>
-                      <option value="">Opaaa</option>
-                      <option value="">Opaaaa</option>
-                      <option value="">Opaaaaa</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <label for="" class="required">End Date</label>
-                <h4 id="PresentWorkDate">Present</h4>
-                <div class="row" id="EndWorkDate">
-                  <div class="col-sm-12">
-                    <select class="form-control" name="" id="">
-                      <option value="" disabled selected hidden>Month</option>
-                      <option value="">Opa</option>
-                      <option value="">Opaa</option>
-                      <option value="">Opaaa</option>
-                      <option value="">Opaaaa</option>
-                      <option value="">Opaaaaa</option>
-                    </select>
-                  </div>
-                  <div class="col-sm-12">
-                    <select class="form-control" name="" id="">
-                      <option value="" disabled selected hidden>Year</option>
-                      <option value="">Opa</option>
-                      <option value="">Opaa</option>
-                      <option value="">Opaaa</option>
-                      <option value="">Opaaaa</option>
-                      <option value="">Opaaaaa</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
+            <div class="form-group">
+              <label for="associatedWith" class="required">Associated with</label>
+              <select formControlName="associatedWith" class="form-control" id="associatedWith">
+                <option value="" disabled selected hidden>-</option>
+                <option value={{i}} *ngFor="let org of profileService.organizations; let i=index">{{org.title}}</option>
+              </select>            
             </div>
           </div>
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary">Save</button>
+          {{courseForm.value | json}}
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveCourse()">Save</button>
+      </div>
     </div>
   </div>
-</div>
 </div>

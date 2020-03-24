@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProfileDashboard } from 'src/app/_model/profileDashboard';
+import { ProfileService } from './../../profile.service';
 
 @Component({
   selector: 'app-dashboard-section',
@@ -8,12 +9,8 @@ import { ProfileDashboard } from 'src/app/_model/profileDashboard';
 })
 export class DashboardSectionComponent implements OnInit {
 
+  constructor(public profileService:ProfileService) { }
 
-  @Input() profileDashboard: ProfileDashboard;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

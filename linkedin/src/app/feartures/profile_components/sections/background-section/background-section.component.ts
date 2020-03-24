@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProfileBackground } from 'src/app/_model/profileBackground';
+import { ProfileService } from './../../profile.service';
 
 @Component({
   selector: 'app-background-section',
@@ -7,11 +8,9 @@ import { ProfileBackground } from 'src/app/_model/profileBackground';
   styleUrls: ['./background-section.component.css']
 })
 export class BackgroundSectionComponent implements OnInit {
+  
+  constructor(public profileService: ProfileService) { }
 
-  @Input() profileBackground: ProfileBackground;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

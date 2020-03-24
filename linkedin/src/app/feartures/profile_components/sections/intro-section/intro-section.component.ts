@@ -1,5 +1,6 @@
 import { Component, Input} from '@angular/core';
-import { ProfileIntro } from 'src/app/_model/profileIntro';
+import { Profile } from 'src/app/_model/profile';
+import { ProfileService } from './../../profile.service';
 
 @Component({
   selector: 'app-intro-section',
@@ -8,21 +9,27 @@ import { ProfileIntro } from 'src/app/_model/profileIntro';
 })
 export class IntroSectionComponent{
 
-  @Input() profileIntro: ProfileIntro;
-
   dropdownStatus: boolean = false;
   moreStatus: boolean = false;
   contactInfoStatus: boolean = false;
-  openIntroForm: boolean = false;
 
-  constructor() { }
+  taps: boolean[] = [false, false, false, false, false];
 
-  getConnectionsCount(){
-    return this.profileIntro.connectionsCount > 500? '500+' : this.profileIntro.connectionsCount;
+  openTap(currentTap){
+    for (let index = 0; index < this.taps.length; index++) {
+      if(index === currentTap){
+        this.taps[index] = true;
+      }
+      else{
+        this.taps[index]=false;
+      }
+    }
   }
 
-  showContactInfo(){
+  constructor(public profileService: ProfileService) { }
 
+  getConnectionsCount(){
+    return this.profileService.intro.connectionsCount > 500? '500+' : this.profileService.intro.connectionsCount;
   }
   
 }

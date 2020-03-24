@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ProfileService } from '../../profile.service';
 
 @Component({
   selector: 'app-about-form',
@@ -8,15 +9,22 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class AboutFormComponent implements OnInit {
 
-  @Input() openAboutForm: boolean; 
-
   aboutForm = new FormGroup({
-    summary: new FormControl('')
+    about: new FormControl('')
   });
   
-  constructor() { }
+  constructor(public profileService: ProfileService) { 
+  }
 
   ngOnInit(): void {
+    this.aboutForm.patchValue({
+      about: this.profileService.about.about
+    });
+  }
+
+  saveAbout(){
+    this.profileService.about = this.aboutForm.value.about;
+    this.profileService.openAboutForm = ! this.profileService.openAboutForm;
   }
 
 }

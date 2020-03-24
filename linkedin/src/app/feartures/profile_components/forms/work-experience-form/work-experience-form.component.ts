@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ProfileService } from '../../profile.service';
 
 @Component({
   selector: 'app-work-experience-form',
@@ -7,8 +8,6 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./work-experience-form.component.css']
 })
 export class WorkExperienceFormComponent implements OnInit {
-
-  @Input() openWorkExperienceForm: boolean;
 
   workExperienceForm = new FormGroup({
     title: new FormControl(''),
@@ -21,9 +20,22 @@ export class WorkExperienceFormComponent implements OnInit {
     description: new FormControl('')
   });
 
-  constructor() { }
+  constructor(public profileService: ProfileService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  saveWorkExperience(){
+    this.profileService.background.workExperience.push({
+      title: this.workExperienceForm.value.title,
+      employmentType: this.workExperienceForm.value.employmentType,
+      company: this.profileService.organizations[this.workExperienceForm.value.company],
+      location: this.workExperienceForm.value.location,
+      startDate: this.workExperienceForm.value.startDate,
+      endDate: this.workExperienceForm.value.endDate,
+      headline: this.workExperienceForm.value.headline,
+      description: this.workExperienceForm.value.description
+    });
+    this.profileService.openWorkExperienceForm = !this.profileService.openWorkExperienceForm;
   }
 
 }

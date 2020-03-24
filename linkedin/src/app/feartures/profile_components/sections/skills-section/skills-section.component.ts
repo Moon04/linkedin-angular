@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProfileSkills } from 'src/app/_model/profileSkills';
+import { ProfileService } from './../../profile.service';
 
 @Component({
   selector: 'app-skills-section',
@@ -8,10 +9,8 @@ import { ProfileSkills } from 'src/app/_model/profileSkills';
 })
 export class SkillsSectionComponent implements OnInit {
 
-  @Input() profileSkills: ProfileSkills[];
-  constructor() { }
+  constructor(public profileService: ProfileService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

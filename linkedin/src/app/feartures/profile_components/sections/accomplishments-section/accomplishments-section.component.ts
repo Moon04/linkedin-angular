@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProfileAccomplishments } from 'src/app/_model/ProfileAccomplishments';
+import { ProfileService } from './../../profile.service';
 
 @Component({
   selector: 'app-accomplishments-section',
@@ -8,7 +9,8 @@ import { ProfileAccomplishments } from 'src/app/_model/ProfileAccomplishments';
 })
 export class AccomplishmentsSectionComponent {
 
-  @Input() profileAccomplishments: ProfileAccomplishments;
-  constructor() { }
+  dropdownStatus: boolean = false;
+  
+  constructor(public profileService: ProfileService) { }
 
 }

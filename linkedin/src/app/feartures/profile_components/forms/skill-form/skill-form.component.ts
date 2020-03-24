@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ProfileService } from '../../profile.service';
 
 @Component({
   selector: 'app-skill-form',
@@ -8,15 +9,21 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class SkillFormComponent implements OnInit {
 
-  @Input() openSkillForm: boolean;
-
   skillForm = new FormGroup({
     skill: new FormControl('')
   });
 
-  constructor() { }
+  constructor(public profileService: ProfileService) { }
 
   ngOnInit(): void {
+  }
+
+  saveSkill(){
+    this.profileService.skills.push({
+      skillTitle: this.skillForm.value.skill,
+      endorsements: []
+    });
+    this.profileService.openSkillForm =! this.profileService.openSkillForm;
   }
 
 }

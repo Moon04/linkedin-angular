@@ -11,6 +11,17 @@ import { ProfileAccomplishments } from 'src/app/_model/ProfileAccomplishments';
 
 export class ProfileService{
 
+    openContactInfoForm: boolean = false;
+    openIntroForm: boolean = false;
+    openAboutForm: boolean = false;
+    openWorkExperienceForm: boolean = false;
+    openEducationForm: boolean = false;
+    openVolunteerExperienceForm: boolean = false;
+    openSkillForm: boolean = false;
+    openCourseForm: boolean = false;
+    openProjectForm: boolean = false;
+    openLanguageForm: boolean = false;
+
     organizations: Organization [] = [
         {id: "0", title: "Pixels Egypt", logoURL: "assets/images/pixels.png", followersCount: 160, location: "Cairo, Cairo", type: "Company", cause: "Education Management" },
         {id: "1", title: "IEEE Helwan SB", logoURL: "assets/images/ieee.png", followersCount: 178, location: "Helwan, cairo", type: "Company"},
@@ -36,7 +47,7 @@ export class ProfileService{
         connectionsCount: 600,
         email: "sydeny254@gmail.com",
         address: "5 Elansary street, Elbahr Elaazm, Giza",
-        birthday: "25/4/1996",
+        birthday: "1996-04-25",
         phone: "0201156492345"
       };
 
@@ -51,6 +62,7 @@ export class ProfileService{
       };
 
     background: ProfileBackground = {
+        workExperience: [],
         education: [
           {school: this.organizations[2], fieldOfStudy: "E-Business", startYear: "2019", endYear: "2020"},
           {school: this.organizations[3], degree: "Bachelor's degree", fieldOfStudy: "Computer Engineering", startYear: "2014", endYear: "2019", grade: "Good"}
@@ -71,12 +83,10 @@ export class ProfileService{
 
     accomplishments: ProfileAccomplishments = {
         courses: [{courseName: "Arduino"}, {courseName: "CSS"}, {courseName: "HTML"}, {courseName: "Python"}],
+        projects: [],
         languages: [{language: "Arabic", proficiency: "Native or bilingual proficiency"}, {language: "English, Middle (1100-1500)"}]
       };
 
 
-    constructor()
-    {
-        console.log(this.skills)
-    }
+    constructor() { }
 }

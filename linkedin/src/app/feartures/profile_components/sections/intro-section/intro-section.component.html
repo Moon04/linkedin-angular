@@ -1,11 +1,12 @@
 <section class="p-3" id="ProfileSummary">
+
   <div class="container u-border white">
     <div class="row">
       <!-- upper div that includes img -->
       <div class="col-sm-12 profile-imgs">
         <!--profile img -->
         <div class="position-absolute profile-img">
-          <img src={{profileIntro.profilePhoto}} class="rounded-circle" id="profile-photo">
+          <img src={{profileService.intro.profilePhoto}} class="rounded-circle" id="profile-photo">
         </div>
       </div>
       <!-- down div -->
@@ -15,144 +16,171 @@
           <div class="col-sm-6 offset-6 dropdown">
             <div class="d-flex justify-content-end align-items-center edit-profile">
               <div class="p-2">
-                <a class="dropdown-toggle btn-primary btn-lg add-section"
-                  id="dropdownMenu1" (click)="this.dropdownStatus = !this.dropdownStatus">
+                <a class="dropdown-toggle btn-primary btn-lg add-section" id="dropdownMenu1" (click)="dropdownStatus=!dropdownStatus">
                   Add Profile Section
                 </a>
                 <!-- Add Profile Section Modal -->
-                <div aria-labelledby="dropdownMenu1"  [ngClass]="{'dropdown-menu': true, 'show': this.dropdownStatus}">
+                <div aria-labelledby="dropdownMenu1"  [ngClass]="{'dropdown-menu': true, 'show': dropdownStatus}">
                   <!-- Add Profile Section form -->
-                  <!-- <form class="accordion list " id="accordionExample"> -->
+                  <div class="accordion list" id="accordion">
+
                     <!-- intro card -->
                     <div class="card">
-                      <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
+                      <div class="card-header d-flex justify-content-between" id="headingOne" (click)="openTap(0)">
+                        <h2 class="mb-0 justify-content-between">
                           <a class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne">
-                            <span class="card-title"> Intro</span>
+                            aria-expanded="false" aria-controls="collapseOne">
+                             Intro
                           </a>
                         </h2>
+                        <div class="p-2" style="margin: auto 0;">
+                          <i class="fas fa-chevron-down"></i>
+                        </div>
                       </div>
-                      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                      <div id="collapseOne" [ngClass]="{'collapse': true, 'show': taps[0]}" aria-labelledby="headingOne"
                         data-parent="#accordionExample">
                         <div class="card-body">
+                          <div style="display: flex; align-items: center; font-size: 2rem;">
+                          <div class="w-2">
+                            <i class="fas fa-check"></i>
+                          </div>
                           <div>
-                            <p class="font-weight-normal">
-                              {{profileIntro.firstName}}, your Intro is looking good! Check out other sections you can add to your profile
+                            <p class="font-weight-normal" style="font-size: 1.4rem;">
+                              {{profileService.intro.firstName}}, your Intro is looking good! Check out other sections you can add to your profile
                             </p>
                           </div>
                         </div>
+                        </div>
                       </div>
                     </div>
+
                     <!-- About card -->
                     <div class="card">
-                      <div class="card-header d-flex justify-content-between " id="headingTwo">
-                        <!-- <h2 class="mb-0 justify-content-between "> -->
-                        <div class="p-2">
+                      <div class="card-header d-flex justify-content-between " id="headingTwo" (click)="openTap(1)">
+                        <h2 class="mb-0 justify-content-between">
                           <a class="btn btn-link collapsed text-reset" type="button" data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                             About
                           </a>
-                        </div>
+                        </h2>
                         <div class="p-2" style="margin: auto 0;">
                           <i class="fas fa-chevron-down "></i>
                         </div>
-                        <!-- </h2> -->
                       </div>
-                      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                      <div id="collapseTwo" [ngClass]="{'collapse': true, 'show': taps[1]}" aria-labelledby="headingTwo"
                         data-parent="#accordionExample">
-                        <div class="card-body">
-
+                        <div class="card-body" *ngIf="profileService.about.about">
                           <div style=" display: flex; align-items: center; font-size: 2rem;">
-                            <i class="fas fa-indent"></i>
-                            <div class="d-block">
-                              <p>Education</p>
-                              <p class=" font-weight-lighter p-0 m-0">
-                                Use summary to share what you do or the opportunities you’re looking for.
-                              </p>
+                            <div class="w-2">
+                              <i class="fas fa-check"></i>
                             </div>
-                            <a> <i class="far fa-plus-square p-2"></i></a>
+                            <div>
+                              <p class="font-weight-normal" style="font-size: 1.4rem;">
+                                Looking good, {{profileService.intro.firstName}}.
+                              </p>
+                              <p style="font-size: 1.4rem;">
+                                This section is complete.</p>
+                            </div>
                           </div>
+                        </div>
+                        <div class="card-body" *ngIf="!profileService.about.about">
+                          <a class="work text-reset" href="#">
+                            <div class="d-flex m-auto p-2">
+                              <div class="p-2 w-7" style="display: flex; align-items: center; ">
+                                
+                                <div class="d-block">
+                                  <p><i class="fas fa-align-left" style="margin-right: 1rem;"></i> Summary</p>
+                                  <p class=" font-weight-light" style="margin-left: 20%; width: 100%;">Use summary to share what you do or the opportunities you’re looking for</p>
+                                </div>
+                              </div>
+                              <div class="p-2 w-3" >
+                                <i class="far fa-plus-square m-80" (click)="profileService.openAboutForm=!profileService.openAboutForm"></i>
+                              </div>
+                            </div>
+                          </a>
                         </div>
                       </div>
                     </div>
+
                     <!-- Background card -->
-                    <div class="card">
-                      <div class="card-header" id="headingThree">
-                        <div class="p-2">
+                    <div class="card ">
+                      <div class="card-header  d-flex justify-content-between" id="headingThree" (click)="openTap(2)">
+                        <h2 class="mb-0 justify-content-between">
                           <a class="btn btn-link collapsed text-reset" type="button" data-toggle="collapse"
                             data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                             Background
                           </a>
-                        </div>
+                        </h2>
                         <div class="p-2" style="margin: auto 0;">
-                          <i class="fas fa-chevron-down "></i>
+                          <i class="fas fa-chevron-down"></i>
                         </div>
-                        
                       </div>
-                      <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                      <div id="collapseThree" [ngClass]="{'collapse': true, 'show': taps[2]}" aria-labelledby="headingThree"
                         data-parent="#accordionExample">
                         <div class="card-body" style="font-size: 2rem;">
-                          <a class="work text-reset" href="#">
-                            <div class="d-flex m-auto p-2">
-                              <div class="p-2" style=" display: flex; align-items: center; ">
-                                <i class="fas fa-briefcase" style="margin-right: 1rem;"></i>
-                                <div class="d-block">
-                                  <p class=" font-weight-light p-0 m-0">3 positions on your profile.</p>
-                                  <p>Work experience</p>
 
+                          <!--work experience-->
+                          <a class="work text-reset pointer">
+                            <div class="d-flex m-auto p-2">
+                              <div class="p-2 w-7" style="display: flex; align-items: center;">
+                                <div class="d-block">
+                                  <p><i class="fas fa-briefcase" style="margin-right: 1rem;"></i> Work experience</p>
+                                  <p class=" font-weight-light" style="margin-left: 20%; width: 100%;"
+                                    *ngIf="profileService.background.workExperience.length!==0">
+                                    {{profileService.background.workExperience.length}} positions on your profile
+                                  </p>
+                                  <p class=" font-weight-light" style="margin-left: 20%; width: 100%;"
+                                    *ngIf="profileService.background.workExperience.length===0">
+                                    List your work history including any contracts ot internships
+                                  </p>
                                 </div>
                               </div>
-                              <div class="p-2" style="margin: auto 0;">
-                                <i class="far fa-plus-square"></i>
-                              </div>
-                            </div>
-                          </a>
-                          <a class="education text-reset " href="# ">
-                            <div class="d-flex m-auto p-2">
-                              <div class="p-2" style=" display: flex; align-items: center; ">
-                                <i class="fas fa-university" style="margin-right: 1rem;"></i>
-                                <div class="d-block">
-                                  <p>Education</p>
-                                  <p class=" font-weight-lighter p-0 m-0">1 school in your profile.</p>
-
-                                </div>
-                              </div>
-                              <div class="p-2" style="margin: auto 0;">
-                                <i class="far fa-plus-square"></i>
-                              </div>
-                            </div>
-                          </a>
-                          <a class="licenses  text-reset" href="# ">
-                            <div class="d-flex m-auto p-2">
-
-                              <div class="p-2" style=" display: flex; align-items: center; ">
-
-                                <i class="fas fa-pager" style="margin-right: 1rem;"></i>
-                                <div class="d-block">
-                                  <p>Licenses & Certifications</p>
-                                  <p class=" font-weight-light p-0 m-0">
-                                    Showcase your expertise with your credentials.</p>
-
-                                </div>
-                              </div>
-                              <div class="p-2" style="margin: auto 0;">
-                                <i class="far fa-plus-square"></i>
+                              <div class="p-2 w-3" >
+                                <i class="far fa-plus-square m-80" (click)="profileService.openWorkExperienceForm=!profileService.openWorkExperienceForm"></i>
                               </div>
                             </div>
                           </a>
 
-                          <a class="volunteer  text-reset" href="# ">
+                          <!--education-->
+                          <a class="education text-reset pointer">
+                            <div class="d-flex m-auto p-2">
+                              <div class="p-2 w-7" style="display: flex; align-items: center; ">
+                                <div class="d-block">
+                                  <p><i class="fas fa-university" style="margin-right: 1rem;"></i> Education</p>
+                                  <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
+                                    *ngIf="profileService.background.education.length!==0">
+                                    {{profileService.background.education.length}} schools in your profile
+                                  </p>
+                                  <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
+                                    *ngIf="profileService.background.education.length===0">
+                                    Get 11x more profile views by adding your school
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="p-2 w-3" >
+                                <i class="far fa-plus-square m-80" (click)="profileService.openEducationForm=!profileService.openEducationForm"></i>
+                              </div>
+                            </div>
+                          </a>
+
+                          <!--volunteer experience-->
+                          <a class="volunteer text-reset pointer">
                             <div class="d-flex j m-auto p-2">
-                              <div class="p-2" style=" display: flex; align-items: center; ">
-                                <i class="far fa-heart" style="margin-right: 1rem;"></i>
+                              <div class="p-2 w-7" style="display: flex; align-items: center; ">
                                 <div class="d-block">
-                                  <p class=" font-weight-light p-0 m-0">3 positions on your profile.</p>
-                                  <p>Work experience</p>
+                                  <p> <i class="far fa-heart" style="margin-right: 1rem;"></i> Volunteer experience</p>
+                                  <p class="font-weight-light" style="margin-left: 20%; width: 100%;"
+                                    *ngIf="profileService.background.volunteerExperience.length!==0">
+                                    {{profileService.background.volunteerExperience.length}} volunteer experiences on your profile
+                                  </p>
+                                  <p class="font-weight-light" style="margin-left: 20%; width: 100%;"
+                                    *ngIf="profileService.background.volunteerExperience.length===0">
+                                    Highlight your passions and how you like to give back
+                                  </p>
                                 </div>
                               </div>
-                              <div class="p-2" style="margin: auto 0;">
-                                <i class="far fa-plus-square"></i>
+                              <div class="p-2 w-3">
+                                <i class="far fa-plus-square m-80" (click)="profileService.openVolunteerExperienceForm=!profileService.openVolunteerExperienceForm"></i>
                               </div>
                             </div>
                           </a>
@@ -160,126 +188,148 @@
                         </div>
                       </div>
                     </div>
+
                     <!-- skills card -->
                     <div class="card">
-                      <div class="card-header d-flex justify-content-between " id="headingFour">
-                        <!-- <h2 class="mb-0 justify-content-between "> -->
-                        <div class="p-2">
+                      <div class="card-header d-flex justify-content-between" id="headingFour" (click)="openTap(3)">
+                        <h2 class="mb-0 justify-content-between ">
                           <a class="btn btn-link collapsed text-reset" type="button" data-toggle="collapse"
                             data-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
                             Skills
                           </a>
-                        </div>
+                        </h2>
                         <div class="p-2" style="margin: auto 0;">
-                          <i class="fas fa-chevron-down "></i>
+                          <i class="fas fa-chevron-down"></i>
                         </div>
-                        <!-- </h2> -->
                       </div>
-                      <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                      <div id="collapseFour" [ngClass]="{'collapse': true, 'show': taps[3]}" aria-labelledby="headingFour"
                         data-parent="#accordionExample">
                         <div class="card-body">
-
-                          <div
-                            style=" display: flex;  justify-content:space-between; align-items: center; font-size: 2rem;">
-                            <i class="fas fa-medal"></i>
-                            <div class="d-block">
-                              <p class=" font-weight-bold">Slills</p>
-                              <p class=" font-weight-lighter p-0 m-0">
-                                11 skills on your profile.
-                              </p>
-                            </div>
-                            <div class="p-2" style="margin: auto 0;">
-                              <i class="far fa-plus-square"></i>
-                            </div>
-                          </div>
+                            <a class="volunteer text-reset pointer">
+                              <div class="d-flex j m-auto p-2">
+                                <div class="p-2 w-7" style="display: flex; align-items: center; ">
+                                  <div class="d-block">
+                                    <p> <i class="fas fa-medal" style="margin-right: 1rem;"></i> Skills</p>
+                                    <p class=" font-weight-light" style="margin-left: 20%; width: 100%;" 
+                                      *ngIf="profileService.skills.length!==0">
+                                      {{profileService.skills.length}} skills on your profile
+                                    </p>
+                                    <p class=" font-weight-light" style="margin-left: 20%; width: 100%;" 
+                                      *ngIf="profileService.skills.length===0">
+                                      Showcase your strengths as a professional
+                                    </p>
+                                  </div>
+                                </div>
+                                <div class="p-2 w-3">
+                                  <i class="far fa-plus-square m-80" (click)="profileService.openSkillForm=!profileService.openSkillForm"></i>
+                                </div>
+                              </div>
+                            </a>
                         </div>
                       </div>
                     </div>
+
                     <!-- accomplishment -->
                     <div class="card">
-                      <div class="card-header d-flex justify-content-between " id="headingFive">
-                        <!-- <h2 class="mb-0 justify-content-between "> -->
-                        <div class="p-2">
+                      <div class="card-header d-flex justify-content-between" id="headingFive" (click)="openTap(4)">
+                        <h2 class="mb-0 justify-content-between">
                           <a class="btn btn-link collapsed text-reset" type="button" data-toggle="collapse"
                             data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                             Acccomplishment
                           </a>
-                        </div>
+                        </h2>
                         <div class="p-2" style="margin: auto 0;">
-                          <i class="fas fa-chevron-down "></i>
+                          <i class="fas fa-chevron-down"></i>
                         </div>
-                        <!-- </h2> -->
                       </div>
-                      <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                      <div id="collapseFive" [ngClass]="{'collapse': true, 'show': taps[4]}" aria-labelledby="headingFive"
                         data-parent="#accordionExample">
-                        <div class="card-body">
-                          <p class=" font-weight-bold">Additional Information</p>
-                          <div
-                            style=" display: flex;  justify-content:space-between; align-items: center; font-size: 2rem;">
-                            <i class="fas fa-medal"></i>
-                            <div class="d-block">
-                              <p>Request & Recommendation</p>
-                              <p class=" font-weight-lighter p-0 m-0">
-                                Ask your connections to write you a recommendation.
-                              </p>
-                            </div>
-                            <div class="p-2" style="margin: auto 0;">
-                              <i class="far fa-plus-square"></i>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Supported language -->
-                    <div class="card">
-                      <div class="card-header d-flex justify-content-between " id="headingSix">
-                        <!-- <h2 class="mb-0 justify-content-between "> -->
-                        <div class="p-2">
-                          <a class="btn btn-link collapsed text-reset" type="button" data-toggle="collapse"
-                            data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                            Supported & Language
-                          </a>
-                        </div>
-                        <div class="p-2" style="margin: auto 0;">
-                          <i class="fas fa-chevron-down "></i>
-                        </div>
-                        <!-- </h2> -->
-                      </div>
-                      <div id="collapseSix" class="collapse" aria-labelledby="headingSix"
-                        data-parent="#accordionExample">
-                        <div class="card-body">
+                        <div class="card-body" style="font-size: 2rem;">
 
-                          <div
-                            style=" display: flex;  justify-content:space-between; align-items: center; font-size: 2rem;">
-                            <i class="fas fa-globe"></i>
-                            <div class="d-block">
-                              <p>Add profile IN another language</p>
-                              <p class=" font-weight-lighter p-0 m-0">
-                                You can add the above sections in other languages to make it easier for people to find
-                                you.
-                              </p>
+                          <!--courses-->
+                          <a class="courses text-reset pointer">
+                            <div class="d-flex m-auto p-2">
+                              <div class="p-2 w-7" style="display: flex; align-items: center; ">
+                                <div class="d-block">
+                                  <p><i class="fas fa-book-open" style="margin-right: 1rem;"></i> Courses</p>
+                                  <p class=" font-weight-lighter" style="margin-left: 20%; width: 100%;" 
+                                    *ngIf="profileService.accomplishments.courses.length!==0">
+                                    {{profileService.accomplishments.courses.length}} courses on your profile
+                                  </p>
+                                  <p class=" font-weight-lighter" style="margin-left: 20%; width: 100%;" 
+                                    *ngIf="profileService.accomplishments.courses.length===0">
+                                    List Coursework from your prior or continuing education
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="p-2 w-3" >
+                                <i class="far fa-plus-square m-80" (click)="profileService.openCourseForm=!profileService.openCourseForm"></i>
+                              </div>
                             </div>
-                            <div class="p-2" style="margin: auto 0;">
-                              <i class="far fa-plus-square"></i>
+                          </a>
+
+                          <!--projects-->
+                          <a class="projects text-reset pointer">
+                            <div class="d-flex m-auto p-2">
+                              <div class="p-2 w-7" style="display: flex; align-items: center; ">
+                                <div class="d-block">
+                                  <p><i class="fas fa-folder-minus" style="margin-right: 1rem;"></i> Projects</p>
+                                  <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
+                                    *ngIf="profileService.accomplishments.projects.length!==0">
+                                    {{profileService.accomplishments.projects.length}} projects on your profile
+                                  </p>
+                                  <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
+                                  *ngIf="profileService.accomplishments.projects.length===0">
+                                    Add compelling projects to demonstrate your experience
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="p-2 w-3" >
+                                <i class="far fa-plus-square m-80" (click)="profileService.openProjectForm=!profileService.openProjectForm"></i>
+                              </div>
                             </div>
-                          </div>
+                          </a>
+
+                          <!--languages-->
+                          <a class="languages text-reset pointer">
+                            <div class="d-flex j m-auto p-2">
+                              <div class="p-2 w-7" style="display: flex; align-items: center; ">
+                                <div class="d-block">
+                                  <p> <i class="fas fa-globe" style="margin-right: 1rem;"></i> Languages</p>
+                                  <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
+                                    *ngIf="profileService.accomplishments.languages.length!==0">
+                                    {{profileService.accomplishments.languages.length}} languages on your profile
+                                  </p>
+                                  <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
+                                    *ngIf="profileService.accomplishments.languages.length===0">
+                                    Show how you can be a fit for a job or overseas opportunity
+                                  </p>
+                                </div>
+                              </div>
+                              <div class="p-2 w-3">
+                                <i class="far fa-plus-square m-80" (click)="profileService.openLanguageForm=!profileService.openLanguageForm"></i>
+                              </div>
+                            </div>
+                          </a>
+
                         </div>
                       </div>
                     </div>
-                  <!-- </form> -->
+                  </div>
                 </div>
               </div>
+
               <div class="dropdown p-2">
-                <a class="btn border border-dark btn-light" id="dropdownMenu2" data-toggle="dropdown" (click)="this.moreStatus = !this.moreStatus">
+                <a class="btn border border-dark btn-light" id="dropdownMenu2" data-toggle="dropdown" (click)="moreStatus=!moreStatus">
                   More....
                 </a>
-                <div aria-labelledby="dropdownMenu2" [ngClass]="{'dropdown-menu': true, 'show': this.moreStatus}">
+                <div aria-labelledby="dropdownMenu2" [ngClass]="{'dropdown-menu': true, 'show': moreStatus}">
                   <a class="dropdown-item"> <i class="fas fa-share p-2"></i>Share Profile as Message</a>
                   <a class="dropdown-item"> <i class="fas fa-share p-2"></i>Save as PDF</a>
                 </div>
               </div>
               <div class="p-2">
-                <a href="#" (click)="this.openIntroForm = ! this.openIntroForm"><i class="fas fa-pencil-alt"></i></a>
+                <a class="pointer" (click)="profileService.openIntroForm=!profileService.openIntroForm"><i class="fas fa-pencil-alt"></i></a>
               </div>
             </div>
           </div>
@@ -289,20 +339,20 @@
           <div class="col-sm-6 user-info">
             <div class="p-sm-3">
               <div>
-                <h2 class="d-inline-block">{{profileIntro.firstName + ' ' + profileIntro.lastName}}</h2>
+                <h2 class="d-inline-block">{{profileService.intro.firstName + ' ' + profileService.intro.lastName}}</h2>
               </div>
               <div>
-                <h4 class="f-w">{{profileIntro.headline}}</h4>
+                <h4 class="f-w">{{profileService.intro.headline}}</h4>
               </div>
               <div class="d-flex">
-                <!-- <h4 class="f-w">{{profileIntro.country}}</h4> back to add location -->
+                <!-- <h4 class="f-w">{{profileService.intro.country}}</h4> back to add location -->
                 <ul class="info">
                   <!-- Button trigger modal -->
-                  <li id="country">{{profileIntro.country}}</li>
-                  <li id="location" *ngIf="profileIntro.location">, {{profileIntro.location}}</li>
+                  <li id="country">{{profileService.intro.country}}</li>
+                  <li id="location" *ngIf="profileService.intro.location">, {{profileService.intro.location}}</li>
                   <li id="connection"><a href="#" class="btn btn-link">{{getConnectionsCount()}} Connections</a></li> <!-- if then 500+ Connections-->
                   <li id="contact">
-                    <a href="#"  type="button" class="btn btn-link" (click)="this.contactInfoStatus = !this.contactInfoStatus">Contact info</a>
+                    <a href="#"  type="button" class="btn btn-link" (click)="contactInfoStatus=!contactInfoStatus">Contact info</a>
                   </li>
                 </ul>
               </div>
@@ -310,8 +360,8 @@
           </div>
           <div class="col-sm-6 p-sm-3 experiences">
             <div class="d-flex justify-content-end align-items-center">
-              <div class="sm-img"><img class="img-fluid" src={{profileIntro.education.logoURL}}> </div> <!--logooooo-->
-              <div> <a href="#" class="btn btn-link btn-black">{{profileIntro.education.title}}</a></div>
+              <div class="sm-img"><img class="img-fluid" src={{profileService.intro.education.logoURL}}> </div>
+              <div> <a href="#" class="btn btn-link btn-black">{{profileService.intro.education.title}}</a></div>
             </div>
           </div>
         </div>
@@ -320,20 +370,21 @@
   </div>
 
   <!-- Modal Contact Info-->
-  <div [ngClass]="{'modal': true, 'show-modal': contactInfoStatus }" id="Connection" tabindex="-1" role="dialog" aria-labelledby="ConnectionLabel" aria-modal="true">
+  <!--, 'show-modal': contactInfoStatus -->
+  <!-- <div [ngClass]="{'modal': true, 'show-modal': false}" id="Connection" tabindex="-1" role="dialog" aria-labelledby="ConnectionLabel" aria-modal="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{profileIntro.firstName + ' ' + profileIntro.lastName}}</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{profileService.intro.firstName + ' ' + profileService.intro.lastName}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span (click)="this.contactInfoStatus = !this.contactInfoStatus">&times;</span>
+            <span (click)="contactInfoStatus = !contactInfoStatus">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="d-block p-2">
             <div class="d-flex justify-content-between">
               <h2>Contact Info</h2>
-              <a href="#"><i class="fas fa-pencil-alt"></i></a>
+              <a href="#" (click)="profileService.openContactInfoForm=!profileService.openContactInfoForm"><i class="fas fa-pencil-alt"></i></a>
             </div>
             <div>
               <div class="d-flex p-2 ">
@@ -342,7 +393,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Your profile</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link">{{profileIntro.firstName}}.{{profileIntro.lastName}}@linkedin.com</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link">{{profileService.intro.firstName}}.{{profileService.intro.lastName}}@linkedin.com</a>
                 </div>
               </div>
             </div>
@@ -353,7 +404,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Phone</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileIntro.phone">{{profileIntro.phone}}</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.intro.phone">{{profileService.intro.phone}}</a>
                 </div>
               </div>
             </div>
@@ -364,7 +415,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Address</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileIntro.address">{{profileIntro.address}}</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.intro.address">{{profileService.intro.address}}</a>
                 </div>
               </div>
             </div>
@@ -375,7 +426,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Email</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileIntro.email">{{profileIntro.email}}</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.intro.email">{{profileService.intro.email}}</a>
                 </div>
               </div>
             </div>
@@ -386,7 +437,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Birthday</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileIntro.birthday">{{profileIntro.birthday}}</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.intro.birthday">{{profileService.intro.birthday}}</a>
                 </div>
               </div>
             </div>
@@ -394,8 +445,6 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <app-intro-form [openIntroForm]="this.openIntroForm"></app-intro-form>
+  </div> -->
 
 </section>

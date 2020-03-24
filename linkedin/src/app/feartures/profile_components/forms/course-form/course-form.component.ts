@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ProfileService } from '../../profile.service';
 
 @Component({
   selector: 'app-course-form',
@@ -8,17 +9,21 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class CourseFormComponent implements OnInit {
 
-  @Input() openCourseForm: boolean;
-
   courseForm = new FormGroup({
     courseName: new FormControl(''),
     associatedWith: new FormControl('')
-
   });
 
-  constructor() { }
+  constructor(public profileService: ProfileService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
+
+  saveCourse(){
+    this.profileService.accomplishments.courses.push({
+      courseName: this.courseForm.value.courseName ,
+      associatedWith: this.profileService.organizations[this.courseForm.value.associatedWith ]
+    });
+    this.profileService.openCourseForm = !this.profileService.openCourseForm;
   }
 
 }

@@ -426,3 +426,32 @@ padding: 24px; }
     display: block;
     padding-right: 17px;
   }
+
+  #summary{
+    min-height: 9rem;
+    width: 50rem;
+  }
+
+  #accordion{
+    min-width: 35rem;
+  }
+  
+  .w-3{
+    width: 30%;
+  }
+
+  .w-7{
+    width: 70%;
+  }
+
+  .m-80{
+    margin: auto 0 auto 80%;
+  }
+
+  .w-2{
+    width: 20%;
+  }
+
+  .pointer{
+    cursor: pointer;
+  }

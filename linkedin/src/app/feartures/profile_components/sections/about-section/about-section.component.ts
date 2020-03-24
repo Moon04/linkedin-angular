@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProfileAbout } from 'src/app/_model/profileAbout';
+import { ProfileService } from '../../profile.service';
 
 @Component({
   selector: 'app-about-section',
@@ -8,13 +9,8 @@ import { ProfileAbout } from 'src/app/_model/profileAbout';
 })
 export class AboutSectionComponent implements OnInit {
 
-  @Input() profileAbout: ProfileAbout;
+  constructor(public profileService: ProfileService) { }
 
-  openAboutForm: boolean = false;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

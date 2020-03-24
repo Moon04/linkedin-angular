@@ -7,5 +7,6 @@ export interface WorkExperience{
    location?: string;
    startDate: string;
    endDate: string;
+   headline: string;
    description?: string;
 }
