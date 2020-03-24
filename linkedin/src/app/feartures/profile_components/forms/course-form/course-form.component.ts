@@ -14,9 +14,32 @@ export class CourseFormComponent implements OnInit {
     associatedWith: new FormControl('')
   });
 
+  @Input() moodIndex: number;
+  mood: string = "Add";
+
+
   constructor(public profileService: ProfileService) { }
 
   ngOnInit(): void { }
+
+  ngOnChanges(): void {
+    if (this.moodIndex !== -1) {
+      const i = this.moodIndex;
+      this.mood = "Edit"
+      this.courseForm.patchValue({
+        courseName: this.profileService.accomplishments.courses[i].courseName,
+        associatedWith: this.profileService.accomplishments.courses[i].associatedWith
+      });
+    }
+
+    else{
+      this.mood = "Add";
+      this.courseForm.patchValue({
+        courseName: '',
+        associatedWith: ''
+      });
+    }
+  }
 
   saveCourse(){
     this.profileService.accomplishments.courses.push({

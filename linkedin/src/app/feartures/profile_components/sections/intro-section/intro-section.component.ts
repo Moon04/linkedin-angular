@@ -1,5 +1,4 @@
-import { Component, Input} from '@angular/core';
-import { Profile } from 'src/app/_model/profile';
+import { Component, EventEmitter, Output} from '@angular/core';
 import { ProfileService } from './../../profile.service';
 
 @Component({
@@ -12,6 +11,15 @@ export class IntroSectionComponent{
   dropdownStatus: boolean = false;
   moreStatus: boolean = false;
   contactInfoStatus: boolean = false;
+
+  @Output() workMood = new EventEmitter<number>();
+  @Output() educationMood = new EventEmitter<number>();
+  @Output() volunteerMood = new EventEmitter<number>();
+  @Output() courseMood = new EventEmitter<number>();
+  @Output() projectMood = new EventEmitter<number>();
+  @Output() languageMood = new EventEmitter<number>();
+
+
 
   taps: boolean[] = [false, false, false, false, false];
 
@@ -32,4 +40,28 @@ export class IntroSectionComponent{
     return this.profileService.intro.connectionsCount > 500? '500+' : this.profileService.intro.connectionsCount;
   }
   
+  onWorkForm(index: number){
+    this.workMood.next(index);
+  }
+
+  onEducationForm(index: number){
+    this.educationMood.next(index);
+  }
+
+  onVolunteerForm(index: number){
+    this.volunteerMood.next(index);
+  }
+
+  onCourseForm(index: number){
+    this.courseMood.next(index);
+  }
+
+  onProjectForm(index: number){
+    this.projectMood.next(index);
+  }
+
+  onLanguageForm(index: number){
+    this.languageMood.next(index);
+  }
+
 }

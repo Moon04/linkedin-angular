@@ -136,7 +136,7 @@
                                 </div>
                               </div>
                               <div class="p-2 w-3" >
-                                <i class="far fa-plus-square m-80" (click)="profileService.openWorkExperienceForm=!profileService.openWorkExperienceForm"></i>
+                                <i class="far fa-plus-square m-80" (click)="onWorkForm(-1)"></i>
                               </div>
                             </div>
                           </a>
@@ -158,7 +158,7 @@
                                 </div>
                               </div>
                               <div class="p-2 w-3" >
-                                <i class="far fa-plus-square m-80" (click)="profileService.openEducationForm=!profileService.openEducationForm"></i>
+                                <i class="far fa-plus-square m-80" (click)="onEducationForm(-1)"></i>
                               </div>
                             </div>
                           </a>
@@ -180,7 +180,7 @@
                                 </div>
                               </div>
                               <div class="p-2 w-3">
-                                <i class="far fa-plus-square m-80" (click)="profileService.openVolunteerExperienceForm=!profileService.openVolunteerExperienceForm"></i>
+                                <i class="far fa-plus-square m-80" (click)="onVolunteerForm(-1)"></i>
                               </div>
                             </div>
                           </a>
@@ -263,7 +263,7 @@
                                 </div>
                               </div>
                               <div class="p-2 w-3" >
-                                <i class="far fa-plus-square m-80" (click)="profileService.openCourseForm=!profileService.openCourseForm"></i>
+                                <i class="far fa-plus-square m-80" (click)="onCourseForm(-1)"></i>
                               </div>
                             </div>
                           </a>
@@ -285,7 +285,7 @@
                                 </div>
                               </div>
                               <div class="p-2 w-3" >
-                                <i class="far fa-plus-square m-80" (click)="profileService.openProjectForm=!profileService.openProjectForm"></i>
+                                <i class="far fa-plus-square m-80" (click)="onProjectForm(-1)"></i>
                               </div>
                             </div>
                           </a>
@@ -307,7 +307,7 @@
                                 </div>
                               </div>
                               <div class="p-2 w-3">
-                                <i class="far fa-plus-square m-80" (click)="profileService.openLanguageForm=!profileService.openLanguageForm"></i>
+                                <i class="far fa-plus-square m-80" (click)="onLanguageForm(-1)"></i>
                               </div>
                             </div>
                           </a>
@@ -371,7 +371,7 @@
 
   <!-- Modal Contact Info-->
   <!--, 'show-modal': contactInfoStatus -->
-  <!-- <div [ngClass]="{'modal': true, 'show-modal': false}" id="Connection" tabindex="-1" role="dialog" aria-labelledby="ConnectionLabel" aria-modal="true">
+  <div [ngClass]="{'modal': true, 'show-modal': contactInfoStatus}" id="Connection" tabindex="-1" role="dialog" aria-labelledby="ConnectionLabel" aria-modal="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -445,6 +445,6 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
 </section>

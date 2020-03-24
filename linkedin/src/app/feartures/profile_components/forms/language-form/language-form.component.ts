@@ -14,9 +14,31 @@ export class LanguageFormComponent implements OnInit {
     proficiency: new FormControl('')
   });
 
+  @Input() moodIndex: number;
+  mood: string = "Add";
+
   constructor(public profileService: ProfileService) { }
 
   ngOnInit(): void { }
+
+  ngOnChanges(): void {
+    if (this.moodIndex !== -1) {
+      const i = this.moodIndex;
+      this.mood = "Edit"
+      this.languageForm.patchValue({
+        language: this.profileService.accomplishments.languages[i].language,
+        proficiency: this.profileService.accomplishments.languages[i].proficiency
+      });
+    }
+
+    else{
+      this.mood = "Add";
+      this.languageForm.patchValue({
+        language: '',
+        proficiency: ''
+      });
+    }
+  }
 
   saveLanguage(){
     this.profileService.accomplishments.languages.push({

@@ -20,9 +20,48 @@ export class EducationFormComponent implements OnInit {
     description: new FormControl('')
   });
 
-  constructor(public profileService: ProfileService) { }
+  @Input() moodIndex: number;
+  mood: string = "Add";
+
+  years: number[] = [];
+  constructor(public profileService: ProfileService) { 
+    for (let i = 2020; i >= 1900; i--) {
+      this.years.push(i);      
+    }
+  }
 
   ngOnInit(): void { }
+
+  ngOnChanges(): void {
+    if (this.moodIndex !== -1) {
+      const i = this.moodIndex;
+      this.mood = "Edit"
+      this.educationForm.patchValue({
+        school: this.profileService.background.education[i].school,
+        degree: this.profileService.background.education[i].degree,
+        fieldOfStudy: this.profileService.background.education[i].fieldOfStudy,
+        startYear: this.profileService.background.education[i].startYear,
+        endYear: this.profileService.background.education[i].endYear,
+        grade: this.profileService.background.education[i].grade,
+        activities: this.profileService.background.education[i].activities,
+        description: this.profileService.background.education[i].description 
+      });
+    }
+
+    else{
+      this.mood = "Add";
+      this.educationForm.patchValue({
+        school: '',
+        degree: '',
+        fieldOfStudy: '',
+        startYear: '',
+        endYear: '',
+        grade: '',
+        activities: '',
+        description:  ''
+      });
+    }
+  }
 
   saveEducation(){
     this.profileService.background.education.push({
@@ -37,5 +76,4 @@ export class EducationFormComponent implements OnInit {
     });
     this.profileService.openEducationForm = !this.profileService.openEducationForm;
   }
-
 }

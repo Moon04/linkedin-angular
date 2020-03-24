@@ -20,9 +20,44 @@ export class WorkExperienceFormComponent implements OnInit {
     description: new FormControl('')
   });
 
+  @Input() moodIndex: number;
+  mood: string = "Add";
+
+
   constructor(public profileService: ProfileService) { }
 
   ngOnInit(): void { }
+
+  ngOnChanges(): void {
+    if (this.moodIndex !== -1) {
+      const i = this.moodIndex;
+      this.mood = "Edit"
+      this.workExperienceForm.patchValue({
+        title: this.profileService.background.workExperience[i].title,
+        employmentType: this.profileService.background.workExperience[i].employmentType,
+        company: this.profileService.background.workExperience[i].company,
+        location: this.profileService.background.workExperience[i].location,
+        startDate: this.profileService.background.workExperience[i].startDate,
+        endDate: this.profileService.background.workExperience[i].endDate,
+        headline: this.profileService.background.workExperience[i].headline,
+        description: this.profileService.background.workExperience[i].description
+      });
+    }
+
+    else{
+      this.mood = "Add";
+      this.workExperienceForm.patchValue({
+        title: '',
+        employmentType: '',
+        company: '',
+        location: '',
+        startDate: '',
+        endDate: '',
+        headline: '',
+        description: ''
+      });
+    }
+  }
 
   saveWorkExperience(){
     this.profileService.background.workExperience.push({

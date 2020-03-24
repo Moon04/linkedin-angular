@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ProfileBackground } from 'src/app/_model/profileBackground';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ProfileService } from './../../profile.service';
 
 @Component({
@@ -9,8 +8,25 @@ import { ProfileService } from './../../profile.service';
 })
 export class BackgroundSectionComponent implements OnInit {
   
+  @Output() workMood = new EventEmitter<number>();
+  @Output() educationMood = new EventEmitter<number>();
+  @Output() volunteerMood = new EventEmitter<number>();
+
+
   constructor(public profileService: ProfileService) { }
 
   ngOnInit(): void { }
+
+  onWorkForm(index: number){
+      this.workMood.next(index);
+  }
+
+  onEducationForm(index: number){
+    this.educationMood.next(index);
+  }
+
+  onVolunteerForm(index: number){
+    this.volunteerMood.next(index);
+  }
 
 }

@@ -6,7 +6,15 @@
     <div class="col-md-8 order-md-1">
 
       <!-- Profile Header Section -->
-      <app-intro-section></app-intro-section>
+      <app-intro-section 
+        (workMood)="setMoodWorkIndex($event)"
+        (educationMood)="setMoodEducationIndex($event)"
+        (volunteerMood)="setMoodVolunteerIndex($event)"
+        (courseMood)="setMoodCourseIndex($event)"
+        (projectMood)="setMoodProjectIndex($event)"
+        (languageMood)="setMoodLanguageIndex($event)"
+      >
+      </app-intro-section>
 
       <!-- About section -->
       <app-about-section *ngIf="profileService.about.about"></app-about-section>
@@ -15,7 +23,12 @@
       <app-dashboard-section></app-dashboard-section>
 
       <!-- background section -->
-      <app-background-section *ngIf="profile.profileBackground"></app-background-section>
+      <app-background-section 
+        (workMood)="setMoodWorkIndex($event)"
+        (educationMood)="setMoodEducationIndex($event)"
+        (volunteerMood)="setMoodVolunteerIndex($event)"
+        *ngIf="profile.profileBackground">
+      </app-background-section>
 
       <!-- Skills Section -->
       <app-skills-section *ngIf="profile.profileSkills"></app-skills-section>
@@ -140,10 +153,10 @@
   <app-intro-form></app-intro-form>
   <app-contact-info-form></app-contact-info-form>
   <app-about-form></app-about-form>
-  <app-work-experience-form></app-work-experience-form>
-  <app-education-form></app-education-form>
-  <app-volunteer-experience-form></app-volunteer-experience-form>
+  <app-work-experience-form [moodIndex]="moodWorkIndex"></app-work-experience-form>
+  <app-education-form [moodIndex]="moodEducationIndex"></app-education-form>
+  <app-volunteer-experience-form [moodIndex]="moodVolunteerIndex"></app-volunteer-experience-form>
   <app-skill-form></app-skill-form>
-  <app-course-form></app-course-form>
-  <app-project-form></app-project-form>
-  <app-language-form></app-language-form>
+  <app-course-form [moodIndex]="moodCourseIndex"></app-course-form>
+  <app-project-form [moodIndex]="moodProjectIndex"></app-project-form>
+  <app-language-form [moodIndex]="moodLanguageIndex"></app-language-form>

@@ -3,9 +3,10 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content row">
       <div class="modal-header">
-        <h5 class="modal-title" id="FullModalLabel">Add education</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span (click)="this.profileService.openEducationForm=!this.profileService.openEducationForm">&times;</span>
+        <h5 class="modal-title" id="FullModalLabel">{{mood}} education</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          (click)="this.profileService.openEducationForm=!this.profileService.openEducationForm">
+          <span>&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -19,11 +20,11 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="degree" class="required">Degree</label>
+              <label for="degree">Degree</label>
               <input formControlName="degree" class="form-control" type="text" id="degree">
             </div>
             <div class="form-group">
-              <label for="fieldOfStudy" class="required">Field of study</label>
+              <label for="fieldOfStudy">Field of study</label>
               <input formControlName="fieldOfStudy" class="form-control" type="text" id="fieldOfStudy">
             </div>
             <div class="form-group">
@@ -35,17 +36,22 @@
               </div>
               <div class="row">
                 <div class="col-sm-6">
-                  <label for="startYear" class="required">Start Year</label>
-                  <input formControlName="startYear" class="form-control" type="date" id="startYear">
+                  <label for="startYear">Start Year</label>
+                  <select formControlName="startYear" class="form-control" id="startYear">
+                    <option value="" disabled selected hidden>Year</option>
+                    <option value={{year}} *ngFor=" let year of years">{{year}}</option>
+                  </select>
                 </div>
                 <div class="col-sm-6">
-                  <label for="endYear" class="required">End Year</label>
-                  <input formControlName="endYear" class="form-control" type="date" id="endYear">
-                </div>
+                  <label for="endYear">End Year</label>
+                  <select formControlName="endYear" class="form-control" id="startYear">
+                    <option value="" disabled selected hidden>Year</option>
+                    <option value={{year}} *ngFor=" let year of years">{{year}}</option>
+                  </select>                </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="grade" class="required">Grade</label>
+              <label for="grade">Grade</label>
               <input formControlName="grade" class="form-control" type="text" id="grade">
             </div>
             <div class="form-group">

@@ -18,9 +18,39 @@ export class VolunteerExperienceFormComponent implements OnInit {
     description: new FormControl('')
   });
 
+  @Input() moodIndex: number;
+  mood: string = "Add";
+
   constructor(public profileService: ProfileService) { }
 
   ngOnInit(): void { }
+
+  ngOnChanges(): void {
+    if (this.moodIndex !== -1) {
+      const i = this.moodIndex;
+      this.mood = "Edit"
+      this.volunteerExperienceForm.patchValue({
+        organization: this.profileService.background.volunteerExperience[i].organization,
+        role: this.profileService.background.volunteerExperience[i].role,
+        cause: this.profileService.background.volunteerExperience[i].cause,
+        startDate: this.profileService.background.volunteerExperience[i].startDate,
+        endDate: this.profileService.background.volunteerExperience[i].endDate,
+        description: this.profileService.background.volunteerExperience[i].description
+      });
+    }
+
+    else{
+      this.mood = "Add";
+      this.volunteerExperienceForm.patchValue({
+        organization: '',
+        role: '',
+        cause: '',
+        startDate: '',
+        endDate: '',
+        description: ''
+      });
+    }
+  }
 
   saveVolunteerExperience(){
     this.profileService.background.volunteerExperience.push({

@@ -22,6 +22,12 @@ export class ProfileService{
     openProjectForm: boolean = false;
     openLanguageForm: boolean = false;
 
+
+
+    // educationEditForm(i){
+
+    // }
+
     organizations: Organization [] = [
         {id: "0", title: "Pixels Egypt", logoURL: "assets/images/pixels.png", followersCount: 160, location: "Cairo, Cairo", type: "Company", cause: "Education Management" },
         {id: "1", title: "IEEE Helwan SB", logoURL: "assets/images/ieee.png", followersCount: 178, location: "Helwan, cairo", type: "Company"},
