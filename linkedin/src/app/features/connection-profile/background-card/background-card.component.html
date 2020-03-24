@@ -1,0 +1,197 @@
+<section class="p-3" id="Background">
+  <!-- <button (click)="fillData()">jhbjb</button> -->
+  <div class="background container u-border rounded p-0">
+    <!-- Experience -->
+    <div class="p-4">
+      <div class="row">
+        <h2 class="col-sm-11 background__section-heading">Work Experience</h2>
+      </div>
+      <div *ngFor="let work of workData; let i = index">
+        <div class="background__hide-icon media row py-3 ">
+          <div class="col-sm-1">
+            <img
+              src="{{ workData[i].logoURL }}"
+              class="align-self-start background__img"
+            />
+          </div>
+
+          <div class="media-body col-sm-10 ">
+            <h3>
+              {{ workData[i].positionCom }}
+            </h3>
+            <a
+              href="http://"
+              class="stretched-link text-decoration-none text-reset"
+            >
+              <p class="mb-0 d-inline ">
+                {{ workData[i].title }}
+              </p>
+            </a>
+            <p class="mb-0 d-inline ">. {{ workData[i].type }}</p>
+            <br />
+            <p class="mb-0 d-inline text-muted">
+              {{ workData[i].startDate }}
+            </p>
+            <p class="mb-0 d-inline text-muted">- {{ workData[i].endDate }}</p>
+            <p class="mb-0 text-muted">
+              {{ workData[i].country }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="u-border-bottom offset-1 row"></div>
+    <div class="background__hide-icon media row py-3 ">
+        <div class="col-sm-1">
+          <img
+            src="assets/images/itiLogo.png"
+            class="align-self-start background__img"
+          />
+        </div>
+        <div class="media-body col-sm-10">
+          <h3>Front end developer</h3>
+          <a
+            href="http://"
+            class="stretched-link text-decoration-none text-reset"
+          >
+            <p class="mb-0 d-inline ">Information technology institute</p>
+          </a>
+          <p class="mb-0 d-inline">. Full Time</p>
+          <br />
+          <p class="mb-0 d-inline text-muted">Oct2018</p>
+          <p class="mb-0 d-inline text-muted">- Oct2019</p>
+          <p class="mb-0 text-muted">Egypt</p>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- hr -->
+    <div class="u-border-bottom"></div>
+
+    <!-- Education -->
+    <div class="p-4">
+      <div class="row">
+        <h2 class="col-sm-11 background__section-heading">Education</h2>
+      </div>
+      <div *ngFor="let work of educationData; let i = index">
+        <div class="background__hide-icon media row py-3 ">
+          <div class="col-sm-1">
+            <img
+              src="{{ educationData[i].logoURL }}"
+              class="align-self-start background__img"
+            />
+          </div>
+          <div class="media-body col-sm-10 ">
+            <a
+              href="http://"
+              class="stretched-link text-decoration-none text-reset"
+            >
+              <h3>{{ educationData[i].title }}</h3>
+            </a>
+            <p class="mb-0 d-inline ">{{ educationData[i].degree }}</p>
+            <p class="mb-0 d-inline ">. {{ educationData[i].fieldOfStudy }}</p>
+            <p class="mb-0 d-inline ">. {{ educationData[i].grade }}</p>
+            <br />
+            <p class="mb-0 d-inline text-muted">
+              {{ educationData[i].startDate }}
+            </p>
+            <p class="mb-0 d-inline text-muted">
+              - {{ educationData[i].endDate }}
+            </p>
+            <p class="mb-0 text-muted">Activities and societies</p>
+            <p class="mb-0 text-muted">Description</p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="u-border-bottom offset-1 row"></div> -->
+      <!-- <div class="background__hide-icon media row py-3 ">
+        <div class="col-sm-1">
+          <img
+            src="assets/images/Engineering.png"
+            class="align-self-start background__img"
+          />
+        </div>
+        <div class="media-body col-sm-10 ">
+          <a
+            href="http://"
+            class="stretched-link text-decoration-none text-reset"
+          >
+            <h3>Faculty of Engineering Ain shams university</h3>
+          </a>
+          <p class="mb-0 d-inline ">Degree</p>
+          <p class="mb-0 d-inline ">. Field of study</p>
+          <p class="mb-0 d-inline ">. Grade</p>
+          <br />
+          <p class="mb-0 d-inline text-muted">Oct2019</p>
+          <p class="mb-0 d-inline text-muted">- Present</p>
+          <p class="mb-0 text-muted">Activities and societies</p>
+          <p class="mb-0 text-muted">Description</p>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- hr -->
+    <div class="u-border-bottom"></div>
+
+    <!-- Volunteer Experience -->
+    <div class="p-4">
+      <div class="row">
+        <h2 class="col-sm-11 background__section-heading">
+          Volunteer Experience
+        </h2>
+      </div>
+      <div *ngFor="let work of volunteerData; let i = index">
+        <div class="background__hide-icon media row py-3 ">
+          <div class="col-sm-1">
+            <img
+              src="{{ volunteerData[i].logoURL }}"
+              class="align-self-start background__img"
+            />
+          </div>
+          <div class="media-body col-sm-10 ">
+            <h3>{{ volunteerData[i].position }}</h3>
+            <a
+              href="http://"
+              class="stretched-link text-decoration-none text-reset"
+            >
+              <p class="mb-0  ">{{ volunteerData[i].type }}</p>
+            </a>
+            <p class="mb-0 d-inline text-muted">
+              {{ volunteerData[i].startDate }}
+            </p>
+            <p class="mb-0 d-inline text-muted">
+              - {{ volunteerData[i].endDate }}
+            </p>
+            <p class="mb-0 text-muted">Cause</p>
+            <p class="mb-0 text-muted">Description</p>
+          </div>
+        </div>
+        <!-- <div class="u-border-bottom offset-1 row"></div> -->
+        <!-- <div class="background__hide-icon media row py-3 ">
+          <div class="col-sm-1">
+            <img
+              src="assets/images/meca.png"
+              class="align-self-start background__img"
+            />
+          </div>
+          <div class="media-body col-sm-10 ">
+            <h3>Fund raising member</h3>
+            <a
+              href="http://"
+              class="stretched-link text-decoration-none text-reset"
+            >
+              <p class="mb-0  ">Organization</p>
+            </a>
+            <p class="mb-0 d-inline text-muted">Sept2017</p>
+            <p class="mb-0 d-inline text-muted">- May2018</p>
+            <p class="mb-0 text-muted">Cause</p>
+            <p class="mb-0 text-muted">Description</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- hr -->
+    <div class="u-border-bottom"></div>
+  </div>
+</section>

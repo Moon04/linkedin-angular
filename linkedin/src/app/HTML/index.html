@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" /> -->
+    <link
+      rel="stylesheet"
+      href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <title>LinkedIn</title>
+  </head>
+
+  <body>
+    <!-- Profile Header Section -->
+    <section class="p-3" id="ProfileSummary">
+      <div class="container u-border">
+        <div class="row">
+          <!-- upper div that includes img -->
+          <div class="col-sm-12 profile-imgs">
+            <!--profile img -->
+            <div class="position-absolute profile-img">
+              <img src="assets/images/profile_pic.jpg" class="rounded-circle" />
+            </div>
+          </div>
+          <!-- down div -->
+          <div class="col-sm-12">
+            <!-- upper section -->
+            <div class="row pt-sm-3 pb-sm-3">
+              <div class="col-sm-6 offset-6 dropdown">
+                <div
+                  class="d-flex justify-content-end align-items-center edit-profile"
+                >
+                  <div class="p-2">
+                    <a
+                      role="button"
+                      href="#"
+                      class="dropdown-toggle btn-primary btn-lg add-section"
+                      id="dropdownMenu1"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Remove Connection
+                      <!-- <i class="fas fa-sort-down"></i> -->
+                    </a>
+                    <!-- Add Profile Section Modal -->
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <!-- Add Profile Section form -->
+                      <form class="accordion list " id="accordionExample">
+                        <!-- intro card -->
+                        <!-- About card -->
+                         <div class="card"> 
+                         
+                          <div
+                            id="collapseTwo"
+                            class="collapse"
+                            aria-labelledby="headingTwo"
+                            data-parent="#accordionExample"
+                          >
+                            <div class="card-body">
+                              <div
+                                style=" display: flex; align-items: center; font-size: 2rem;"
+                              >
+                                <i class="fas fa-indent"></i>
+                                <div class="d-block">
+                                  <p>Education</p>
+                                  <p class=" font-weight-lighter p-0 m-0">
+                                    Use summary to share what you do or the
+                                    opportunities you’re looking for.
+                                  </p>
+                                </div>
+                                <a> <i class="far fa-plus-square p-2"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Background card -->
+                        <div class="card">
+                         
+                          <div
+                            id="collapseThree"
+                            class="collapse"
+                            aria-labelledby="headingThree"
+                            data-parent="#accordionExample"
+                          >
+                            <div class="card-body" style="font-size: 2rem;">
+                              <a class="work text-reset" href="#">
+                                <div class="d-flex m-auto p-2">
+                                  <div
+                                    class="p-2"
+                                    style=" display: flex; align-items: center; "
+                                  >
+                                    <i
+                                      class="fas fa-briefcase"
+                                      style="margin-right: 1rem;"
+                                    ></i>
+                                    <div class="d-block">
+                                      <p class=" font-weight-light p-0 m-0">
+                                        3 positions on your profile.
+                                      </p>
+                                      <p>Work experience</p>
+                                    </div>
+                                  </div>
+                                  <div class="p-2" style="margin: auto 0;">
+                                    <i class="far fa-plus-square"></i>
+                                  </div>
+                                </div>
+                              </a>
+                              <a class="education text-reset " href="# ">
+                                <div class="d-flex m-auto p-2">
+                                  <div
+                                    class="p-2"
+                                    style=" display: flex; align-items: center; "
+                                  >
+                                    <i
+                                      class="fas fa-university"
+                                      style="margin-right: 1rem;"
+                                    ></i>
+                                    <div class="d-block">
+                                      <p>Education</p>
+                                      <p class=" font-weight-lighter p-0 m-0">
+                                        1 school in your profile.
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="p-2" style="margin: auto 0;">
+                                    <i class="far fa-plus-square"></i>
+                                  </div>
+                                </div>
+                              </a>
+                              <a class="licenses  text-reset" href="# ">
+                                <div class="d-flex m-auto p-2">
+                                  <div
+                                    class="p-2"
+                                    style=" display: flex; align-items: center; "
+                                  >
+                                    <i
+                                      class="fas fa-pager"
+                                      style="margin-right: 1rem;"
+                                    ></i>
+                                    <div class="d-block">
+                                      <p>Licenses & Certifications</p>
+                                      <p class=" font-weight-light p-0 m-0">
+                                        Showcase your expertise with your
+                                        credentials.
+                                      </p>
+                                    </div>
+                                  </div>
+                                  <div class="p-2" style="margin: auto 0;">
+                                    <i class="far fa-plus-square"></i>
+                                  </div>
+                                </div>
+                              </a>
+
+                              <a class="volunteer  text-reset" href="# ">
+                                <div class="d-flex j m-auto p-2">
+                                  <div
+                                    class="p-2"
+                                    style=" display: flex; align-items: center; "
+                                  >
+                                    <i
+                                      class="far fa-heart"
+                                      style="margin-right: 1rem;"
+                                    ></i>
+                                    <div class="d-block">
+                                      <p class=" font-weight-light p-0 m-0">
+                                        3 positions on your profile.
+                                      </p>
+                                      <p>Work experience</p>
+                                    </div>
+                                  </div>
+                                  <div class="p-2" style="margin: auto 0;">
+                                    <i class="far fa-plus-square"></i>
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- skills card -->
+                        <div class="card">
+                        
+                          <div
+                            id="collapseFour"
+                            class="collapse"
+                            aria-labelledby="headingFour"
+                            data-parent="#accordionExample"
+                          >
+                            <div class="card-body">
+                              <div
+                                style=" display: flex;  justify-content:space-between; align-items: center; font-size: 2rem;"
+                              >
+                                <i class="fas fa-medal"></i>
+                                <div class="d-block">
+                                  <p class=" font-weight-bold">Slills</p>
+                                  <p class=" font-weight-lighter p-0 m-0">
+                                    11 skills on your profile.
+                                  </p>
+                                </div>
+                                <div class="p-2" style="margin: auto 0;">
+                                  <i class="far fa-plus-square"></i>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- accomplishment -->
+                        <div class="card">
+                          
+                          <div
+                            id="collapseFive"
+                            class="collapse"
+                            aria-labelledby="headingFive"
+                            data-parent="#accordionExample"
+                          >
+                            <div class="card-body">
+                              <p class=" font-weight-bold">
+                                Additional Information
+                              </p>
+                              <div
+                                style=" display: flex;  justify-content:space-between; align-items: center; font-size: 2rem;"
+                              >
+                                <i class="fas fa-medal"></i>
+                                <div class="d-block">
+                                  <p>Request & Recommendation</p>
+                                  <p class=" font-weight-lighter p-0 m-0">
+                                    Ask your connections to write you a
+                                    recommendation.
+                                  </p>
+                                </div>
+                                <div class="p-2" style="margin: auto 0;">
+                                  <i class="far fa-plus-square"></i>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Supported language -->
+                        <div class="card">
+                        
+                          <div
+                            id="collapseSix"
+                            class="collapse"
+                            aria-labelledby="headingSix"
+                            data-parent="#accordionExample"
+                          >
+                            <div class="card-body">
+                              <div
+                                style=" display: flex;  justify-content:space-between; align-items: center; font-size: 2rem;"
+                              >
+                                <i class="fas fa-globe"></i>
+                                <div class="d-block">
+                                  <p>Add profile IN another language</p>
+                                  <p class=" font-weight-lighter p-0 m-0">
+                                    You can add the above sections in other
+                                    languages to make it easier for people to
+                                    find you.
+                                  </p>
+                                </div>
+                                <div class="p-2" style="margin: auto 0;">
+                                  <i class="far fa-plus-square"></i>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="dropdown p-2">
+                    <a
+                      class="btn border border-dark btn-light"
+                      id="dropdownMenu2"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      More....
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                      <a class="dropdown-item">
+                        <i class="fas fa-share p-2"></i>Share Profile vs
+                        Message</a
+                      >
+                      <a class="dropdown-item">
+                        <i class="fas fa-share p-2"></i>Save as PDF</a
+                      >
+                    </div>
+                  </div>
+                
+                </div>
+              </div>
+            </div>
+
+            <!-- down section  -->
+            <div class="row p-3">
+              <div class="col-sm-6 user-info">
+                <div class="p-sm-3">
+                  <div>
+                    <h2 class="d-inline-block">Mariam</h2>
+                    <h2 class="d-inline-block">Hasan</h2>
+                  </div>
+                  <div>
+                    <h4>Full stack developer</h4>
+                  </div>
+                  <div class="d-flex">
+                    <h4>Egypt .</h4>
+                    <ul class="info">
+                      <!-- Button trigger modal -->
+                      <li id="connection">
+                        <a href="#" class="btn btn-link"> 500+ Connections .</a>
+                      </li>
+                      <li id="contact">
+                        <a
+                          href="#"
+                          type="button"
+                          class="btn btn-link"
+                          data-toggle="modal"
+                          data-target="#Connection"
+                        >
+                          Contact info
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 p-sm-3 experiences">
+                <div class="d-flex justify-content-end align-items-center">
+                  <div class="sm-img">
+                    <img class="img-fluid" src="assets/images/itiLogo.png" />
+                  </div>
+                  <div>
+                    <a href="#" class="btn btn-link">
+                      Information Technology Instutute ITI
+                    </a>
+                  </div>
+                </div>
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section class="p-3" id="About">
+      <div class="container">
+        <div class="row u-border pt-5 pb-5 pr-3 pl-3">
+          <header class="col-12 d-flex justify-content-between">
+            <h2>About</h2>
+           
+          </header>
+          <div class="col-12 pt-3">
+            <h5>
+              Full stack developer seeking an opportunity in a multi-national
+              company to help me widen my knowledge and improve my skills
+            </h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights section -->
+    <section class="p-3" id="Highlights">
+      <div class="container">
+        <div class="row dashboard u-border">
+          <h2 class="dashboard__title">Highlights</h2>
+          <!-- <h3 class="dashboard__subtitle">Private to you</h3> -->
+          <div class="list-group list-group-horizontal flex-fill">
+            <a
+              href="#"
+              class="list-group-item dashboard__item list-group-item-action"
+            >
+              <div class="dashboard__count">39 mutual connections</div>
+              <small>You and Mariam both know Hesham Alaa, Waleed Wafi, and 37 others </small>
+              <div class="dashboard__description"></div>
+            </a>
+          
+            <a
+              href="#"
+              class="list-group-item dashboard__item list-group-item-action"
+            >
+              <div class="dashboard__count" >You both studied at information technology institute (ITI)
+              </div>
+              <small>You both studied at Information Technology Institute (ITI) from 2019 to 2020</small>
+              <div class="dashboard__description"><button class="btn btn-primary float-center">Say hello</button></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- background section -->
+    <section class="p-3" id="Background">
+      <div class="background container u-border rounded p-0">
+        <!-- Experience -->
+        <div class="p-4">
+          <div class="row">
+            <h2 class="col-sm-11 background__section-heading">Experience</h2>
+          
+          </div>
+          <div class="background__hide-icon media row py-3 ">
+            <div class="col-sm-1">
+              <img
+                src="assets/images/itworx-squarelogo.png"
+                class="align-self-start background__img"
+              />
+            </div>
+            <div class="media-body col-sm-10 ">
+              <h3>Full stack developer</h3>
+              <a
+                href="http://"
+                class="stretched-link text-decoration-none text-reset"
+              >
+                <p class="mb-0 d-inline ">ITworx</p>
+              </a>
+              <p class="mb-0 d-inline ">. Full Time</p>
+              <br />
+              <p class="mb-0 d-inline text-muted">Oct2019</p>
+              <p class="mb-0 d-inline text-muted">- Present</p>
+              <p class="mb-0 text-muted">Egypt</p>
+             
+            </div>
+           
+          </div>
+          <div class="u-border-bottom offset-1 row"></div>
+          <div class="background__hide-icon media row py-3 ">
+            <div class="col-sm-1">
+              <img
+                src="assets/images/itiLogo.png"
+                class="align-self-start background__img"
+              />
+            </div>
+            <div class="media-body col-sm-10">
+              <h3>Front end developer</h3>
+              <a
+                href="http://"
+                class="stretched-link text-decoration-none text-reset"
+              >
+                <p class="mb-0 d-inline ">Information technology institute</p>
+              </a>
+              <p class="mb-0 d-inline">. Full Time</p>
+              <br />
+              <p class="mb-0 d-inline text-muted">Oct2018</p>
+              <p class="mb-0 d-inline text-muted">- Oct2019</p>
+              <p class="mb-0 text-muted">Egypt</p>
+            
+            </div>
+           
+          </div>
+        </div>
+
+        <!-- hr -->
+        <div class="u-border-bottom"></div>
+
+        <!-- Education -->
+        <div class="p-4">
+          <div class="row">
+            <h2 class="col-sm-11 background__section-heading">Education</h2>
+          
+          </div>
+          <div class="background__hide-icon media row py-3 ">
+            <div class="col-sm-1">
+              <img
+                src="assets/images/itiLogo.png"
+                class="align-self-start background__img"
+              />
+            </div>
+            <div class="media-body col-sm-10 ">
+              <a
+                href="http://"
+                class="stretched-link text-decoration-none text-reset"
+              >
+                <h3>Information Technology Institute</h3>
+              </a>
+              <p class="mb-0 d-inline ">Degree</p>
+              <p class="mb-0 d-inline ">. Field of study</p>
+              <p class="mb-0 d-inline ">. Grade</p>
+              <br />
+              <p class="mb-0 d-inline text-muted">Oct2019</p>
+              <p class="mb-0 d-inline text-muted">- Present</p>
+              <p class="mb-0 text-muted">Activities and societies</p>
+              <p class="mb-0 text-muted">Description</p>
+            </div>
+          
+          </div>
+          <div class="u-border-bottom offset-1 row"></div>
+          <div class="background__hide-icon media row py-3 ">
+            <div class="col-sm-1">
+              <img
+                src="assets/images/Engineering.png"
+                class="align-self-start background__img"
+              />
+            </div>
+            <div class="media-body col-sm-10 ">
+              <a
+                href="http://"
+                class="stretched-link text-decoration-none text-reset"
+              >
+                <h3>Faculty of Engineering Ain shams university</h3>
+              </a>
+              <p class="mb-0 d-inline ">Degree</p>
+              <p class="mb-0 d-inline ">. Field of study</p>
+              <p class="mb-0 d-inline ">. Grade</p>
+              <br />
+              <p class="mb-0 d-inline text-muted">Oct2019</p>
+              <p class="mb-0 d-inline text-muted">- Present</p>
+              <p class="mb-0 text-muted">Activities and societies</p>
+              <p class="mb-0 text-muted">Description</p>
+            </div>
+           
+          </div>
+        </div>
+
+        <!-- hr -->
+        <div class="u-border-bottom"></div>
+
+        <!-- Volunteer Experience -->
+        <div class="p-4">
+          <div class="row">
+            <h2 class="col-sm-11 background__section-heading">
+              Volunteer Experience
+            </h2>
+          
+          </div>
+          <div class="background__hide-icon media row py-3 ">
+            <div class="col-sm-1">
+              <img
+                src="assets/images/aces.png"
+                class="align-self-start background__img"
+              />
+            </div>
+            <div class="media-body col-sm-10 ">
+              <h3>Academic Committee head</h3>
+              <a
+                href="http://"
+                class="stretched-link text-decoration-none text-reset"
+              >
+                <p class="mb-0  ">Organization</p>
+              </a>
+              <p class="mb-0 d-inline text-muted">August2018</p>
+              <p class="mb-0 d-inline text-muted">- May2019</p>
+              <p class="mb-0 text-muted">Cause</p>
+              <p class="mb-0 text-muted">Description</p>
+            </div>
+           
+          </div>
+          <div class="u-border-bottom offset-1 row"></div>
+          <div class="background__hide-icon media row py-3 ">
+            <div class="col-sm-1">
+              <img
+                src="assets/images/meca.png"
+                class="align-self-start background__img"
+              />
+            </div>
+            <div class="media-body col-sm-10 ">
+              <h3>Fund raising member</h3>
+              <a
+                href="http://"
+                class="stretched-link text-decoration-none text-reset"
+              >
+                <p class="mb-0  ">Organization</p>
+              </a>
+              <p class="mb-0 d-inline text-muted">Sept2017</p>
+              <p class="mb-0 d-inline text-muted">- May2018</p>
+              <p class="mb-0 text-muted">Cause</p>
+              <p class="mb-0 text-muted">Description</p>
+            </div>
+          
+          </div>
+        </div>
+
+        <!-- hr -->
+        <div class="u-border-bottom"></div>
+
+        
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="p-3" id="Skills">
+      <div class="container section skills u-border">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Skills & Endorsements</h2>
+            
+            <div class="skill">
+              <div class="skill__title">
+                <img src="./assets/images/plus.png" style="width: 3%; cursor: pointer;"/>
+                <h4 class="skill__name">C++.</h4>
+                <span class="skill__no-of-endorsments">1</span>
+              </div>
+              <div class="skill__description">
+                <p class="skill__endorsed-person">Maged Ali</p>
+                <p class="skill__endorsment-description">
+                  has given an endorsement for this skill
+                </p>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill__title">
+                <img src="./assets/images/plus.png" style="width: 3%; cursor: pointer;"/>
+                <h4 class="skill__name">React framework.</h4>
+                <span class="skill__no-of-endorsments">3</span>
+              </div>
+              <div class="skill__description">
+                <p class="skill__endorsed-person">Haidy Moussa</p>
+                <p class="skill__endorsment-description">
+                  has given an endorsement for this skill
+                </p>
+              </div>
+            </div>
+            <div class="skill">
+              <div class="skill__title">
+                <img src="./assets/images/plus.png" style="width: 3%; cursor: pointer;"/>
+                <h4 class="skill__name">Javascript.</h4>
+                <span class="skill__no-of-endorsments">6</span>
+              </div>
+              <div class="skill__description">
+                <p class="skill__endorsed-person">Mariam Nabil</p>
+                <p class="skill__endorsment-description">
+                  has given an endorsement for this skill
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="tools">
+            <h3>Tools & Endorsements</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="tool">
+                  <h4 class="tool__name">Teamwork.</h4>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="tool">
+                  <h4 class="tool__name">Teamwork.</h4>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="tool">
+                  <h4 class="tool__name">Teamwork.</h4>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="tool">
+                  <h4 class="tool__name">Teamwork.</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <a class="btn btn--show btn--active" id="btn-1"
+            >Show more <i class="fas fa-chevron-down"></i
+          ></a>
+          
+        </div>
+      </div>
+    </section>
+
+   
+
+    <!-- Accomplishments -->
+    <section class="p-3" id="Accomplishments">
+      <div class="container section accomplishments u-border">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Accomplishments</h2>
+            <div
+              href=""
+              class="btn btn--inline float-md-right btn--plus mr-4"
+              data-toggle="tooltip"
+              data-placement="bottom"
+            >
+              <!-- <i class="fas fa-plus"></i> -->
+            </div>
+
+            <div class="accomplishment">
+              <div class="accomplishment__section accomplishment__section1">
+                <p class="accomplishment__number">2</p>
+              </div>
+              <div
+                class="accomplishment__section accomplishment__section2 mr-3"
+              >
+                <h4 class="accomplishment__type">
+                  Projects
+                </h4>
+                <p class="accomplishment__description">Test Description</p>
+              </div>
+              <div
+                class="accomplishment__section accomplishment__section3 float-md-right"
+              >
+                <a class="btn btn--arrow  btn--active" id="btn-1"
+                  ><i class="fas fa-chevron-down"></i
+                ></a>
+                <a class="btn btn--arrow" id="btn-2">
+                  <i class="fas fa-chevron-up"></i
+                ></a>
+              </div>
+            </div>
+            <div class="accomplishment">
+              <div class="accomplishment__section accomplishment__section1">
+                <p class="accomplishment__number">3</p>
+              </div>
+              <div
+                class="accomplishment__section accomplishment__section2 mr-3"
+              >
+                <h4 class="accomplishment__type">
+                  Courses
+                </h4>
+                <p class="accomplishment__description">Test Description</p>
+              </div>
+              <div
+                class="accomplishment__section accomplishment__section3 float-md-right"
+              >
+                <a class="btn btn--arrow  btn--active" id="btn-1"
+                  ><i class="fas fa-chevron-down"></i
+                ></a>
+                <a class="btn btn--arrow" id="btn-2">
+                  <i class="fas fa-chevron-up"></i
+                ></a>
+              </div>
+            </div>
+            <div class="accomplishment">
+              <div class="accomplishment__section accomplishment__section1">
+                <p class="accomplishment__number">3</p>
+              </div>
+              <div
+                class="accomplishment__section accomplishment__section2 mr-3"
+              >
+                <h4 class="accomplishment__type">
+                  Languages
+                </h4>
+                <p class="accomplishment__description">Test Description</p>
+              </div>
+              <div
+                class="accomplishment__section accomplishment__section3 float-md-right"
+              >
+                <a class="btn btn--arrow  btn--active" id="btn-1"
+                  ><i class="fas fa-chevron-down"></i
+                ></a>
+                <a class="btn btn--arrow" id="btn-2">
+                  <i class="fas fa-chevron-up"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Interests section displays the companies that a user following -->
+    <section class="p-5" id="Interests">
+      <div class="container interests">
+        <h2 class="interests__header">Interests</h2>
+        <div class="row interests__container">
+          <div class="col-2 col-md-1 text-right">
+            <a href="#"
+              ><img
+                src="assets/images/logo-1.png"
+                class="interests__logo"
+                alt="bla"
+            /></a>
+          </div>
+          <div class="col-10 col-md-5">
+            <a href="#" class="interests__link">
+              <h3 class="text-truncate interests__description">
+                Company Name or Description
+              </h3>
+            </a>
+            <a href="#" class="interests__link">
+              <p class=" interests__follower-count">
+                company follower counter
+              </p>
+            </a>
+          </div>
+          <div class="col-2 col-md-1 text-right">
+            <a href="#"
+              ><img
+                src="assets/images/logo-1.png"
+                class="interests__logo"
+                alt="bla"
+            /></a>
+          </div>
+          <div class="col-10 col-md-5">
+            <a href="#" class="interests__link">
+              <h3 class="text-truncate interests__description">
+                Company Name or Description
+              </h3>
+            </a>
+            <a href="#" class="interests__link">
+              <p class=" interests__follower-count">
+                company follower counter
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="row interests__container">
+          <div class="col-2 col-md-1 text-right">
+            <a href="#"
+              ><img
+                src="assets/images/logo-3.png"
+                class="interests__logo"
+                alt="bla"
+            /></a>
+          </div>
+          <div class="col-10 col-md-5">
+            <a href="#" class="interests__link">
+              <h3 class="text-truncate interests__description">
+                Company Name or Description
+              </h3>
+            </a>
+            <a href="#" class="interests__link">
+              <p class=" interests__follower-count">
+                company follower counter
+              </p>
+            </a>
+          </div>
+          <div class="col-2 col-md-1 text-right">
+            <a href="#"
+              ><img
+                src="assets/images/logo-4.jpg"
+                class="interests__logo"
+                alt="bla"
+            /></a>
+          </div>
+          <div class="col-10 col-md-5">
+            <a href="#" class="interests__link">
+              <h3 class="text-truncate interests__description">
+                Company Name or Description
+              </h3>
+            </a>
+            <a href="#" class="interests__link">
+              <p class=" interests__follower-count">
+                company follower counter
+              </p>
+            </a>
+          </div>
+        </div>
+        <div class="row interests__container ">
+          <div class="col-2 col-md-1 text-right">
+            <a href="#"
+              ><img
+                src="assets/images/logo-5.jpg"
+                class="interests__logo"
+                alt="bla"
+            /></a>
+          </div>
+          <div class="col-10 col-md-5">
+            <a href="#" class="interests__link">
+              <h3 class="text-truncate interests__description">
+                Company Name or Description
+              </h3>
+            </a>
+            <a href="#" class="interests__link">
+              <p class=" interests__follower-count">
+                company follower counter
+              </p>
+            </a>
+          </div>
+          <div class="col-2 col-md-1 text-right">
+            <a href="#"
+              ><img
+                src="assets/images/logo-6.jpg"
+                class="interests__logo"
+                alt="bla"
+            /></a>
+          </div>
+          <div class="col-10 col-md-5">
+            <a href="#" class="interests__link">
+              <h3 class="text-truncate interests__description">
+                Company Name or Description
+              </h3>
+            </a>
+            <a href="#" class="interests__link">
+              <p class=" interests__follower-count">
+                company follower counter
+              </p>
+            </a>
+          </div>
+        </div>
+        <!--button to see a linkedin user companies -->
+        <a
+          href="#"
+          data-toggle="modal"
+          data-target="#interests-modal"
+          class="row interests__see-all"
+        >
+          <div class="interests__see-all-btn">See all</div>
+        </a>
+
+        <!-- Modal content that contains user's companies -->
+        <div class="modal fade" id="interests-modal" role="dialog">
+          <div class="modal-dialog modal-lg interests-modal">
+            <div class="interests-modal__content modal-content">
+              <div class="interests-modal__header modal-header">
+                <h3 class="interests-modal__title">Companies</h3>
+                <button type="button" class=" close" data-dismiss="modal">
+                  &times;
+                </button>
+              </div>
+              <div class="interests-modal__body modal-body ">
+                <div class="row interests-modal__container">
+                  <div class="col-1">
+                    <a href="#"
+                      ><img
+                        src="assets/images/logo-5.jpg"
+                        class="interests__logo"
+                        alt="bla"
+                    /></a>
+                  </div>
+                  <div class="col-7">
+                    <a href="#" class="interests__link ">
+                      <h3 class="text-truncate interests__description">
+                        Company Name or Description
+                      </h3>
+                    </a>
+                    <a href="#" class="interests__link">
+                      <p class=" interests__follower-count">
+                        company follower counter
+                      </p>
+                    </a>
+                  </div>
+                  <div class="col-4 text-center">
+                    <a class="interests__link--modal" href="#">
+                      <i class="fas fa-check "></i>
+                      <span>Following</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="row interests-modal__container">
+                  <div class="col-1">
+                    <a href="#"
+                      ><img
+                        src="assets/images/logo-5.jpg"
+                        class="interests__logo"
+                        alt="bla"
+                    /></a>
+                  </div>
+                  <div class="col-7">
+                    <a href="#" class="interests__link ">
+                      <h3 class="text-truncate interests__description">
+                        Company Name or Description
+                      </h3>
+                    </a>
+                    <a href="#" class="interests__link">
+                      <p class=" interests__follower-count">
+                        company follower counter
+                      </p>
+                    </a>
+                  </div>
+                  <div class="col-4 text-center">
+                    <a class="interests__link--modal" href="#">
+                      <i class="fas fa-check "></i>
+                      <span>Following</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="row interests-modal__container">
+                  <div class="col-1">
+                    <a href="#"
+                      ><img
+                        src="assets/images/logo-5.jpg"
+                        class="interests__logo"
+                        alt="bla"
+                    /></a>
+                  </div>
+                  <div class="col-7">
+                    <a href="#" class="interests__link ">
+                      <h3 class="text-truncate interests__description">
+                        Company Name or Description
+                      </h3>
+                    </a>
+                    <a href="#" class="interests__link">
+                      <p class=" interests__follower-count">
+                        company follower counter
+                      </p>
+                    </a>
+                  </div>
+                  <div class="col-4 text-center">
+                    <a class="interests__link--modal" href="#">
+                      <i class="fas fa-check "></i>
+                      <span>Following</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Modal  More Button-->
+    <div
+      class="modal fade"
+      id="Connection"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="ConnectionLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nora Mohamed</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="d-block p-2">
+              <div class="d-flex justify-content-between">
+                <h2>Contact info</h2>
+                <!-- <a href="#"><i class="fas fa-pencil-alt"></i></a> -->
+              </div>
+              <div>
+                <div class="d-flex p-2 ">
+                  <div class="d-block p-2">
+                    <i class="fab fa-linkedin"></i>
+                  </div>
+                  <div class="d-flex flex-column p-2">
+                    <span> your profile</span>
+                    <a href="#" style="padding: 0%;" class="btn btn-link"
+                      >noura.mohamed@linkedin.com</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="d-flex p-2 ">
+                  <div class="d-block p-2">
+                    <i class="far fa-envelope"></i>
+                  </div>
+                  <div class="d-flex flex-column p-2">
+                    <span> Email</span>
+                    <a href="#" style="padding: 0%;" class="btn btn-link"
+                      >noura.mohamed@gmail.com</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Skill -->
+    <div
+      class="modal fade edit-skills"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myLargeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title">Reorder Skills & Endorsements (12)</h2>
+
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h3 class="skill-title">Top Skills</h3>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="skill-edit">
+                  <span class="skill-edit__skill">HTML5</span>
+                  <i
+                    class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"
+                  ></i>
+                  <i
+                    class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"
+                  ></i>
+                </div>
+                <div class="skill-edit">
+                  <span class="skill-edit__skill">HTML5</span>
+                  <i
+                    class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"
+                  ></i>
+                  <i
+                    class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"
+                  ></i>
+                </div>
+                <div class="skill-edit">
+                  <span class="skill-edit__skill">HTML5</span>
+                  <i
+                    class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"
+                  ></i>
+                  <i
+                    class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon"
+                  ></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bootstrap form popup -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Form
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Full Modal -->
+    <div
+      class="modal fade"
+      id="FullModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="FullModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content row">
+          <div class="modal-header">
+            <h5 class="modal-title" id="FullModalLabel">Add Bla Bla Bla</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="form-controls">
+                <div class="form-group">
+                  <label for="" class="required">Title</label>
+                  <input
+                    class="form-control"
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Bla Bla Bla"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">Employment type</label>
+                  <select class="form-control" name="" id="">
+                    <option value="" disabled selected hidden>-</option>
+                    <option value="">Opa</option>
+                    <option value="">Opaa</option>
+                    <option value="">Opaaa</option>
+                    <option value="">Opaaaa</option>
+                    <option value="">Opaaaaa</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="">Description</label>
+                  <textarea
+                    class="form-control"
+                    name=""
+                    id=""
+                    cols="30"
+                    rows="4"
+                  ></textarea>
+                </div>
+                <div class="form-group">
+                  <div>
+                    <input
+                      type="checkbox"
+                      name=""
+                      id="CurrentlyWorking"
+                    /><span>
+                      I am currently working in this role Transfare</span
+                    >
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <label for="" class="required">Start Date</label>
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <select class="form-control" name="" id="">
+                            <option value="" disabled selected hidden
+                              >Month</option
+                            >
+                            <option value="">Opa</option>
+                            <option value="">Opaa</option>
+                            <option value="">Opaaa</option>
+                            <option value="">Opaaaa</option>
+                            <option value="">Opaaaaa</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-12">
+                          <select class="form-control" name="" id="">
+                            <option value="" disabled selected hidden
+                              >Year</option
+                            >
+                            <option value="">Opa</option>
+                            <option value="">Opaa</option>
+                            <option value="">Opaaa</option>
+                            <option value="">Opaaaa</option>
+                            <option value="">Opaaaaa</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <label for="" class="required">End Date</label>
+                      <h4 id="PresentWorkDate">Present</h4>
+                      <div class="row" id="EndWorkDate">
+                        <div class="col-sm-12">
+                          <select class="form-control" name="" id="">
+                            <option value="" disabled selected hidden
+                              >Month</option
+                            >
+                            <option value="">Opa</option>
+                            <option value="">Opaa</option>
+                            <option value="">Opaaa</option>
+                            <option value="">Opaaaa</option>
+                            <option value="">Opaaaaa</option>
+                          </select>
+                        </div>
+                        <div class="col-sm-12">
+                          <select class="form-control" name="" id="">
+                            <option value="" disabled selected hidden
+                              >Year</option
+                            >
+                            <option value="">Opa</option>
+                            <option value="">Opaa</option>
+                            <option value="">Opaaa</option>
+                            <option value="">Opaaaa</option>
+                            <option value="">Opaaaaa</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Modal -->
+    <div
+      class="modal fade"
+      id="SkillsModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="SkillsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content row">
+          <div class="modal-header">
+            <h5 class="modal-title" id="SkillsModalLabel">
+              Add Some SKills N00B
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="">
+              <div class="form-controls">
+                <div class="taged-textbox form-group">
+                  <input
+                    class="taged-textbox__textbox form-control"
+                    type="text"
+                    name=""
+                    id=""
+                    placeholder="Add Some Skills N00B"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Scripts -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+// @import "styles-variables";
+.btn {
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.5rem;
+  &--show,
+  &--arrow,
+  &--edit,
+  &--plus {
+    &:hover {
+      background-color: #e5f5fc;
+    }
+
+    color: #2d7eaa !important;
+    transition: all ease-in-out 0.2ms;
+    display: none;
+  }
+  &--show {
+    &:hover {
+      background-color: #e5f5fc;
+    }
+    width: 100%;
+
+    margin: auto;
+    text-align: center;
+    padding: 1rem 0;
+
+    border-top: 1px solid #cccccc;
+    display: none;
+  }
+  &--arrow,
+  &--edit,
+  &--plus {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: flex;
+  }
+  &--arrow {
+    display: none;
+  }
+  &--add {
+    color: #7b7b7b;
+    &:hover {
+      background-color: $secondary-font-color !important;
+      color: #1a1a1a;
+    }
+  }
+  &--active {
+    display: inline-block;
+  }
+}

@@ -1,0 +1,58 @@
+<button (click)="this.MutualsPastConnectionsService.checkMutualConnections()">
+  xfvcf
+</button>
+<section class="p-3" id="Highlights">
+  <div class="container">
+    <div class="row dashboard u-border">
+      <h2 class="dashboard__title">Highlights</h2>
+      <!-- <h3 class="dashboard__subtitle">Private to you</h3> -->
+      <div class="list-group list-group-horizontal flex-fill">
+        <a
+          href="#"
+          class="list-group-item dashboard__item list-group-item-action"
+        >
+          <div class="dashboard__count">
+            {{ currentConnectionArray.length }} Mutual Connections
+          </div>
+
+          <small
+            >You and {{ accounts[currentAccount].firstName }} both know
+            {{
+              currentConnectionArray[0].firstName +
+                " " +
+                currentConnectionArray[0].lastName
+            }}
+            and
+            {{
+              currentConnectionArray[1].firstName +
+                " " +
+                currentConnectionArray[1].lastName
+            }}
+          </small>
+          <small *ngIf="currentConnectionArray.length - 2 !== 0">
+            and
+            {{ currentConnectionArray.length - 2 }} others
+          </small>
+
+          <div class="dashboard__description"></div>
+        </a>
+
+        <a
+          href="#"
+          class="list-group-item dashboard__item list-group-item-action"
+        >
+          <div class="dashboard__count">
+            You both studied at {{ this.commonEducation }}
+          </div>
+          <!-- <small
+            >You both studied at Information Technology Institute (ITI) from
+            2019 to 2020</small
+          > -->
+          <div class="dashboard__description">
+            <button class="btn btn-primary float-center">Say hello</button>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

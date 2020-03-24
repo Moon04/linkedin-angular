@@ -1,0 +1,20 @@
+<section class="p-3" id="About">
+  <div class="container">
+    <!-- <ng-container *ngFor="let account of accounts"> -->
+    <div
+      *ngIf="accounts[currentAccount].about"
+      class="row u-border pt-5 pb-5 pr-3 pl-3"
+    >
+      <header class="col-12 d-flex justify-content-between">
+        <h2>About</h2>
+        <!-- <button (click)="print()">cdhb</button> -->
+      </header>
+      <div class="col-12 pt-3">
+        <h5>
+          {{ accounts[currentAccount].about[0] }}
+        </h5>
+      </div>
+    </div>
+    <!-- </ng-container> -->
+  </div>
+</section>

@@ -1,0 +1,28 @@
+@import "./abstracts/variables.scss";
+@import "./abstracts/mixins.scss";
+@import "./abstracts/functions.scss";
+@import "./abstracts/placeholders.scss";
+
+@import "./base/reset.scss";
+@import "./base/typography.scss";
+@import "./base//utilities.scss";
+
+@import "./components/Component2/dashboard.scss";
+@import "./components/Component2/interests.scss";
+@import "./components/Component2/interests-modal.scss";
+
+@import "./components/Component3/profile-summary.scss";
+
+@import "./components/Component1/background.scss";
+@import "./components/Component1/profile-icon.scss";
+
+@import "./components/Component4/section.scss";
+@import "./components/Component4/skill.scss";
+@import "./components/Component4/skill-edit.scss";
+@import "./components/Component4/accomplishment.scss";
+@import "./components/Component4/btn-show.scss";
+@import "./components/Component4/nav-tab.scss";
+@import "./components/Component4/tool.scss";
+
+@import "./layout/sections.scss";
+@import "./pages/profile.scss";

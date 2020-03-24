@@ -1,0 +1,99 @@
+<!-- <button (click)="fillSkillsList()">ege</button> -->
+<section class="p-3" id="Skills">
+  <div class="container section skills u-border">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Skills & Endorsements</h2>
+        <div *ngFor="let skill of skillsList; let i = index">
+          <div class="skill">
+            <div class="skill__title">
+              <img
+                src="./assets/images/plus.png"
+                style="width: 3%; cursor: pointer;"
+                (click)="EndorsementIncrement(i)"
+              />
+              <h4 class="skill__name">{{ skill.skillName }}.</h4>
+              <span class="skill__no-of-endorsments">{{
+                skill.noEndorsements
+              }}</span>
+            </div>
+
+            <div class="skill__description">
+              <p class="skill__endorsed-person">
+                {{ endorsersNames[i] }}
+              </p>
+
+              <p class="skill__endorsment-description">
+                has given an endorsement for this skill
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="skill">
+          <div class="skill__title">
+            <img
+              src="./assets/images/plus.png"
+              style="width: 3%; cursor: pointer;"
+            />
+            <h4 class="skill__name">React framework.</h4>
+            <span class="skill__no-of-endorsments">3</span>
+          </div>
+          <div class="skill__description">
+            <p class="skill__endorsed-person">Haidy Moussa</p>
+            <p class="skill__endorsment-description">
+              has given an endorsement for this skill
+            </p>
+          </div>
+        </div> -->
+        <!-- <div class="skill">
+          <div class="skill__title">
+            <img
+              src="./assets/images/plus.png"
+              style="width: 3%; cursor: pointer;"
+            />
+            <h4 class="skill__name">Javascript.</h4>
+            <span class="skill__no-of-endorsments">6</span>
+          </div>
+          <div class="skill__description">
+            <p class="skill__endorsed-person">Mariam Nabil</p>
+            <p class="skill__endorsment-description">
+              has given an endorsement for this skill
+            </p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- <div class="row">
+      <div class="tools">
+        <h3>Tools & Endorsements</h3>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="tool">
+              <h4 class="tool__name">Teamwork.</h4>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="tool">
+              <h4 class="tool__name">Teamwork.</h4>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="tool">
+              <h4 class="tool__name">Teamwork.</h4>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="tool">
+              <h4 class="tool__name">Teamwork.</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="row">
+      <a class="btn btn--show btn--active" id="btn-1"
+        >Show more <i class="fas fa-chevron-down"></i
+      ></a>
+    </div>
+  </div>
+</section>
