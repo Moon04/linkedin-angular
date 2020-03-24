@@ -9,14 +9,23 @@
   width: 80%;
 }
 .error{
-  background-color: red;
+  background-color:firebrick;
   width: 100%;
   color: white;
   padding: 10px;
+  font-weight: 500;
+  font-size: small;
 }
 .error2{
-  color: red;
-  padding: 10px;
+  color: firebrick;
+  font-weight: 500;
+  font-size: small;
+  // padding: 10px;
+}
+.miniHelp{
+  color: #0091ca;
+  font-weight: 500;
+  font-size: small;
 }
 .h{
     margin: auto;

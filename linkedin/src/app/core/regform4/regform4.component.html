@@ -1,0 +1,105 @@
+<body>
+    <div class="page page--is-opendoor-v2-part1">
+        <main class="main ">
+            <app-navlogo></app-navlogo>
+            <h1 class="h h--1">
+                Your profile helps you discover the right people and opportunities
+            </h1>
+            <form #register="ngForm" class="join-form" (ngSubmit)="onSubmit(register)">
+                <section class="join-form__form-body">
+                    <div class="join-form__form-input-container">
+                        <!-- School or College/University -->
+                        <label class="main__sign-in-container labelNew" for="college">
+                            School or College/University <span style="color: #0073b1;">*</span>
+                        </label>
+                        <input #college="ngModel" ngModel class="join-form-input__input" autocomplete="on" required
+                            name="college" id="college" autofocus type="text" value="" />
+                        <div id="error-for-email" [class.show]="college.touched&&college.invalid"
+                            class="error2 hidden ">
+                            {{getError("noCollege") }}
+                        </div>
+                        <!-- Degree -->
+                        <label class="main__sign-in-container labelNew" for="degree" style="padding-top: 0;">
+                            Degree <span style="color: #0073b1;">*</span>
+                        </label>
+                        <input #degree="ngModel" ngModel class="join-form-input__input" autocomplete="on" required
+                            name="degree" id="degree" type="text" value="" style="margin-top: 0;" />
+                        <div id="error-for-email" [class.show]="degree.touched&&degree.invalid" class="error2 hidden ">
+                            {{getError("noDegree") }}
+                        </div>
+                        <!-- Specialization -->
+                        <label class="main__sign-in-container labelNew" for="specialization" style="padding-top: 0;">
+                            Specialization <span style="color: #0073b1;">*</span>
+                        </label>
+                        <input #specialization="ngModel" ngModel class="join-form-input__input" autocomplete="on"
+                            required name="specialization" id="specialization" type="text" value=""
+                            style="margin-top: 0;" />
+                        <div id="error-for-email" [class.show]="specialization.touched&&specialization.invalid"
+                            class="error2 hidden ">
+                            {{getError("noSpecialization") }}
+                        </div>
+                        <!-- Years -->
+                        <div style="display: flex; max-width: 408px;">
+                            <div
+                                style="flex-basis: 50%;margin-right: 24px!important; flex-grow: 1!important; min-width: 0;">
+                                <!-- startYear -->
+                                <label class="main__sign-in-container labelNew " for="startYear"
+                                    style="padding-top: 0;">
+                                    Start year <span style="color: #0073b1;">*</span>
+                                </label>
+                                <select #startYear="ngModel" ngModel name="startYear" id="startYear"
+                                    style="height: 38px;">
+                                    <option value="">-</option>
+                                    <option *ngFor="let startYear of startYears" [value]="startYear">{{startYear}}
+                                    </option>
+                                </select>
+                                <div id="error-for-email" [class.show]="startYear.touched&&startYear.invalid"
+                                    class="error2 hidden ">
+                                    {{getError("noStartYear") }}
+                                </div>
+                            </div>
+                            <div style="flex-basis: 50%; flex-grow: 1!important; min-width: 0;">
+                                <!-- endYear -->
+                                <label class="main__sign-in-container labelNew " for="endYear" style="padding-top: 0;">
+                                    End year (or expected) <span style="color: #0073b1;">*</span>
+                                </label>
+                                <select #endYear="ngModel" ngModel name="endYear" id="endYear" style="height: 38px;">
+                                    <option selected value="">-</option>
+                                    <option *ngFor="let endYear of endYears" [value]="endYear"> {{endYear}}</option>
+                                </select>
+                                <div id="error-for-email" [class.show]="endYear.touched&&endYear.invalid"
+                                    class="error2 hidden ">
+                                    {{getError("noEndYear") }}
+                                </div>
+                            </div>
+                        </div>
+                        <div style="transition-property: max-height; max-height: 200px;">
+                            <!-- toggleAge -->
+                            <Label class="labelNew" style="width: 408px;">
+                                <div class="toggleage">
+                                    <span>I’m over 16</span>
+                                    <div class="onboarding-profile-edu__over-16-toggle-wrapper">
+                                        <label class="switch">
+                                            <input ngModel name="toggleAge" type="checkbox" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </Label>
+                        </div>
+                    </div>
+                </section>
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="join-form__form-body-submit-button"
+                        style="color: #0073b1; background-color: #ffffff;" id="ember125">
+                        I’m not a student
+                    </button>
+                    <button [disabled]="register.invalid" type="submit" class="join-form__form-body-submit-button"
+                        id="ember126">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>

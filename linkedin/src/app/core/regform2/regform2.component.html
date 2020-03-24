@@ -1,0 +1,34 @@
+<body>
+    <div class="page page--is-opendoor-v2-part1">
+        <main class="main ">
+            <app-navlogo></app-navlogo>
+            <h1 class="h h--1">Welcome, Esraa!</h1>
+            <h3 class="h h--3">
+                Let’s start your profile, connect to people you know, and engage with them on topics you care
+                about.
+            </h3>
+
+            <form #register="ngForm" class="join-form" (ngSubmit)="onSubmit(register)">
+                <section class="join-form__form-body">
+                    <div class="join-form__form-input-container">
+                        <label class="main__sign-in-container labelNew asterics" for="typeahead-input-for-title">
+                            Location <span style="color: #0073b1;">*</span>
+                        </label>
+                        <input #location="ngModel" ngModel class="join-form-input__input" autocomplete="on" required
+                            id="location" name="location" autofocus type="text" value="" />
+                        <div id="error-for-email" [class.show]="location.touched&&location.invalid"
+                            class="error2 hidden ">
+                            {{getError("noLocation") }}
+                        </div>
+                    </div>
+                </section>
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="join-form__form-body-submit-button" id="next">
+                        Next
+                    </button>
+                </div>
+
+            </form>
+        </main>
+    </div>
+</body>

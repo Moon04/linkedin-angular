@@ -1,0 +1,91 @@
+<body>
+    <div class="page page--is-opendoor-v2-part1">
+        <main class="main ">
+            <app-navlogo></app-navlogo>
+            <h1 class="h h--1">
+                Make the most of your professional life
+            </h1>
+            <form #register="ngForm" class="join-form" (ngSubmit)="onSubmit(register)">
+                <section class="join-form__form-body">
+                    <div class="join-form__form-input-container">
+
+                        <!-- first name -->
+                        <label class="join-form-input__label" for="first-name">
+                            First name
+                        </label>
+                        <input #fname="ngModel" ngModel class="join-form-input__input" autocomplete="on" required
+                            id="firstname" type="text" name="firstname" placeholder="First name" autofocus value=""
+                            style="margin-top: 20px;" />
+                        <div id="error-for-email" [class.show]="fname.touched&&fname.invalid" class="error2 hidden ">
+                            {{getError("noFirstName") }}
+                        </div>
+
+                        <!-- last name -->
+                        <label class="join-form-input__label" for="last-name">
+                            Last name
+                        </label>
+                        <input #lname="ngModel" ngModel class="join-form-input__input" autocomplete="on" required
+                            id="lastname" type="text" name="lastname" placeholder="Last name" value="" />
+                        <div id="error-for-email" [class.show]="lname.touched&&lname.invalid" class="error2 hidden ">
+                            {{getError("noLastName") }}
+                        </div>
+
+                        <!-- email -->
+                        <label class="join-form-input__label" for="email-address">
+                            Email
+                        </label>
+                        <input #mail="ngModel" ngModel class="join-form-input__input"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required autocomplete="on" id="email"
+                            type="email" name="email" placeholder="Email" value="" />
+                        <div id="error-for-email" [class.show]="mail.touched && mail.invalid" class="error2 hidden ">
+                            {{getError("noEmail") }}
+                        </div>
+
+                        <!-- password -->
+                        <label class="join-form-input__label" for="password">
+                            Password (6 or more characters)
+                        </label>
+                        <input #pass="ngModel" ngModel class="join-form-input__input"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" autocomplete="new-password" required
+                            id="password" type="password" name="password" placeholder="Password (8 or more characters)"
+                            value="" />
+                        <div id="error-for-email" class="miniHelp ">
+                            <span>Your password must be 8 or more characters and contain:</span> <br>
+                            <span>- Lowercase and Uppercase alphabetical character</span> <br>
+                            <span>- Numeric character</span> <br>
+                            <span>- One special character</span> <br>
+                        </div>
+                        <div id="error-for-email" [class.show]="pass.touched && pass.invalid" class="error2 hidden ">
+                            {{getError("noPassword") }}
+                        </div>
+
+                    </div>
+                </section>
+
+
+
+                <span class="join-form__form-body-agreement">
+                    By clicking Agree &amp; Join, you agree to the LinkedIn
+                    <a style="color: #0073b1;" target="_blank" class="join-form__form-body-agreement-item-link"
+                        href="#">
+                        User Agreement
+                    </a>,
+                    <a style="color: #0073b1;" target="_blank" class="join-form__form-body-agreement-item-link"
+                        href="#">
+                        Privacy Policy
+                    </a>, and
+                    <a style="color: #0073b1;" target="_blank" class="join-form__form-body-agreement-item-link"
+                        href="#">
+                        Cookie Policy
+                    </a>.
+                </span>
+                <!-- routerLink="/register2" -->
+                <button [disabled]="register.invalid" type="submit" id="join-form-submit"
+                    class="join-form__form-body-submit-button" value="Agree &amp; Join">
+                    Agree &amp; Join
+                </button>
+            </form>
+            <app-footersign></app-footersign>
+        </main>
+    </div>
+</body>

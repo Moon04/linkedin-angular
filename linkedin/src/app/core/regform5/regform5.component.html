@@ -1,0 +1,20 @@
+<body>
+    <div class="page page--is-opendoor-v2-part1">
+        <main class="main ">
+            <app-navlogo></app-navlogo>
+            <h1 class="h h--1">
+                Adding a photo helps people recognize you
+            </h1>
+            <form #register="ngForm" class="join-form" (ngSubmit)="onSubmit(register)" style="align-content: center;">
+
+                <app-addprofilepic></app-addprofilepic>
+
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="join-form__form-body-submit-button" id="ember126">
+                        Add photo
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>

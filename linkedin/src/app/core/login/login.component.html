@@ -1,0 +1,88 @@
+<body class="system-fonts ">
+    <div id="app__container">
+        <app-header></app-header>
+        <main class="app__content" role="main">
+            <app-navlogo></app-navlogo>
+
+            <div class="header__content ">
+                <h1 class="header__content__heading">Welcome Back</h1>
+                <h3 class="h h--3">
+                    Don&#39;t miss your next opportunity. Sign in to stay updated on
+                    your professional world.
+                </h3>
+            </div>
+
+            <form #loginFrom="ngForm" class="login__form" (ngSubmit)="onSubmit(loginFrom)">
+
+                <!-- email and phone num -->
+                <div class="form__input--floating">
+
+                    <input #email="ngModel" ngModel id="email" name="email" type="text" required validation="email"
+                        value="" />
+                    <!--autofocus-->
+                    <label class="form__label--floating" for="email">
+                        Email
+                    </label>
+                    <!-- {{mail.className}} -->
+                    <div id="error-for-email" [class.show]="email.touched&&email.invalid"
+                        class="form__label--error hidden ">
+                        {{getError("noEmail") }}
+                    </div>
+
+                    <!-- <div id="error-for-email" [class.show]="email.touched&&email.invalid"
+                        class="form__label--error hidden ">
+                        {{getError("emailNotRecognized") }}
+                    </div>
+                    <div id="error-for-email" [class.show]="email.touched&&email.invalid"
+                        class="form__label--error hidden ">
+                        {{getError("emailNotValid") }}
+                    </div> -->
+
+                </div>
+
+                <!-- Password -->
+                <div class="form__input--floating">
+                    <input #pass="ngModel" ngModel id="password" type="password" name="password" required
+                        validation="password" />
+                    <label for="password" class="form__label--floating" aria-hidden="true">
+                        Password
+                    </label>
+                    <div error-for="password" id="error-for-password" class="form__label--error  hidden" role="alert">
+                    </div>
+
+                    <!-- togglePassword -->
+                    <span name="togglePassword" id="togglePassword" class="button__password-visibility" role="button"
+                        tabindex="0">
+                        Show
+                    </span>
+                    <div id="error-for-email" [class.show]="pass.touched&&pass.invalid" class="error1 hidden ">
+                        {{getError("noPassword") }}
+                    </div>
+                </div>
+
+                <div class="login__form_action_container ">
+                    <button [disabled]="loginFrom.invalid" class="btn__primary--large from__button--floating"
+                        data-control-urn="login-submit" type="submit" aria-label="Sign in">
+                        <span>Sign in</span>
+
+                    </button>
+                </div>
+            </form>
+            <div class="footer-app-content-actions">
+                <div>
+                    <a href="#/checkpoint/rp/request-password-reset" class="btn__tertiary--medium action__btn">
+                        Forgot password?
+                    </a>
+                </div>
+                <p>
+                    New to LinkedIn?
+                    <a routerLink="/register" tabindex="0" id="join_now" data-control-urn="login_join_now">
+                        Join now
+                    </a>
+                </p>
+            </div>
+
+        </main>
+        <app-footer></app-footer>
+    </div>
+</body>
