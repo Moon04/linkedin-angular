@@ -110,6 +110,7 @@ import { ContactInfoFormComponent } from './feartures/profile_components/forms/c
       { path: 'register3', component: Regform3Component },
       { path: 'register4', component: Regform4Component },
       { path: 'register5', component: Regform5Component },
+      { path: 'home/myprofile', component: ProfileComponent},
       { path: 'home', component: HomePageComponent},
       { path: '**', component: ErrorpageComponent }
     ])
