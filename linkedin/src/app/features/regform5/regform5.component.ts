@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import { Error } from 'src/app/_services/errors';
 import { UsersService } from 'src/app/_services/users.service';
+import { Error } from 'src/app/_services/errors';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
 
 @Component({
-  selector: 'app-regform2',
-  templateUrl: './regform2.component.html',
-  styleUrls: ['./regform2.component.scss']
+  selector: 'app-regform5',
+  templateUrl: './regform5.component.html',
+  styleUrls: ['./regform5.component.css']
 })
-export class Regform2Component implements OnInit {
+export class Regform5Component implements OnInit {
   getError(name) {
     const errorrr = this.myerrors.MyError.filter(function (e) {
       return e.name === name
@@ -20,11 +20,12 @@ export class Regform2Component implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    const { location } = form.value;
 
-    this.authService.authUser.location = location;
+    this.router.navigate(['/login']);
 
-    this.router.navigate(['/register3']);
+    this.userService.User.push(this.authService.authUser);
+    localStorage.setItem('users', JSON.stringify(this.userService.User))
+
   }
 
   constructor(
@@ -34,7 +35,9 @@ export class Regform2Component implements OnInit {
     public myerrors: Error,
   ) { }
 
+
   ngOnInit(): void {
+
   }
 
 }

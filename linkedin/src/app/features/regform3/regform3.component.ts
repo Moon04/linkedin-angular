@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
-
 import { UsersService } from 'src/app/_services/users.service';
 import { Error } from 'src/app/_services/errors';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-regform5',
-  templateUrl: './regform5.component.html',
-  styleUrls: ['./regform5.component.scss']
+  selector: 'app-regform3',
+  templateUrl: './regform3.component.html',
+  styleUrls: ['./regform3.component.css']
 })
-export class Regform5Component implements OnInit {
+export class Regform3Component implements OnInit {
   getError(name) {
     const errorrr = this.myerrors.MyError.filter(function (e) {
       return e.name === name
@@ -20,12 +19,13 @@ export class Regform5Component implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    const { recentJob, recentCompany } = form.value;
+    console.log(form)
+    console.log("form submited")
+    this.authService.authUser.recentJob = recentJob;
+    this.authService.authUser.recentCompany = recentCompany;
 
-    this.router.navigate(['/login']);
-
-    this.userService.User.push(this.authService.authUser);
-    localStorage.setItem('users', JSON.stringify(this.userService.User))
-
+    this.router.navigate(['/register4']);
   }
 
   constructor(
@@ -35,9 +35,7 @@ export class Regform5Component implements OnInit {
     public myerrors: Error,
   ) { }
 
-
   ngOnInit(): void {
-
   }
 
 }

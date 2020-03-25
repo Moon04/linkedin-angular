@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { Router, ActivatedRoute } from '@angular/router';
-// import { Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
+
 import { UsersService } from 'src/app/_services/users.service';
 import { Error } from 'src/app/_services/errors';
 
@@ -8,7 +8,7 @@ import { Error } from 'src/app/_services/errors';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   getError(name) {
@@ -21,9 +21,6 @@ export class LoginComponent implements OnInit {
   constructor(
     public userService: UsersService,
     public myerrors: Error,
-
-    // private authenticationService: AuthenticationService,
-
   ) { }
 
   ngOnInit(): void {
