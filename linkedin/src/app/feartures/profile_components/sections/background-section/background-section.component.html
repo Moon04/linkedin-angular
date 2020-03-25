@@ -1,0 +1,113 @@
+<section class="p-3" id="Background">
+    <div class="background container u-border rounded p-0 white">
+
+      <!-- Experience -->
+      <div class="p-4" *ngIf="profileService.background.workExperience.length!==0">
+        <div class="row">
+          <h2 class="col-sm-11 background__section-heading">Experience</h2>
+          <a class="col-sm-1 text-right pointer" data-toggle="modal" data-target="#FullModal"
+            (click)="onWorkForm(-1)">
+            <i class="fas fa-plus p-3 profile-icon"></i>
+          </a>
+        </div>
+        <ng-container *ngFor="let org of profileService.background.workExperience; let j = index">
+          <div class="background__hide-icon media row py-3">
+            <div class="col-sm-1">
+              <img src={{org.company.logoURL}} class="align-self-start background__img"/>
+            </div>
+            <div class="media-body col-sm-10 ">
+              <h3>{{org.title}}</h3>
+              <a class="stretched-link text-decoration-none text-reset pointer">
+                <p class="mb-0 d-inline">{{org.company.title}}</p>
+              </a>
+              <p class="mb-0 d-inline">. {{org.employmentType}}</p>
+              <br />
+              <p class="mb-0 d-inline text-muted">{{org.startDate}} </p>
+              <p class="mb-0 d-inline text-muted">- {{org.endDate}}</p>
+              <p class="mb-0 text-muted">{{org.location}}</p>
+              <p class="mb-0 text-muted">{{org.description}}</p>
+            </div>
+            <a class="col-1 text-right pointer" data-toggle="modal" data-target="#FullModal" (click)="onWorkForm(j)">
+              <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i></a>
+          </div>
+          <div class="u-border-bottom offset-1 row" *ngIf="j != profileService.background.workExperience.length-1"></div>
+        </ng-container>
+      </div>
+
+      <!-- hr -->
+      <div class="u-border-bottom"></div>
+
+      <!-- Education -->
+      <div class="p-4" *ngIf="profileService.background.education.length!=0">
+        <div class="row">
+          <h2 class="col-sm-11 background__section-heading">Education</h2>
+          <a class="col-sm-1 text-right pointer" data-toggle="modal" data-target="#FullModal"
+            (click)="onEducationForm(-1)">
+            <i class="fas fa-plus p-3 profile-icon"></i>
+          </a>
+        </div>
+        <ng-container *ngFor="let org of profileService.background.education; let i = index">
+          <div class="background__hide-icon media row py-3 bacground-subsection">
+            <div class="col-sm-1">
+              <img src={{org.school.logoURL}} class="align-self-start background__img" />
+            </div>
+            <div class="media-body col-sm-10 ">
+              <a class="stretched-link text-decoration-none text-reset pointer" pointer>
+                <h3>{{org.school.title}}</h3>
+              </a>
+              <p class="mb-0 d-inline" *ngIf="org.degree">{{org.degree}} . </p>
+              <p class="mb-0 d-inline" *ngIf="org.fieldOfStudy">{{org.fieldOfStudy}}</p>
+              <p class="mb-0 d-inline" *ngIf="org.grade">. {{org.grade}}</p>
+              <br />
+              <p class="mb-0 d-inline text-muted" *ngIf="org.startYear">{{org.startYear}}</p>
+              <p class="mb-0 d-inline text-muted" *ngIf="org.endYear"> - {{org.endYear}}</p>
+              <p class="mb-0 text-muted" *ngIf="org.activities">{{org.activities}}</p>
+              <p class="mb-0 text-muted" *ngIf="org.description">{{org.description}}</p>
+            </div>
+            <a class="col-1 text-righ pointer" data-toggle="modal" data-target="#FullModal"
+            (click)="onEducationForm(i)"> 
+              <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i>
+            </a>
+          </div>
+          <div class="u-border-bottom offset-1 row" *ngIf="i != profileService.background.education.length-1"></div>
+        </ng-container>
+      </div>
+
+      <!-- hr -->
+      <div class="u-border-bottom"></div>
+
+      <!-- Volunteer Experience -->
+      <div class="p-4" *ngIf="profileService.background.volunteerExperience.length!==0">
+        <div class="row">
+          <h2 class="col-sm-11 background__section-heading">Volunteer Experience</h2>
+          <a class="col-sm-1 text-right pointer" data-toggle="modal" data-target="#FullModal"
+            (click)="onVolunteerForm(-1)">
+            <i class="fas fa-plus p-3 profile-icon"></i></a>
+        </div>
+        <ng-container *ngFor="let org of profileService.background.volunteerExperience; let k = index">
+          <div class="background__hide-icon media row py-3 bacground-subsection ">
+            <div class="col-sm-1">
+              <img src={{org.organization.logoURL}} class="align-self-start background__img"/>
+            </div>
+            <div class="media-body col-sm-10 ">
+              <h3>{{org.role}}</h3>
+              <a class="stretched-link text-decoration-none text-reset pointer">
+                <p class="mb-0 ">{{org.organization.title}}</p>
+              </a>
+              <p class="mb-0 d-inline text-muted">{{org.startDate}}</p>
+              <p class="mb-0 d-inline text-muted"> - {{org.endDate}}</p>
+              <p class="mb-0 text-muted">{{org.cause}}</p>
+              <p class="mb-0 text-muted">{{org.description}}</p>
+            </div>
+            <a class="col-1 text-right pointer" data-toggle="modal" data-target="#FullModal" (click)="onVolunteerForm(k)">
+              <i class="fas fa-pen p-3 profile-icon profile-icon--hide"></i></a>
+          </div>
+          <div class="u-border-bottom offset-1 row" *ngIf="k != profileService.background.volunteerExperience.length-1"></div>
+        </ng-container>
+      </div>
+
+      <!-- hr -->
+      <div class="u-border-bottom"></div>
+
+    </div>
+  </section>
