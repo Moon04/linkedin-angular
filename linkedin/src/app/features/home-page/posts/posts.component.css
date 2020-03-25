@@ -1,0 +1,25 @@
+﻿.post-composer {
+  box-shadow: 0px 0px 2px #2b2b2b;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  display: flex;
+}
+.post-composer input {
+  width: 80%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+.post-composer button {
+  padding: 0.8rem 0rem;
+  font-size: 1rem;
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+  width: 14.7%;
+  text-align: center;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  outline: none;
+}

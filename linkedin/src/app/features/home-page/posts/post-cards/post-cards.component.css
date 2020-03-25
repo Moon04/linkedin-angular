@@ -1,0 +1,156 @@
+﻿.post-card-container {
+  background-color: white;
+  box-shadow: 0px 0px 2px #2b2b2b;
+  margin: 1rem auto;
+  border-top-right-radius: 2rem;
+}
+.post-card-header {
+  padding: 1rem 1rem 0rem;
+  display: flex;
+}
+.post-card-header-sub:last-child {
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  width: 80%;
+}
+.post-card-image {
+  height: 4rem;
+  width: 4rem;
+  background-color: dodgerblue;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+.post-card-title {
+  font-size: 0.8rem;
+}
+.post-card-time {
+  font-size: 0.7rem;
+}
+.post-card-body {
+  padding: 0.5rem 1.5rem;
+}
+.post-card-name {
+  width: 95%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.post-card-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  right: 0;
+  box-shadow: 0px 0px 2px #2b2b2b;
+}
+.post-card-menu-edit, .post-card-menu-delete, .post-card-menu-hide {
+  padding: 5px 20px;
+  text-align: center;
+  transition: all 0.2s linear;
+}
+.post-card-menu-edit:hover, .post-card-menu-delete:hover, .post-card-menu-hide:hover {
+  background-color: dimgray;
+  color: white;
+}
+.post-card-menu-container {
+  width: 5%;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+}
+.post-card-menu-container:hover .post-card-menu {
+  display: block;
+}
+.post-card-editControls {
+  display: flex;
+  justify-content: flex-end;
+}
+.post-card-editControls button {
+  color: white;
+  background-color: dodgerblue;
+  border: none;
+  padding: 5px 10px;
+  margin: 20px 10px 5px;
+}
+.post-card-likes {
+  color: dodgerblue;
+  font-size: 0.9rem;
+  padding: 10px 24px;
+}
+.post-card-controls button {
+  width: 33.3%;
+  border: none;
+  box-sizing: border-box;
+  background-color: white;
+  color: dodgerblue;
+  padding: 0.5rem 0rem;
+  border-top: 1px solid dodgerblue;
+  transition: all 0.2s linear;
+}
+.post-card-controls button:nth-child(2) {
+  border-left: 1px solid dodgerblue;
+  border-right: 1px solid dodgerblue;
+}
+.post-card-controls button:hover {
+  background-color: dodgerblue;
+  color: white;
+}
+.post-card-comment-border {
+  border-bottom: 1px solid lightgray;
+}
+.post-card-comment-add input {
+  width: 80%;
+  border: 1px solid lightgray;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  outline: none;
+}
+.post-card-comment-add button {
+  padding: 6px 20px;
+  box-sizing: border-box;
+  width: 20%;
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+}
+.post-card-comment-card {
+  display: flex;
+  padding: 10px 10px 0px 10px;
+}
+.post-card-comment-card-image {
+  width: 40px;
+  height: 40px;
+}
+.post-card-comment-card-title {
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+  font-size: 1rem;
+}
+.post-card-comment-card-body {
+  width: 100%;
+  padding: 0px 65px 10px;
+  font-size: 0.9rem;
+}
+.hidden {
+  display: none;
+}
+.grey {
+  color: gray;
+}
+.shared-post-preview {
+  padding: 0px 50px;
+}
+.shared-post-preview-sub:first-child {
+  display: flex;
+  align-items: center;
+}
+.shared-post-preview-sub:first-child .post-card-image {
+  width: 40px;
+  height: 40px;
+}
+.shared-post-preview-sub:first-child .post-card-name {
+  margin-left: 10px;
+}
+.shared-post-preview-sub:last-child {
+  padding: 5px 48px;
+}

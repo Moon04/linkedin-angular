@@ -1,0 +1,48 @@
+<body>
+    <div class="page page--is-opendoor-v2-part1">
+        <main class="main ">
+            <app-navlogo></app-navlogo>
+            <h1 class="h h--1">
+                Your profile helps you discover the right people and opportunities
+            </h1>
+
+            <form #register="ngForm" class="join-form" (ngSubmit)="onSubmit(register)">
+                <section class="join-form__form-body">
+                    <div class="join-form__form-input-container">
+                        <!-- recent job -->
+                        <label class="main__sign-in-container labelNew asterics" for="typeahead-input-for-title">
+                            Most recent job title <span style="color: #0073b1;">*</span>
+                        </label>
+                        <input #recentJob="ngModel" ngModel class="join-form-input__input" autocomplete="on" required
+                            id="recentJob" name="recentJob" autofocus type="text" value="" />
+                        <div id="error-for-email" [class.show]="recentJob.touched&&recentJob.invalid"
+                            class="error2 hidden ">
+                            {{getError("noRecentJob") }}
+                        </div>
+                        <!-- recent Company -->
+                        <label class="main__sign-in-container labelNew asterics" for="typeahead-input-for-title"
+                            style="padding-top: 0;">
+                            Most recent company <span style="color: #0073b1;">*</span>
+                        </label>
+                        <input #recentCompany="ngModel" ngModel class="join-form-input__input" autocomplete="on"
+                            required id="recentCompany" name="recentCompany" type="text" value=""
+                            style="margin-top: 0;" />
+                        <div id="error-for-email" [class.show]="recentCompany.touched&&recentCompany.invalid"
+                            class="error2 hidden ">
+                            {{getError("noRecentCompany") }}
+                        </div>
+                    </div>
+                </section>
+                <div style="margin-top: 20px;">
+                    <button type="submit" class="join-form__form-body-submit-button"
+                        style="color: #0073b1; background-color: #ffffff;" id="ember125">
+                        I’m a student
+                    </button>
+                    <button type="submit" class="join-form__form-body-submit-button" disabled="" id="ember126">
+                        Continue
+                    </button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>

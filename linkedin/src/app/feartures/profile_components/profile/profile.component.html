@@ -1,0 +1,121 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4" >
+      <div style="display: flex;">
+        <h4 style="margin-top: 5%; color: gray; width: 90%;">Edit public profile & URL</h4>
+        <span style="width:10%; margin-top: 5%;"><i class="far fa-question-circle"></i></span>
+      </div>
+      <hr>
+      <div style="display: flex;">
+        <h4 style="color: gray; width: 90%;">Add profile in another language</h4>
+        <span style="width:10%; margin-top: 2%;"><i class="far fa-question-circle"></i></span>
+      </div>
+
+      <div class="ad">
+        <p>{{profile.profileIntro.firstName}}, unlock your full potential with LinkedIn Premium</p>
+        <div id="ad-images">
+          <img src={{profile.profileIntro.profilePhoto}} id="ad-img">
+          <i class="fas fa-key"></i>
+        </div>
+        <h5>See ho's viewed your profile in the last 90 days</h5>
+        <button class="btn btn-outline-primary">Try for Free</button>
+      </div>
+
+    </div>
+    <div class="col-md-8 order-md-1">
+
+      <!-- Profile Header Section -->
+      <app-intro-section 
+        (workMood)="setMoodWorkIndex($event)"
+        (educationMood)="setMoodEducationIndex($event)"
+        (volunteerMood)="setMoodVolunteerIndex($event)"
+        (courseMood)="setMoodCourseIndex($event)"
+        (projectMood)="setMoodProjectIndex($event)"
+        (languageMood)="setMoodLanguageIndex($event)"
+      >
+      </app-intro-section>
+
+      <!-- About section -->
+      <app-about-section *ngIf="profileService.about.about"></app-about-section>
+
+      <!-- Dashboard section -->
+      <app-dashboard-section></app-dashboard-section>
+
+      <!-- background section -->
+      <app-background-section 
+        (workMood)="setMoodWorkIndex($event)"
+        (educationMood)="setMoodEducationIndex($event)"
+        (volunteerMood)="setMoodVolunteerIndex($event)"
+        *ngIf="profile.profileBackground">
+      </app-background-section>
+
+      <!-- Skills Section -->
+      <app-skills-section *ngIf="profile.profileSkills"></app-skills-section>
+
+      <!-- Accomplishments -->
+      <app-accomplishments-section 
+        *ngIf="profile.profileAccomplishments"
+        (courseMood)="setMoodCourseIndex($event)"
+        (projectMood)="setMoodProjectIndex($event)"
+        (languageMood)="setMoodVolunteerIndex($event)"
+      >
+      </app-accomplishments-section>
+
+      <!-- The Interests section displays the companies that a user following -->
+      <app-interests *ngIf="profile.profileInterests" [profileIterests]="profile.profileInterests"></app-interests>
+      
+      <!-- Edit Skill -->
+      <div [ngClass]="{'modal': true, 'edit-skills': true, 'show-modal': profileService.openEditSkills}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Reorder Skills & Endorsements ({{profileService.skills.length}})
+              </h2>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span (click)="profileService.openEditSkills=!profileService.openEditSkills">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h3 class="skill-title">Top Skills
+              </h3>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="skill-edit" *ngFor="let skill of skills">
+                    <a class="pointer">                    
+                      <i class="fas fa-thumbtack" style="font-size: 16px; margin-right: 2%; color: #1185c9;"></i>
+                    </a>
+                    <span class="skill-edit__skill">{{skill.skillTitle}}</span>
+                    <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
+                    <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon pointer" (click)="deleteSkillFromView(skill)"></i>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <br>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="saveSkills()">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!--Form Modals-->
+  <app-intro-form></app-intro-form>
+  <app-contact-info-form></app-contact-info-form>
+  <app-about-form></app-about-form>
+  <app-work-experience-form [moodIndex]="moodWorkIndex"></app-work-experience-form>
+  <app-education-form [moodIndex]="moodEducationIndex"></app-education-form>
+  <app-volunteer-experience-form [moodIndex]="moodVolunteerIndex"></app-volunteer-experience-form>
+  <app-skill-form></app-skill-form>
+  <app-course-form [moodIndex]="moodCourseIndex"></app-course-form>
+  <app-project-form [moodIndex]="moodProjectIndex"></app-project-form>
+  <app-language-form [moodIndex]="moodLanguageIndex"></app-language-form>
+
+</div>

@@ -1,0 +1,18 @@
+<section class="p-3" id="About">
+  <div class="container white">
+    <div class="row u-border pt-5 pb-5 pr-3 pl-3">
+      <header class="col-12 d-flex justify-content-between">
+        <h2>About</h2>
+        <a class="pointer" data-toggle="modal" data-target="#FullModal">
+          <i class="fas fa-pencil-alt profile-icon" 
+          (click)="profileService.openAboutForm=!profileService.openAboutForm"></i>
+        </a>
+      </header>
+      <div class="col-12 pt-3">
+        <h5>
+          {{profileService.about.about}}
+        </h5>
+      </div>
+    </div>
+  </div>
+</section>

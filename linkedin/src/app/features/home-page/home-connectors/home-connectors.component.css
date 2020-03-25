@@ -1,0 +1,10 @@
+﻿.home-connectors-container {
+  background-color: white;
+  box-shadow: 0px 0px 2px #2b2b2b;
+  padding: 0.5rem 0rem;
+  padding-bottom: 0px;
+  font-size: 0.8rem;
+}
+.home-connectors-container div {
+  padding: 0.5rem 1rem;
+}
