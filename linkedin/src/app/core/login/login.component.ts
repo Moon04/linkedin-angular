@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 import { UsersService } from 'src/app/_services/users.service';
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(
+    private router: Router,
     public userService: UsersService,
     public myerrors: Error,
   ) { }
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
     }
     else {
       console.log("Authorized");
+      this.router.navigate(['/home']);
     }
   }
 

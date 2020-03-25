@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './features/landing-page/landing-page.component';
 import { NavlogoComponent } from './core/navlogo/navlogo.component';
@@ -20,6 +22,14 @@ import { ErrorpageComponent } from './core/errorpage/errorpage.component';
 
 import { UsersService } from './_services/users.service';
 import { Error } from "./_services/errors";
+import { AccountPeakComponent } from './features/home-page/account-peak/account-peak.component';
+import { PostsComponent } from './features/home-page/posts/posts.component';
+import { HomePageComponent } from './features/home-page/home-page.component';
+import { HomeConnectorsComponent } from './features/home-page/home-connectors/home-connectors.component';
+import { HomeConnectorsCardsComponent } from './features/home-page/home-connectors/home-connectors-cards/home-connectors-cards.component';
+import { PostCardsComponent } from './features/home-page/posts/post-cards/post-cards.component';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +47,17 @@ import { Error } from "./_services/errors";
     FootersignComponent,
     AddprofilepicComponent,
     ErrorpageComponent,
+    AccountPeakComponent,
+    PostsComponent,
+    HomePageComponent,
+    HomeConnectorsComponent,
+    HomeConnectorsCardsComponent,
+    PostCardsComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
+    FontAwesomeModule,
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
@@ -50,7 +69,7 @@ import { Error } from "./_services/errors";
       { path: 'register3', component: Regform3Component },
       { path: 'register4', component: Regform4Component },
       { path: 'register5', component: Regform5Component },
-      // { path: 'home', component: },
+      { path: 'home', component: HomePageComponent},
       { path: '**', component: ErrorpageComponent }
     ])
   ],

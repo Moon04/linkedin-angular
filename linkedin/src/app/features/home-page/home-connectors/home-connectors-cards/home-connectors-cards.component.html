@@ -1,0 +1,12 @@
+<div class="connection-card-container">
+	<div class="connection-card-subcontainer">
+		<div class="connection-card-image" [ngStyle]="{'background-image': 'url(' +connection.imgURL+ ')' }"></div>
+		<div>
+			<div class="connection-card-name">{{connection.name}}</div>
+			<div class="connection-card-title">{{connection.title}}</div>
+		</div>
+	</div>
+	<div class="connection-card-subcontainer">
+		<button>+ follow</button>
+	</div>
+</div>

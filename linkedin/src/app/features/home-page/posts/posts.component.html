@@ -1,0 +1,9 @@
+<div class="posts-comtainer">
+	<div class="post-composer">
+		<input type="text" placeholder="Start Typing" />
+		<button (click)="addPost($event)">post</button>
+	</div>
+	<app-post-cards *ngFor="let p of passedData;let i = index" [post]=p[1] [account]=p[0] [comment]=p[2]
+		[posts]=passedData (deleteMyPost)="deletePost($event)" (sharePost)="sharePost($event)">
+	</app-post-cards>
+</div>

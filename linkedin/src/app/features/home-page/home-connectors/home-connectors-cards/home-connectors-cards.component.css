@@ -1,0 +1,40 @@
+﻿.connection-card-container {
+  border-bottom: 1px solid rgba(61, 61, 61, 0.356);
+  padding: 0.2rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.connection-card-subcontainer:first-child {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 60%;
+}
+.connection-card-subcontainer:last-child {
+  width: 25%;
+}
+.connection-card-subcontainer:last-child button {
+  background-color: white;
+  border: 2px solid cornflowerblue;
+  color: cornflowerblue;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+.connection-card-subcontainer:last-child button:hover {
+  color: #0080ff;
+  border-color: #0080ff;
+}
+.connection-card-image {
+  height: 3rem;
+  width: 3rem;
+  background-color: lightslategray;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  display: inline-block;
+}
+.connection-card-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+}

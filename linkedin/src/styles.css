@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+
+* {
+  box-sizing: border-box;
+  /* padding: 0px;
+  margin: 0px; */
+}
+
+.index-postive{
+  z-index: 5;
+}
+
 .show{
   display: block !important;
 }
@@ -157,9 +172,7 @@ input:checked + .slider:before {
 .hide {
   display: none !important;
 }
-* {
-  box-sizing: border-box;
-}
+
 .photo__zoom {
   position: relative;
   padding-left: 22px;
@@ -481,9 +494,6 @@ input:checked + .slider:before {
 }
 
 
-
-
-
 .cls-1 {
   fill: none
 }
@@ -667,3 +677,328 @@ input:checked + .slider:before {
 .cls-68 {
   fill: #f0b5a5
 }
+
+
+/* header */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  border-bottom: 2px solid lightgrey;
+}
+.header a {
+  color: black;
+  text-decoration: none;
+  padding: 0px 20px;
+  font-size: 1.2rem;
+  transition: all 0.2s linear;
+}
+.header a:hover {
+  color: dodgerblue;
+}
+
+/* home page */
+
+.home-page {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  padding: 1.2rem;
+}
+.asides {
+  width: 25%;
+}
+.middle {
+  width: 40%;
+}
+
+.post-composer {
+  box-shadow: 0px 0px 2px #2b2b2b;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  display: flex;
+}
+.post-composer input {
+  width: 80%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+.post-composer button {
+  padding: 0.8rem 0rem;
+  font-size: 1rem;
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+  width: 14.7%;
+  text-align: center;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  outline: none;
+}
+
+/* post card */
+.post-card-container {
+  background-color: white;
+  box-shadow: 0px 0px 2px #2b2b2b;
+  margin: 1rem auto;
+  border-top-right-radius: 2rem;
+}
+.post-card-header {
+  padding: 1rem 1rem 0rem;
+  display: flex;
+}
+.post-card-header-sub:last-child {
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+  width: 80%;
+}
+.post-card-image {
+  height: 4rem;
+  width: 4rem;
+  background-color: dodgerblue;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+.post-card-title {
+  font-size: 0.8rem;
+}
+.post-card-time {
+  font-size: 0.7rem;
+}
+.post-card-body {
+  padding: 0.5rem 1.5rem;
+}
+.post-card-name {
+  width: 95%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.post-card-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  right: 0;
+  box-shadow: 0px 0px 2px #2b2b2b;
+}
+.post-card-menu-edit, .post-card-menu-delete, .post-card-menu-hide {
+  padding: 5px 20px;
+  text-align: center;
+  transition: all 0.2s linear;
+}
+.post-card-menu-edit:hover, .post-card-menu-delete:hover, .post-card-menu-hide:hover {
+  background-color: dimgray;
+  color: white;
+}
+.post-card-menu-container {
+  width: 5%;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+}
+.post-card-menu-container:hover .post-card-menu {
+  display: block;
+}
+.post-card-editControls {
+  display: flex;
+  justify-content: flex-end;
+}
+.post-card-editControls button {
+  color: white;
+  background-color: dodgerblue;
+  border: none;
+  padding: 5px 10px;
+  margin: 20px 10px 5px;
+}
+.post-card-likes {
+  color: dodgerblue;
+  font-size: 0.9rem;
+  padding: 10px 24px;
+}
+.post-card-controls button {
+  width: 33.3%;
+  border: none;
+  box-sizing: border-box;
+  background-color: white;
+  color: dodgerblue;
+  padding: 0.5rem 0rem;
+  border-top: 1px solid dodgerblue;
+  transition: all 0.2s linear;
+}
+.post-card-controls button:nth-child(2) {
+  border-left: 1px solid dodgerblue;
+  border-right: 1px solid dodgerblue;
+}
+.post-card-controls button:hover {
+  background-color: dodgerblue;
+  color: white;
+}
+.post-card-comment-border {
+  border-bottom: 1px solid lightgray;
+}
+.post-card-comment-add input {
+  width: 80%;
+  border: 1px solid lightgray;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  outline: none;
+}
+.post-card-comment-add button {
+  padding: 6px 20px;
+  box-sizing: border-box;
+  width: 20%;
+  background-color: dodgerblue;
+  color: white;
+  border: none;
+}
+.post-card-comment-card {
+  display: flex;
+  padding: 10px 10px 0px 10px;
+}
+.post-card-comment-card-image {
+  width: 40px;
+  height: 40px;
+}
+.post-card-comment-card-title {
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+  font-size: 1rem;
+}
+.post-card-comment-card-body {
+  width: 100%;
+  padding: 0px 65px 10px;
+  font-size: 0.9rem;
+}
+.hidden {
+  display: none;
+}
+.grey {
+  color: gray;
+}
+.shared-post-preview {
+  padding: 0px 50px;
+}
+.shared-post-preview-sub:first-child {
+  display: flex;
+  align-items: center;
+}
+.shared-post-preview-sub:first-child .post-card-image {
+  width: 40px;
+  height: 40px;
+}
+.shared-post-preview-sub:first-child .post-card-name {
+  margin-left: 10px;
+}
+.shared-post-preview-sub:last-child {
+  padding: 5px 48px;
+}
+
+/* home connectors */
+
+.home-connectors-container {
+  background-color: white;
+  box-shadow: 0px 0px 2px #2b2b2b;
+  padding: 0.5rem 0rem;
+  padding-bottom: 0px;
+  font-size: 0.8rem;
+}
+.home-connectors-container div {
+  padding: 0.5rem 1rem;
+}
+
+/* home connectors card  */
+
+
+
+.connection-card-container {
+  border-bottom: 1px solid rgba(61, 61, 61, 0.356);
+  padding: 0.2rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.connection-card-subcontainer:first-child {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 60%;
+}
+.connection-card-subcontainer:last-child {
+  width: 25%;
+}
+.connection-card-subcontainer:last-child button {
+  background-color: white;
+  border: 2px solid cornflowerblue;
+  color: cornflowerblue;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+}
+.connection-card-subcontainer:last-child button:hover {
+  color: #0080ff;
+  border-color: #0080ff;
+}
+.connection-card-image {
+  height: 3rem;
+  width: 3rem;
+  background-color: lightslategray;
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  display: inline-block;
+}
+.connection-card-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* account peak */
+
+.account-peak-container {
+  background-color: white;
+  box-shadow: 0px 0px 2px #2b2b2b;
+  padding-bottom: 0.5rem;
+}
+.account-peak-container hr {
+  margin: 0.8rem 0px;
+}
+.account-peak-cover {
+  background-image: url("src/assets/coverimage.jpg");
+  background-size: cover;
+  height: 8rem;
+  margin-bottom: 4rem;
+}
+.account-peak-image {
+  background-image: url("src/assets/accountimage.jpg");
+  background-size: cover;
+  position: relative;
+  margin: auto;
+  top: 75%;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.account-peak-title {
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.account-peak-intro {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.5rem 1.5rem;
+}
+.account-peak-profile-viewers, .account-peak-post-viewers {
+  font-size: 0.9rem;
+  display: flex;
+  padding: 0.2rem 2rem;
+  justify-content: space-between;
+}
+
+
+
