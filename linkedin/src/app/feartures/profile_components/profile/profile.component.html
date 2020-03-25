@@ -13,9 +13,9 @@
       </div>
 
       <div class="ad">
-        <p>{{profile.profileIntro.firstName}}, unlock your full potential with LinkedIn Premium</p>
+        <p>{{profileService.profiles[currentIndex].profileIntro.firstName}}, unlock your full potential with LinkedIn Premium</p>
         <div id="ad-images">
-          <img src={{profile.profileIntro.profilePhoto}} id="ad-img">
+          <img src={{profileService.profiles[currentIndex].profileIntro.profilePhoto}} id="ad-img">
           <i class="fas fa-key"></i>
         </div>
         <h5>See ho's viewed your profile in the last 90 days</h5>
@@ -33,48 +33,60 @@
         (courseMood)="setMoodCourseIndex($event)"
         (projectMood)="setMoodProjectIndex($event)"
         (languageMood)="setMoodLanguageIndex($event)"
+        [currentIndex]="this.currentIndex"
       >
       </app-intro-section>
 
       <!-- About section -->
-      <app-about-section *ngIf="profileService.about.about"></app-about-section>
+      <app-about-section 
+        *ngIf="profileService.profiles[currentIndex].profileAbout.about"
+        [currentIndex]="currentIndex"
+      >
+      </app-about-section>
 
       <!-- Dashboard section -->
-      <app-dashboard-section></app-dashboard-section>
+      <app-dashboard-section [currentIndex]="currentIndex"></app-dashboard-section>
 
       <!-- background section -->
       <app-background-section 
         (workMood)="setMoodWorkIndex($event)"
         (educationMood)="setMoodEducationIndex($event)"
         (volunteerMood)="setMoodVolunteerIndex($event)"
-        *ngIf="profile.profileBackground">
+        *ngIf="profileService.profiles[currentIndex].profileBackground"
+        [currentIndex]="currentIndex"
+      >
       </app-background-section>
 
       <!-- Skills Section -->
-      <app-skills-section *ngIf="profile.profileSkills"></app-skills-section>
+      <app-skills-section 
+        *ngIf="profileService.profiles[currentIndex].profileSkills"
+        [currentIndex]="currentIndex"
+      >
+      </app-skills-section>
 
       <!-- Accomplishments -->
       <app-accomplishments-section 
-        *ngIf="profile.profileAccomplishments"
+        *ngIf="profileService.profiles[currentIndex].profileAccomplishments"
         (courseMood)="setMoodCourseIndex($event)"
         (projectMood)="setMoodProjectIndex($event)"
         (languageMood)="setMoodVolunteerIndex($event)"
+        [currentIndex]="currentIndex"
       >
       </app-accomplishments-section>
 
       <!-- The Interests section displays the companies that a user following -->
-      <app-interests *ngIf="profile.profileInterests" [profileIterests]="profile.profileInterests"></app-interests>
+      <app-interests *ngIf="profileService.profiles[currentIndex].profileInterests" [profileIterests]="profileService.profiles[currentIndex].profileInterests"></app-interests>
       
       <!-- Edit Skill -->
-      <div [ngClass]="{'modal': true, 'edit-skills': true, 'show-modal': profileService.openEditSkills}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+      <div [ngClass]="{'modal': true, 'edit-skills': true, 'show-modal': profileService.profiles[currentIndex].openEditSkills}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h2 class="modal-title">Reorder Skills & Endorsements ({{profileService.skills.length}})
+              <h2 class="modal-title">Reorder Skills & Endorsements ({{profileService.profiles[currentIndex].profileSkills.length}})
               </h2>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span (click)="profileService.openEditSkills=!profileService.openEditSkills">&times;</span>
+                <span (click)="profileService.profiles[currentIndex].openEditSkills=!profileService.profiles[currentIndex].openEditSkills">&times;</span>
               </button>
             </div>
             <div class="modal-body">
@@ -107,15 +119,15 @@
   </div>
 
   <!--Form Modals-->
-  <app-intro-form></app-intro-form>
-  <app-contact-info-form></app-contact-info-form>
-  <app-about-form></app-about-form>
-  <app-work-experience-form [moodIndex]="moodWorkIndex"></app-work-experience-form>
-  <app-education-form [moodIndex]="moodEducationIndex"></app-education-form>
-  <app-volunteer-experience-form [moodIndex]="moodVolunteerIndex"></app-volunteer-experience-form>
-  <app-skill-form></app-skill-form>
-  <app-course-form [moodIndex]="moodCourseIndex"></app-course-form>
-  <app-project-form [moodIndex]="moodProjectIndex"></app-project-form>
-  <app-language-form [moodIndex]="moodLanguageIndex"></app-language-form>
+  <app-intro-form [currentIndex]="currentIndex"></app-intro-form>
+  <app-contact-info-form [currentIndex]="currentIndex"></app-contact-info-form>
+  <app-about-form [currentIndex]="currentIndex"></app-about-form>
+  <app-work-experience-form [moodIndex]="moodWorkIndex" [currentIndex]="currentIndex"></app-work-experience-form>
+  <app-education-form [moodIndex]="moodEducationIndex" [currentIndex]="currentIndex"></app-education-form>
+  <app-volunteer-experience-form [moodIndex]="moodVolunteerIndex" [currentIndex]="currentIndex"></app-volunteer-experience-form>
+  <app-skill-form [currentIndex]="currentIndex"></app-skill-form>
+  <app-course-form [moodIndex]="moodCourseIndex" [currentIndex]="currentIndex"></app-course-form>
+  <app-project-form [moodIndex]="moodProjectIndex" [currentIndex]="currentIndex"></app-project-form>
+  <app-language-form [moodIndex]="moodLanguageIndex" [currentIndex]="currentIndex"></app-language-form>
 
 </div>

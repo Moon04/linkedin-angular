@@ -9,6 +9,8 @@ import { ProfileService } from '../../profile.service';
 })
 export class IntroFormComponent implements OnInit {
 
+  @Input() currentIndex;
+
   introForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -23,25 +25,25 @@ export class IntroFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.introForm.patchValue({
-      firstName: this.profileService.intro.firstName,
-      lastName: this.profileService.intro.lastName,
-      headline: this.profileService.intro.headline,
-      education: this.profileService.intro.education.title,
-      country: this.profileService.intro.country,
-      location: this.profileService.intro.location,
-      industry: this.profileService.intro.industry
+      firstName: this.profileService.profiles[this.currentIndex].profileIntro.firstName,
+      lastName: this.profileService.profiles[this.currentIndex].profileIntro.lastName,
+      headline: this.profileService.profiles[this.currentIndex].profileIntro.recentJob,
+      education: this.profileService.profiles[this.currentIndex].profileIntro.education.title,
+      country: this.profileService.profiles[this.currentIndex].profileIntro.country,
+      location: this.profileService.profiles[this.currentIndex].profileIntro.location,
+      industry: this.profileService.profiles[this.currentIndex].profileIntro.industry
     });
   }
 
   saveIntro(){
-    this.profileService.intro.firstName = this.introForm.value.firstName;
-    this.profileService.intro.lastName = this.introForm.value.lastName;
-    this.profileService.intro.headline = this.introForm.value.headline;
-    this.profileService.intro.education.title = this.introForm.value.education;
-    this.profileService.intro.country = this.introForm.value.country;
-    this.profileService.intro.location = this.introForm.value.location;
-    this.profileService.intro.industry = this.introForm.value.industry;
-    this.profileService.openIntroForm = !this.profileService.openIntroForm;
+    this.profileService.profiles[this.currentIndex].profileIntro.firstName = this.introForm.value.firstName;
+    this.profileService.profiles[this.currentIndex].profileIntro.lastName = this.introForm.value.lastName;
+    this.profileService.profiles[this.currentIndex].profileIntro.recentJob = this.introForm.value.headline;
+    this.profileService.profiles[this.currentIndex].profileIntro.education.title = this.introForm.value.education;
+    this.profileService.profiles[this.currentIndex].profileIntro.country = this.introForm.value.country;
+    this.profileService.profiles[this.currentIndex].profileIntro.location = this.introForm.value.location;
+    this.profileService.profiles[this.currentIndex].profileIntro.industry = this.introForm.value.industry;
+    this.profileService.profiles[this.currentIndex].openIntroForm = !this.profileService.profiles[this.currentIndex].openIntroForm;
   }
 
 }

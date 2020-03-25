@@ -9,6 +9,8 @@ import { ProfileService } from '../../profile.service';
 })
 export class ContactInfoFormComponent implements OnInit {
 
+  @Input() currentIndex;
+
   contactInfoForm = new FormGroup({
     phone: new FormControl(''),
     address: new FormControl(''),
@@ -19,17 +21,17 @@ export class ContactInfoFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.contactInfoForm.patchValue({
-      phone: this.profileService.intro.phone,
-      address: this.profileService.intro.address,
-      birthday: this.profileService.intro.birthday
+      phone: this.profileService.profiles[this.currentIndex].profileIntro.phone,
+      address: this.profileService.profiles[this.currentIndex].profileIntro.address,
+      birthday: this.profileService.profiles[this.currentIndex].profileIntro.birthday
     })
   }
 
   saveContactInfo(){
-    this.profileService.intro.phone = this.contactInfoForm.value.phone ;
-    this.profileService.intro.address = this.contactInfoForm.value.address ;
-    this.profileService.intro.birthday = this.contactInfoForm.value.birthday ;
-    this.profileService.openContactInfoForm = !this.profileService.openContactInfoForm;
+    this.profileService.profiles[this.currentIndex].profileIntro.phone = this.contactInfoForm.value.phone ;
+    this.profileService.profiles[this.currentIndex].profileIntro.address = this.contactInfoForm.value.address ;
+    this.profileService.profiles[this.currentIndex].profileIntro.birthday = this.contactInfoForm.value.birthday ;
+    this.profileService.profiles[this.currentIndex].openContactInfoForm = !this.profileService.profiles[this.currentIndex].openContactInfoForm;
   }
 
 }

@@ -4,14 +4,14 @@
       <div class="col-md-12">
         <h2>Skills & Endorsements</h2>
         <a class="btn btn--edit btn--inline float-md-right pointer" data-toggle="modal" 
-          data-target=".edit-skills" (click)="profileService.openEditSkills=!profileService.openEditSkills">
+          data-target=".edit-skills" (click)="profileService.profiles[currentIndex].openEditSkills=!profileService.profiles[currentIndex].openEditSkills">
           <i class="fas fa-pencil-alt"></i>
         </a>
         <a class="btn btn--add btn--inline float-md-right" data-toggle="modal" data-target="#SkillsModal"
-          (click)="profileService.openSkillForm=!profileService.openSkillForm">
+          (click)="profileService.profiles[currentIndex].openSkillForm=!profileService.profiles[currentIndex].openSkillForm">
           Add a New Skill
         </a>
-        <div class="skill" *ngFor="let skill of profileService.skills">
+        <div class="skill" *ngFor="let skill of profileService.profiles[currentIndex].profileSkills">
           <div class="skill__title">
             <h4 class="skill__name">{{skill.skillTitle}} </h4>
             <span class="skill__no-of-endorsments" *ngIf="skill.endorsements.length!==0">.{{skill.endorsements.length}}</span>

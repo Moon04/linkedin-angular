@@ -14,6 +14,7 @@ export class CourseFormComponent implements OnInit {
     associatedWith: new FormControl('')
   });
 
+  @Input() currentIndex;
   @Input() moodIndex: number;
   mood: string = "Add";
 
@@ -27,8 +28,8 @@ export class CourseFormComponent implements OnInit {
       const i = this.moodIndex;
       this.mood = "Edit"
       this.courseForm.patchValue({
-        courseName: this.profileService.accomplishments.courses[i].courseName,
-        associatedWith: this.profileService.accomplishments.courses[i].associatedWith
+        courseName: this.profileService.profiles[this.currentIndex].profileAccomplishments.courses[i].courseName,
+        associatedWith: this.profileService.profiles[this.currentIndex].profileAccomplishments.courses[i].associatedWith
       });
     }
 
@@ -42,11 +43,11 @@ export class CourseFormComponent implements OnInit {
   }
 
   saveCourse(){
-    this.profileService.accomplishments.courses.push({
+    this.profileService.profiles[this.currentIndex].profileAccomplishments.courses.push({
       courseName: this.courseForm.value.courseName ,
       associatedWith: this.profileService.organizations[this.courseForm.value.associatedWith ]
     });
-    this.profileService.openCourseForm = !this.profileService.openCourseForm;
+    this.profileService.profiles[this.currentIndex].openCourseForm = !this.profileService.profiles[this.currentIndex].openCourseForm;
   }
 
 }

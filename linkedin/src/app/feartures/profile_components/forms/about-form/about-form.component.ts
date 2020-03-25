@@ -9,6 +9,8 @@ import { ProfileService } from '../../profile.service';
 })
 export class AboutFormComponent implements OnInit {
 
+  @Input() currentIndex;
+
   aboutForm = new FormGroup({
     about: new FormControl('')
   });
@@ -18,13 +20,13 @@ export class AboutFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.aboutForm.patchValue({
-      about: this.profileService.about.about
+      about: this.profileService.profiles[this.currentIndex].profileAbout.about
     });
   }
 
   saveAbout(){
-    this.profileService.about = this.aboutForm.value.about;
-    this.profileService.openAboutForm = ! this.profileService.openAboutForm;
+    this.profileService.profiles[this.currentIndex].profileAbout = this.aboutForm.value.about;
+    this.profileService.profiles[this.currentIndex].openAboutForm = ! this.profileService.profiles[this.currentIndex].openAboutForm;
   }
 
 }

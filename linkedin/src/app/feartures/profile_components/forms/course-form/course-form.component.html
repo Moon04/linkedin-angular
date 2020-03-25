@@ -1,11 +1,11 @@
-<div [ngClass]="{'modal': true, 'show-modal': this.profileService.openCourseForm }" id="FullModal" 
+<div [ngClass]="{'modal': true, 'show-modal': this.profileService.profiles[currentIndex].openCourseForm }" id="FullModal" 
   tabindex="-1" role="dialog" aria-labelledby="FullModalLabel" aria-modal="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content row">
       <div class="modal-header">
         <h5 class="modal-title" id="FullModalLabel">{{mood}} Course</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span (click)="this.profileService.openCourseForm=!this.profileService.openCourseForm">&times;</span>
+          <span (click)="this.profileService.profiles[currentIndex].openCourseForm=!this.profileService.profiles[currentIndex].openCourseForm">&times;</span>
         </button>
       </div>
       <div class="modal-body">

@@ -18,6 +18,7 @@ export class VolunteerExperienceFormComponent implements OnInit {
     description: new FormControl('')
   });
 
+  @Input() currentIndex;
   @Input() moodIndex: number;
   mood: string = "Add";
 
@@ -30,12 +31,12 @@ export class VolunteerExperienceFormComponent implements OnInit {
       const i = this.moodIndex;
       this.mood = "Edit"
       this.volunteerExperienceForm.patchValue({
-        organization: this.profileService.background.volunteerExperience[i].organization,
-        role: this.profileService.background.volunteerExperience[i].role,
-        cause: this.profileService.background.volunteerExperience[i].cause,
-        startDate: this.profileService.background.volunteerExperience[i].startDate,
-        endDate: this.profileService.background.volunteerExperience[i].endDate,
-        description: this.profileService.background.volunteerExperience[i].description
+        organization: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].organization,
+        role: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].role,
+        cause: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].cause,
+        startDate: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].startDate,
+        endDate: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].endDate,
+        description: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].description
       });
     }
 
@@ -53,7 +54,7 @@ export class VolunteerExperienceFormComponent implements OnInit {
   }
 
   saveVolunteerExperience(){
-    this.profileService.background.volunteerExperience.push({
+    this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience.push({
       organization: this.profileService.organizations[this.volunteerExperienceForm.value.organization],
       role: this.volunteerExperienceForm.value.role,
       cause: this.volunteerExperienceForm.value.cause,
@@ -61,6 +62,6 @@ export class VolunteerExperienceFormComponent implements OnInit {
       endDate: this.volunteerExperienceForm.value.endDate,
       description: this.volunteerExperienceForm.value.description
     });
-    this.profileService.openVolunteerExperienceForm = !this.profileService.openVolunteerExperienceForm;
+    this.profileService.profiles[this.currentIndex].openVolunteerExperienceForm = !this.profileService.profiles[this.currentIndex].openVolunteerExperienceForm;
   }
 }

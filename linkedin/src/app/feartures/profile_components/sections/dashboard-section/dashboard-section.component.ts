@@ -9,6 +9,8 @@ import { ProfileService } from './../../profile.service';
 })
 export class DashboardSectionComponent implements OnInit {
 
+  @Input() currentIndex;
+
   constructor(public profileService:ProfileService) { }
 
   ngOnInit(): void { }

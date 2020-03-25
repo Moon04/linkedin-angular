@@ -20,16 +20,16 @@
         
 
         <!--courses-->
-        <div class="accomplishment" *ngIf="profileService.accomplishments.courses.length!==0">
+        <div class="accomplishment" *ngIf="profileService.profiles[currentIndex].profileAccomplishments.courses.length!==0">
           <div class="accomplishment__section accomplishment__section1">
-            <p class="accomplishment__number">{{profileService.accomplishments.courses.length}}</p>
+            <p class="accomplishment__number">{{profileService.profiles[currentIndex].profileAccomplishments.courses.length}}</p>
           </div>
           <div class="accomplishment__section accomplishment__section2 mr-3 pointer">
             <h4 class="accomplishment__type">
               Courses
             </h4>
             <p class="accomplishment__description">
-              <span *ngFor="let course of profileService.accomplishments.courses">
+              <span *ngFor="let course of profileService.profiles[currentIndex].profileAccomplishments.courses">
                 {{course.courseName}} . 
               </span>
             </p>
@@ -41,16 +41,16 @@
         </div>
 
         <!--projects-->
-        <div class="accomplishment" *ngIf="profileService.accomplishments.projects.length!==0">
+        <div class="accomplishment" *ngIf="profileService.profiles[currentIndex].profileAccomplishments.projects.length!==0">
           <div class="accomplishment__section accomplishment__section1">
-            <p class="accomplishment__number">{{profileService.accomplishments.projects.length}}</p>
+            <p class="accomplishment__number">{{profileService.profiles[currentIndex].profileAccomplishments.projects.length}}</p>
           </div>
           <div class="accomplishment__section accomplishment__section2 mr-3 pointer">
             <h4 class="accomplishment__type">
               Projects
             </h4>
             <p class="accomplishment__description">
-              <span *ngFor="let project of profileService.accomplishments.projects">
+              <span *ngFor="let project of profileService.profiles[currentIndex].profileAccomplishments.projects">
                 {{project.projectName}} . 
               </span>
             </p>
@@ -62,16 +62,16 @@
         </div>
 
         <!--languages-->
-        <div class="accomplishment" *ngIf="profileService.accomplishments.languages.length!==0">
+        <div class="accomplishment" *ngIf="profileService.profiles[currentIndex].profileAccomplishments.languages.length!==0">
           <div class="accomplishment__section accomplishment__section1">
-            <p class="accomplishment__number">{{profileService.accomplishments.languages.length}}</p>
+            <p class="accomplishment__number">{{profileService.profiles[currentIndex].profileAccomplishments.languages.length}}</p>
           </div>
           <div class="accomplishment__section accomplishment__section2 mr-3 pointer">
             <h4 class="accomplishment__type">
               Languages
             </h4>
             <p class="accomplishment__description">
-              <span *ngFor="let language of profileService.accomplishments.languages">
+              <span *ngFor="let language of profileService.profiles[currentIndex].profileAccomplishments.languages">
                 {{language.language}} . 
               </span>
             </p>

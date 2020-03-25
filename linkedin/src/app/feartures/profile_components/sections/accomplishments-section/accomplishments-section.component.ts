@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ProfileService } from './../../profile.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { ProfileService } from './../../profile.service';
 export class AccomplishmentsSectionComponent implements OnInit {
 
   dropdownStatus: boolean = false;
+
+  @Input() currentIndex;
   
   @Output() courseMood = new EventEmitter<number>();
   @Output() projectMood = new EventEmitter<number>();

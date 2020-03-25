@@ -60,6 +60,7 @@ import { ProjectFormComponent } from "./feartures/profile_components/forms/proje
 import { LanguageFormComponent } from "./feartures/profile_components/forms/language-form/language-form.component";
 import { from } from "rxjs";
 import { ContactInfoFormComponent } from "./feartures/profile_components/forms/contact-info-form/contact-info-form.component";
+import { ConnectionComponent } from './features/connection-profile/connection/connection.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +109,8 @@ import { ContactInfoFormComponent } from "./feartures/profile_components/forms/c
     CourseFormComponent,
     ProjectFormComponent,
     LanguageFormComponent,
-    ContactInfoFormComponent
+    ContactInfoFormComponent,
+    ConnectionComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -126,6 +128,7 @@ import { ContactInfoFormComponent } from "./feartures/profile_components/forms/c
       { path: "register4", component: Regform4Component },
       { path: "register5", component: Regform5Component },
       { path: "home/myprofile", component: ProfileComponent },
+      { path: "home/connection", component: ConnectionComponent },
       { path: "home", component: HomePageComponent },
       { path: "**", component: ErrorpageComponent }
     ])

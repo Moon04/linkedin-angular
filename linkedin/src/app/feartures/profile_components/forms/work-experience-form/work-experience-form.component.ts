@@ -20,6 +20,7 @@ export class WorkExperienceFormComponent implements OnInit {
     description: new FormControl('')
   });
 
+  @Input() currentIndex;
   @Input() moodIndex: number;
   mood: string = "Add";
 
@@ -33,14 +34,14 @@ export class WorkExperienceFormComponent implements OnInit {
       const i = this.moodIndex;
       this.mood = "Edit"
       this.workExperienceForm.patchValue({
-        title: this.profileService.background.workExperience[i].title,
-        employmentType: this.profileService.background.workExperience[i].employmentType,
-        company: this.profileService.background.workExperience[i].company,
-        location: this.profileService.background.workExperience[i].location,
-        startDate: this.profileService.background.workExperience[i].startDate,
-        endDate: this.profileService.background.workExperience[i].endDate,
-        headline: this.profileService.background.workExperience[i].headline,
-        description: this.profileService.background.workExperience[i].description
+        title: this.profileService.profiles[this.currentIndex].profileBackground.workExperience[i].title,
+        employmentType: this.profileService.profiles[this.currentIndex].profileBackground.workExperience[i].employmentType,
+        company: this.profileService.profiles[this.currentIndex].profileBackground.workExperience[i].company,
+        location: this.profileService.profiles[this.currentIndex].profileBackground.workExperience[i].location,
+        startDate: this.profileService.profiles[this.currentIndex].profileBackground.workExperience[i].startDate,
+        endDate: this.profileService.profiles[this.currentIndex].profileBackground.workExperience[i].endDate,
+        headline: this.profileService.profiles[this.currentIndex].profileBackground.workExperience[i].headline,
+        description: this.profileService.profiles[this.currentIndex].profileBackground.workExperience[i].description
       });
     }
 
@@ -60,7 +61,7 @@ export class WorkExperienceFormComponent implements OnInit {
   }
 
   saveWorkExperience(){
-    this.profileService.background.workExperience.push({
+    this.profileService.profiles[this.currentIndex].profileBackground.workExperience.push({
       title: this.workExperienceForm.value.title,
       employmentType: this.workExperienceForm.value.employmentType,
       company: this.profileService.organizations[this.workExperienceForm.value.company],
@@ -70,7 +71,7 @@ export class WorkExperienceFormComponent implements OnInit {
       headline: this.workExperienceForm.value.headline,
       description: this.workExperienceForm.value.description
     });
-    this.profileService.openWorkExperienceForm = !this.profileService.openWorkExperienceForm;
+    this.profileService.profiles[this.currentIndex].openWorkExperienceForm = !this.profileService.profiles[this.currentIndex].openWorkExperienceForm;
   }
 
 }

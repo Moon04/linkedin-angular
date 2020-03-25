@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import { UsersService } from 'src/app/_services/users.service';
+// import { UsersService } from 'src/app/_services/users.service';
 import { Error } from 'src/app/_services/errors';
+import { ProfileService } from 'src/app/feartures/profile_components/profile.service';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    public userService: UsersService,
+    public profilesService: ProfileService,
+    // public userService: UsersService,
     public myerrors: Error,
   ) { }
 
@@ -33,10 +35,13 @@ export class LoginComponent implements OnInit {
     const { email, password } = form.value;
 
     let auth = false;
-    this.userService.User.forEach(e => {
+    let currentUser : number;
+    this.profilesService.profiles.forEach(e => {
+    // this.userService.User.forEach(e => {
       // console.log(e.email, e.password)
-      if (e.email == email && e.password == password) {
+      if (e.profileIntro.email == email && e.profileIntro.password == password) {
         auth = true;
+       currentUser = e.id;
       }
     });
 
@@ -45,6 +50,8 @@ export class LoginComponent implements OnInit {
     }
     else {
       console.log("Authorized");
+      console.log(currentUser);
+      localStorage.setItem("currentUser", JSON.stringify(currentUser)) ;
       this.router.navigate(['/home']);
     }
   }

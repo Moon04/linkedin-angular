@@ -18,6 +18,7 @@ export class ProjectFormComponent implements OnInit {
     description: new FormControl('')
   });
 
+  @Input() currentIndex;
   @Input() moodIndex: number;
   mood: string = "Add";
 
@@ -30,12 +31,12 @@ export class ProjectFormComponent implements OnInit {
       const i = this.moodIndex;
       this.mood = "Edit"
       this.projectForm.patchValue({
-        projectName: this.profileService.accomplishments.projects[i].projectName,
-        startDate: this.profileService.accomplishments.projects[i].startDate,
-        endDate: this.profileService.accomplishments.projects[i].endDate,
-        associatedWith: this.profileService.accomplishments.projects[i].associatedWith,
-        projectURL: this.profileService.accomplishments.projects[i].projectURL,
-        description: this.profileService.accomplishments.projects[i].description
+        projectName: this.profileService.profiles[this.currentIndex].profileAccomplishments.projects[i].projectName,
+        startDate: this.profileService.profiles[this.currentIndex].profileAccomplishments.projects[i].startDate,
+        endDate: this.profileService.profiles[this.currentIndex].profileAccomplishments.projects[i].endDate,
+        associatedWith: this.profileService.profiles[this.currentIndex].profileAccomplishments.projects[i].associatedWith,
+        projectURL: this.profileService.profiles[this.currentIndex].profileAccomplishments.projects[i].projectURL,
+        description: this.profileService.profiles[this.currentIndex].profileAccomplishments.projects[i].description
       });
     }
 
@@ -53,7 +54,7 @@ export class ProjectFormComponent implements OnInit {
   }
 
   saveProject(){
-    this.profileService.accomplishments.projects.push({
+    this.profileService.profiles[this.currentIndex].profileAccomplishments.projects.push({
       projectName: this.projectForm.value.projectName,
       startDate: this.projectForm.value.startDate,
       endDate: this.projectForm.value.endDate,
@@ -61,7 +62,7 @@ export class ProjectFormComponent implements OnInit {
       projectURL: this.projectForm.value.projectURL,
       description: this.projectForm.value.description
     });
-    this.profileService.openProjectForm = !this.profileService.openProjectForm;
+    this.profileService.profiles[this.currentIndex].openProjectForm = !this.profileService.profiles[this.currentIndex].openProjectForm;
   }
 
 }

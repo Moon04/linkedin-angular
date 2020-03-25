@@ -20,6 +20,8 @@ export class EducationFormComponent implements OnInit {
     description: new FormControl('')
   });
 
+
+  @Input() currentIndex;
   @Input() moodIndex: number;
   mood: string = "Add";
 
@@ -37,14 +39,14 @@ export class EducationFormComponent implements OnInit {
       const i = this.moodIndex;
       this.mood = "Edit"
       this.educationForm.patchValue({
-        school: this.profileService.background.education[i].school,
-        degree: this.profileService.background.education[i].degree,
-        fieldOfStudy: this.profileService.background.education[i].fieldOfStudy,
-        startYear: this.profileService.background.education[i].startYear,
-        endYear: this.profileService.background.education[i].endYear,
-        grade: this.profileService.background.education[i].grade,
-        activities: this.profileService.background.education[i].activities,
-        description: this.profileService.background.education[i].description 
+        school: this.profileService.profiles[this.currentIndex].profileBackground.education[i].school,
+        degree: this.profileService.profiles[this.currentIndex].profileBackground.education[i].degree,
+        fieldOfStudy: this.profileService.profiles[this.currentIndex].profileBackground.education[i].fieldOfStudy,
+        startYear: this.profileService.profiles[this.currentIndex].profileBackground.education[i].startYear,
+        endYear: this.profileService.profiles[this.currentIndex].profileBackground.education[i].endYear,
+        grade: this.profileService.profiles[this.currentIndex].profileBackground.education[i].grade,
+        activities: this.profileService.profiles[this.currentIndex].profileBackground.education[i].activities,
+        description: this.profileService.profiles[this.currentIndex].profileBackground.education[i].description 
       });
     }
 
@@ -64,7 +66,7 @@ export class EducationFormComponent implements OnInit {
   }
 
   saveEducation(){
-    this.profileService.background.education.push({
+    this.profileService.profiles[this.currentIndex].profileBackground.education.push({
       school: this.profileService.organizations[this.educationForm.value.school],
       degree: this.educationForm.value.degree,
       fieldOfStudy: this.educationForm.value.fieldOfStudy,
@@ -74,6 +76,6 @@ export class EducationFormComponent implements OnInit {
       activities: this.educationForm.value.activities,
       description: this.educationForm.value.description
     });
-    this.profileService.openEducationForm = !this.profileService.openEducationForm;
+    this.profileService.profiles[this.currentIndex].openEducationForm = !this.profileService.profiles[this.currentIndex].openEducationForm;
   }
 }

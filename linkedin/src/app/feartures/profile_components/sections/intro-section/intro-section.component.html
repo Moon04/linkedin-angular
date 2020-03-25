@@ -6,7 +6,7 @@
       <div class="col-sm-12 profile-imgs">
         <!--profile img -->
         <div class="position-absolute profile-img">
-          <img src={{profileService.intro.profilePhoto}} class="rounded-circle" id="profile-photo">
+          <img src={{profileService.profiles[currentIndex].profileIntro.profilePhoto}} class="rounded-circle" id="profile-photo">
         </div>
       </div>
       <!-- down div -->
@@ -14,7 +14,7 @@
         <!-- upper section -->
         <div class="row pt-sm-3 pb-sm-3">
           <div class="col-sm-6 offset-6 dropdown">
-            <div class="d-flex justify-content-end align-items-center edit-profile">
+            <div class="d-flex justify-content-end align-items-center edit-profile" style="margin-left: 10%;">
               <div class="p-2">
                 <a class="dropdown-toggle btn-primary btn-lg add-section" id="dropdownMenu1" (click)="dropdownStatus=!dropdownStatus">
                   Add Profile Section
@@ -46,7 +46,7 @@
                           </div>
                           <div>
                             <p class="font-weight-normal" style="font-size: 1.4rem;">
-                              {{profileService.intro.firstName}}, your Intro is looking good! Check out other sections you can add to your profile
+                              {{profileService.profiles[currentIndex].profileIntro.firstName}}, your Intro is looking good! Check out other sections you can add to your profile
                             </p>
                           </div>
                         </div>
@@ -67,23 +67,23 @@
                           <i class="fas fa-chevron-down "></i>
                         </div>
                       </div>
-                      <div id="collapseTwo" [ngClass]="{'collapse': true, 'show': taps[1]}" aria-labelledby="headingTwo"
+                      <div id="collapseTwo" [ngClass]="{'collapse': true, 'show': taps[currentIndex]}" aria-labelledby="headingTwo"
                         data-parent="#accordionExample">
-                        <div class="card-body" *ngIf="profileService.about.about">
+                        <div class="card-body" *ngIf="profileService.profiles[currentIndex].profileAbout.about">
                           <div style=" display: flex; align-items: center; font-size: 2rem;">
                             <div class="w-2">
                               <i class="fas fa-check"></i>
                             </div>
                             <div>
                               <p class="font-weight-normal" style="font-size: 1.4rem;">
-                                Looking good, {{profileService.intro.firstName}}.
+                                Looking good, {{profileService.profiles[currentIndex].profileIntro.firstName}}.
                               </p>
                               <p style="font-size: 1.4rem;">
                                 This section is complete.</p>
                             </div>
                           </div>
                         </div>
-                        <div class="card-body" *ngIf="!profileService.about.about">
+                        <div class="card-body" *ngIf="!profileService.profiles[currentIndex].profileAbout.about">
                           <a class="work text-reset" href="#">
                             <div class="d-flex m-auto p-2">
                               <div class="p-2 w-7" style="display: flex; align-items: center; ">
@@ -94,7 +94,7 @@
                                 </div>
                               </div>
                               <div class="p-2 w-3" >
-                                <i class="far fa-plus-square m-80" (click)="profileService.openAboutForm=!profileService.openAboutForm"></i>
+                                <i class="far fa-plus-square m-80" (click)="profileService.profiles[currentIndex].openAboutForm=!profileService.profiles[currentIndex].openAboutForm"></i>
                               </div>
                             </div>
                           </a>
@@ -126,11 +126,11 @@
                                 <div class="d-block">
                                   <p><i class="fas fa-briefcase" style="margin-right: 1rem;"></i> Work experience</p>
                                   <p class=" font-weight-light" style="margin-left: 20%; width: 100%;"
-                                    *ngIf="profileService.background.workExperience.length!==0">
-                                    {{profileService.background.workExperience.length}} positions on your profile
+                                    *ngIf="profileService.profiles[currentIndex].profileBackground.workExperience.length!==0">
+                                    {{profileService.profiles[currentIndex].profileBackground.workExperience.length}} positions on your profile
                                   </p>
                                   <p class=" font-weight-light" style="margin-left: 20%; width: 100%;"
-                                    *ngIf="profileService.background.workExperience.length===0">
+                                    *ngIf="profileService.profiles[currentIndex].profileBackground.workExperience.length===0">
                                     List your work history including any contracts ot internships
                                   </p>
                                 </div>
@@ -148,11 +148,11 @@
                                 <div class="d-block">
                                   <p><i class="fas fa-university" style="margin-right: 1rem;"></i> Education</p>
                                   <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
-                                    *ngIf="profileService.background.education.length!==0">
-                                    {{profileService.background.education.length}} schools in your profile
+                                    *ngIf="profileService.profiles[currentIndex].profileBackground.education.length!==0">
+                                    {{profileService.profiles[currentIndex].profileBackground.education.length}} schools in your profile
                                   </p>
                                   <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
-                                    *ngIf="profileService.background.education.length===0">
+                                    *ngIf="profileService.profiles[currentIndex].profileBackground.education.length===0">
                                     Get 11x more profile views by adding your school
                                   </p>
                                 </div>
@@ -170,11 +170,11 @@
                                 <div class="d-block">
                                   <p> <i class="far fa-heart" style="margin-right: 1rem;"></i> Volunteer experience</p>
                                   <p class="font-weight-light" style="margin-left: 20%; width: 100%;"
-                                    *ngIf="profileService.background.volunteerExperience.length!==0">
-                                    {{profileService.background.volunteerExperience.length}} volunteer experiences on your profile
+                                    *ngIf="profileService.profiles[currentIndex].profileBackground.volunteerExperience.length!==0">
+                                    {{profileService.profiles[currentIndex].profileBackground.volunteerExperience.length}} volunteer experiences on your profile
                                   </p>
                                   <p class="font-weight-light" style="margin-left: 20%; width: 100%;"
-                                    *ngIf="profileService.background.volunteerExperience.length===0">
+                                    *ngIf="profileService.profiles[currentIndex].profileBackground.volunteerExperience.length===0">
                                     Highlight your passions and how you like to give back
                                   </p>
                                 </div>
@@ -211,17 +211,17 @@
                                   <div class="d-block">
                                     <p> <i class="fas fa-medal" style="margin-right: 1rem;"></i> Skills</p>
                                     <p class=" font-weight-light" style="margin-left: 20%; width: 100%;" 
-                                      *ngIf="profileService.skills.length!==0">
-                                      {{profileService.skills.length}} skills on your profile
+                                      *ngIf="profileService.profiles[currentIndex].profileSkills.length!==0">
+                                      {{profileService.profiles[currentIndex].profileSkills.length}} skills on your profile
                                     </p>
                                     <p class=" font-weight-light" style="margin-left: 20%; width: 100%;" 
-                                      *ngIf="profileService.skills.length===0">
+                                      *ngIf="profileService.profiles[currentIndex].profileSkills.length===0">
                                       Showcase your strengths as a professional
                                     </p>
                                   </div>
                                 </div>
                                 <div class="p-2 w-3">
-                                  <i class="far fa-plus-square m-80" (click)="profileService.openSkillForm=!profileService.openSkillForm"></i>
+                                  <i class="far fa-plus-square m-80" (click)="profileService.profiles[currentIndex].openSkillForm=!profileService.profiles[currentIndex].openSkillForm"></i>
                                 </div>
                               </div>
                             </a>
@@ -253,11 +253,11 @@
                                 <div class="d-block">
                                   <p><i class="fas fa-book-open" style="margin-right: 1rem;"></i> Courses</p>
                                   <p class=" font-weight-lighter" style="margin-left: 20%; width: 100%;" 
-                                    *ngIf="profileService.accomplishments.courses.length!==0">
-                                    {{profileService.accomplishments.courses.length}} courses on your profile
+                                    *ngIf="profileService.profiles[currentIndex].profileAccomplishments.courses.length!==0">
+                                    {{profileService.profiles[currentIndex].profileAccomplishments.courses.length}} courses on your profile
                                   </p>
                                   <p class=" font-weight-lighter" style="margin-left: 20%; width: 100%;" 
-                                    *ngIf="profileService.accomplishments.courses.length===0">
+                                    *ngIf="profileService.profiles[currentIndex].profileAccomplishments.courses.length===0">
                                     List Coursework from your prior or continuing education
                                   </p>
                                 </div>
@@ -275,11 +275,11 @@
                                 <div class="d-block">
                                   <p><i class="fas fa-folder-minus" style="margin-right: 1rem;"></i> Projects</p>
                                   <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
-                                    *ngIf="profileService.accomplishments.projects.length!==0">
-                                    {{profileService.accomplishments.projects.length}} projects on your profile
+                                    *ngIf="profileService.profiles[currentIndex].profileAccomplishments.projects.length!==0">
+                                    {{profileService.profiles[currentIndex].profileAccomplishments.projects.length}} projects on your profile
                                   </p>
                                   <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
-                                  *ngIf="profileService.accomplishments.projects.length===0">
+                                  *ngIf="profileService.profiles[currentIndex].profileAccomplishments.projects.length===0">
                                     Add compelling projects to demonstrate your experience
                                   </p>
                                 </div>
@@ -297,11 +297,11 @@
                                 <div class="d-block">
                                   <p> <i class="fas fa-globe" style="margin-right: 1rem;"></i> Languages</p>
                                   <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
-                                    *ngIf="profileService.accomplishments.languages.length!==0">
-                                    {{profileService.accomplishments.languages.length}} languages on your profile
+                                    *ngIf="profileService.profiles[currentIndex].profileAccomplishments.languages.length!==0">
+                                    {{profileService.profiles[currentIndex].profileAccomplishments.languages.length}} languages on your profile
                                   </p>
                                   <p class="font-weight-lighter" style="margin-left: 20%; width: 100%;"
-                                    *ngIf="profileService.accomplishments.languages.length===0">
+                                    *ngIf="profileService.profiles[currentIndex].profileAccomplishments.languages.length===0">
                                     Show how you can be a fit for a job or overseas opportunity
                                   </p>
                                 </div>
@@ -329,7 +329,7 @@
                 </div>
               </div>
               <div class="p-2">
-                <a class="pointer" (click)="profileService.openIntroForm=!profileService.openIntroForm"><i class="fas fa-pencil-alt"></i></a>
+                <a class="pointer" (click)="profileService.profiles[currentIndex].openIntroForm=!profileService.profiles[currentIndex].openIntroForm"><i class="fas fa-pencil-alt"></i></a>
               </div>
             </div>
           </div>
@@ -339,17 +339,17 @@
           <div class="col-sm-6 user-info">
             <div class="p-sm-3">
               <div>
-                <h2 class="d-inline-block">{{profileService.intro.firstName + ' ' + profileService.intro.lastName}}</h2>
+                <h2 class="d-inline-block">{{profileService.profiles[currentIndex].profileIntro.firstName + ' ' + profileService.profiles[currentIndex].profileIntro.lastName}}</h2>
               </div>
               <div>
-                <h4 class="f-w">{{profileService.intro.headline}}</h4>
+                <h4 class="f-w">{{profileService.profiles[currentIndex].profileIntro.recentJob}}</h4>
               </div>
               <div class="d-flex">
-                <!-- <h4 class="f-w">{{profileService.intro.country}}</h4> back to add location -->
+                <!-- <h4 class="f-w">{{profileService.profiles[currentIndex].profileIntro.country}}</h4> back to add location -->
                 <ul class="info">
                   <!-- Button trigger modal -->
-                  <li id="country">{{profileService.intro.country}}</li>
-                  <li id="location" *ngIf="profileService.intro.location">, {{profileService.intro.location}}</li>
+                  <li id="country">{{profileService.profiles[currentIndex].profileIntro.country}}</li>
+                  <!-- <li id="location" *ngIf="profileService.profiles[currentIndex].profileIntro.location">, {{profileService.profiles[currentIndex].profileIntro.location}}</li> -->
                   <li id="connection"><a href="#" class="btn btn-link">{{getConnectionsCount()}} Connections</a></li> <!-- if then 500+ Connections-->
                   <li id="contact">
                     <a href="#"  type="button" class="btn btn-link" (click)="contactInfoStatus=!contactInfoStatus">Contact info</a>
@@ -360,8 +360,8 @@
           </div>
           <div class="col-sm-6 p-sm-3 experiences">
             <div class="d-flex justify-content-end align-items-center">
-              <div class="sm-img"><img class="img-fluid" src={{profileService.intro.education.logoURL}}> </div>
-              <div> <a href="#" class="btn btn-link btn-black">{{profileService.intro.education.title}}</a></div>
+              <div class="sm-img"><img class="img-fluid" src={{profileService.profiles[currentIndex].profileIntro.education.logoURL}}> </div>
+              <div> <a href="#" class="btn btn-link btn-black">{{profileService.profiles[currentIndex].profileIntro.education.title}}</a></div>
             </div>
           </div>
         </div>
@@ -375,7 +375,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{profileService.intro.firstName + ' ' + profileService.intro.lastName}}</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{profileService.profiles[currentIndex].profileIntro.firstName + ' ' + profileService.profiles[currentIndex].profileIntro.lastName}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span (click)="contactInfoStatus = !contactInfoStatus">&times;</span>
           </button>
@@ -384,7 +384,7 @@
           <div class="d-block p-2">
             <div class="d-flex justify-content-between">
               <h2>Contact Info</h2>
-              <a href="#" (click)="profileService.openContactInfoForm=!profileService.openContactInfoForm"><i class="fas fa-pencil-alt"></i></a>
+              <a href="#" (click)="profileService.profiles[currentIndex].openContactInfoForm=!profileService.profiles[currentIndex].openContactInfoForm"><i class="fas fa-pencil-alt"></i></a>
             </div>
             <div>
               <div class="d-flex p-2 ">
@@ -393,7 +393,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Your profile</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link">{{profileService.intro.firstName}}.{{profileService.intro.lastName}}@linkedin.com</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link">{{profileService.profiles[currentIndex].profileIntro.firstName}}.{{profileService.profiles[currentIndex].profileIntro.lastName}}@linkedin.com</a>
                 </div>
               </div>
             </div>
@@ -404,7 +404,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Phone</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.intro.phone">{{profileService.intro.phone}}</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.profiles[currentIndex].profileIntro.phone">{{profileService.profiles[currentIndex].profileIntro.phone}}</a>
                 </div>
               </div>
             </div>
@@ -415,7 +415,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Address</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.intro.address">{{profileService.intro.address}}</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.profiles[currentIndex].profileIntro.address">{{profileService.profiles[currentIndex].profileIntro.address}}</a>
                 </div>
               </div>
             </div>
@@ -426,7 +426,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Email</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.intro.email">{{profileService.intro.email}}</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.profiles[currentIndex].profileIntro.email">{{profileService.profiles[currentIndex].profileIntro.email}}</a>
                 </div>
               </div>
             </div>
@@ -437,7 +437,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Birthday</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.intro.birthday">{{profileService.intro.birthday}}</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.profiles[currentIndex].profileIntro.birthday">{{profileService.profiles[currentIndex].profileIntro.birthday}}</a>
                 </div>
               </div>
             </div>

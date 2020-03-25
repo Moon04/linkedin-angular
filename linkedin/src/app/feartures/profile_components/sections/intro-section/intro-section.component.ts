@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output, Input} from '@angular/core';
 import { ProfileService } from './../../profile.service';
 
 @Component({
@@ -11,6 +11,8 @@ export class IntroSectionComponent{
   dropdownStatus: boolean = false;
   moreStatus: boolean = false;
   contactInfoStatus: boolean = false;
+
+  @Input() currentIndex;
 
   @Output() workMood = new EventEmitter<number>();
   @Output() educationMood = new EventEmitter<number>();
@@ -37,7 +39,7 @@ export class IntroSectionComponent{
   constructor(public profileService: ProfileService) { }
 
   getConnectionsCount(){
-    return this.profileService.intro.connectionsCount > 500? '500+' : this.profileService.intro.connectionsCount;
+    return this.profileService.profiles[this.currentIndex].profileIntro.connectionsCount > 500? '500+' : this.profileService.profiles[this.currentIndex].profileIntro.connectionsCount;
   }
   
   onWorkForm(index: number){

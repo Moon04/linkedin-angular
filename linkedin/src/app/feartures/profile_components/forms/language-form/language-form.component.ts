@@ -14,6 +14,7 @@ export class LanguageFormComponent implements OnInit {
     proficiency: new FormControl('')
   });
 
+  @Input() currentIndex;
   @Input() moodIndex: number;
   mood: string = "Add";
 
@@ -26,8 +27,8 @@ export class LanguageFormComponent implements OnInit {
       const i = this.moodIndex;
       this.mood = "Edit"
       this.languageForm.patchValue({
-        language: this.profileService.accomplishments.languages[i].language,
-        proficiency: this.profileService.accomplishments.languages[i].proficiency
+        language: this.profileService.profiles[this.currentIndex].profileAccomplishments.languages[i].language,
+        proficiency: this.profileService.profiles[this.currentIndex].profileAccomplishments.languages[i].proficiency
       });
     }
 
@@ -41,10 +42,10 @@ export class LanguageFormComponent implements OnInit {
   }
 
   saveLanguage(){
-    this.profileService.accomplishments.languages.push({
+    this.profileService.profiles[this.currentIndex].profileAccomplishments.languages.push({
       language: this.languageForm.value.language,
       proficiency: this.languageForm.value.proficiency
     });
-    this.profileService.openLanguageForm = !this.profileService.openLanguageForm;
+    this.profileService.profiles[this.currentIndex].openLanguageForm = !this.profileService.profiles[this.currentIndex].openLanguageForm;
   }
 }

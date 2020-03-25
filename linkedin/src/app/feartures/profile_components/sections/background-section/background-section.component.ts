@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { ProfileService } from './../../profile.service';
 
 @Component({
@@ -7,6 +7,8 @@ import { ProfileService } from './../../profile.service';
   styleUrls: ['./background-section.component.css']
 })
 export class BackgroundSectionComponent implements OnInit {
+  
+  @Input() currentIndex;
   
   @Output() workMood = new EventEmitter<number>();
   @Output() educationMood = new EventEmitter<number>();

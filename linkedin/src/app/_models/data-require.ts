@@ -1,5 +1,4 @@
 export class DataRequire {
-    id: number;
     email: string;
     password: string;
     firstName?: string;

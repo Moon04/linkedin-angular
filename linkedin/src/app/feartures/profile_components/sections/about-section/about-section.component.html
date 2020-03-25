@@ -5,12 +5,12 @@
         <h2>About</h2>
         <a class="pointer" data-toggle="modal" data-target="#FullModal">
           <i class="fas fa-pencil-alt profile-icon" 
-          (click)="profileService.openAboutForm=!profileService.openAboutForm"></i>
+          (click)="profileService.profiles[currentIndex].openAboutForm=!profileService.profiles[currentIndex].openAboutForm"></i>
         </a>
       </header>
       <div class="col-12 pt-3">
         <h5>
-          {{profileService.about.about}}
+          {{profileService.profiles[currentIndex].profileAbout.about}}
         </h5>
       </div>
     </div>

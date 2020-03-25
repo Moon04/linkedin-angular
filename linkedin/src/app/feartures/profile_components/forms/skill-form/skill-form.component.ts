@@ -9,6 +9,8 @@ import { ProfileService } from '../../profile.service';
 })
 export class SkillFormComponent implements OnInit {
 
+  @Input() currentIndex;
+
   skillForm = new FormGroup({
     skill: new FormControl('')
   });
@@ -19,12 +21,12 @@ export class SkillFormComponent implements OnInit {
   }
 
   saveSkill(){
-    this.profileService.skills.push({
-      id: this.profileService.skills[this.profileService.skills.length-1].id + 1,
+    this.profileService.profiles[this.currentIndex].profileSkills.push({
+      id: this.profileService.profiles[this.currentIndex].profileSkills[this.profileService.profiles[this.currentIndex].profileSkills.length-1].id + 1,
       skillTitle: this.skillForm.value.skill,
       endorsements: []
     });
-    this.profileService.openSkillForm =! this.profileService.openSkillForm;
+    this.profileService.profiles[this.currentIndex].openSkillForm =! this.profileService.profiles[this.currentIndex].openSkillForm;
   }
 
 }

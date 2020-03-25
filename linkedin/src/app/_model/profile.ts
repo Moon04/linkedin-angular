@@ -8,7 +8,20 @@ import { ProfileInterest } from './profileInterest';
 
 
 export interface Profile{
-    id: string;
+    id: number;
+    
+    openContactInfoForm: boolean;
+    openIntroForm: boolean;
+    openAboutForm: boolean;
+    openWorkExperienceForm: boolean;
+    openEducationForm: boolean;
+    openVolunteerExperienceForm: boolean;
+    openSkillForm: boolean;
+    openCourseForm: boolean;
+    openProjectForm: boolean;
+    openLanguageForm: boolean;
+    openEditSkills: boolean;
+
     profileIntro: ProfileIntro;
     profileAbout?: ProfileAbout;
     profileDashboard: ProfileDashboard;

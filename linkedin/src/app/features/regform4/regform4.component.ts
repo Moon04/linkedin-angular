@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import { UsersService } from 'src/app/_services/users.service';
+// import { UsersService } from 'src/app/_services/users.service';
 import { Error } from 'src/app/_services/errors';
 import { AuthenticationService } from 'src/app/_services/authentication.service';
+import { ProfileService } from 'src/app/feartures/profile_components/profile.service';
+// import { DataRequire } from './../../_models/data-require';
 
 @Component({
   selector: 'app-regform4',
@@ -36,13 +38,47 @@ export class Regform4Component implements OnInit {
 
     this.router.navigate(['/login']);
 
-    this.userService.User.push(this.authService.authUser);
-    localStorage.setItem('users', JSON.stringify(this.userService.User))
+    this.profileService.profiles.push({
+      id: this.profileService.profiles.length,
+      openContactInfoForm: false,
+      openIntroForm: false,
+      openAboutForm: false,
+      openWorkExperienceForm: false,
+      openEducationForm: false,
+      openVolunteerExperienceForm: false,
+      openSkillForm: false,
+      openCourseForm: false,
+      openProjectForm: false,
+      openLanguageForm: false,
+      openEditSkills: false,
+      profileIntro: this.authService.authUser,
+      profileDashboard: {},
+      profileAbout: {},
+      profileAccomplishments: {
+        courses: [],
+        projects: [],
+        languages: []
+      },
+      profileBackground: {
+        workExperience: [],
+        education: [],
+        volunteerExperience: []
+      },
+      profileInterests: [],
+      profileSkills: []
+    });
+
+
+    localStorage.setItem('users', JSON.stringify(this.profileService.profiles))
+
+    // this.userService.User.push(this.authService.authUser);
+    // localStorage.setItem('users', JSON.stringify(this.userService.User))
   }
 
   constructor(
     private router: Router,
-    public userService: UsersService,
+    // public userService: UsersService,
+    public profileService: ProfileService,
     private authService: AuthenticationService,
     public myerrors: Error,
   ) { }
