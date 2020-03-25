@@ -4,7 +4,7 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 
-* {
+ * {
   box-sizing: border-box;
   /* padding: 0px;
   margin: 0px; */
@@ -956,7 +956,7 @@ input:checked + .slider:before {
   font-size: 0.9rem;
 }
 
-/* account peak */
+account peak
 
 .account-peak-container {
   background-color: white;
@@ -1245,21 +1245,21 @@ padding: 24px; }
   .profile-icon--hide {
     display: none; }
 
-.section {
+.section-p {
   background-color: #ffffff; }
-  .section .btn--inline {
+  .section-p .btn--inline {
     margin-top: 1.5rem; }
-  .section .btn--inline, .section h2 {
+  .section-p .btn--inline, .section-p h2 {
     display: inline-block !important;
     margin-top: 2.5rem; }
-  .section h2, .section h3 {
+  .section-p h2, .section-p h3 {
     line-height: 1.4;
     font-weight: 400;
     color: #1a1a1a;
     padding-left: 1.2rem; }
-  .section h2 {
+  .section-p h2 {
     font-size: 2rem; }
-  .section h3 {
+  .section-p h3 {
     border-bottom: 1px solid #cccccc;
     border-top: 1px solid #cccccc;
     font-size: 1.6rem;
