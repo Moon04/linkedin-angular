@@ -10,7 +10,7 @@ export class AccomplishmentsSectionComponent implements OnInit {
 
   dropdownStatus: boolean = false;
 
-  @Input() currentIndex;
+  @Input() currentIndex: number;
   
   @Output() courseMood = new EventEmitter<number>();
   @Output() projectMood = new EventEmitter<number>();

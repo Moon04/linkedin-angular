@@ -76,10 +76,10 @@ export class ProfileService{
             {school: this.organizations[3], degree: "Bachelor's degree", fieldOfStudy: "Computer Engineering", startYear: "2014", endYear: "2019", grade: "Good"}
           ],
           volunteerExperience: [
-            {organization: this.organizations[1], role: "HR Volunteer", cause: "Science and Technology", startDate: "Sep 2016", endDate: "Aug 2017", description: "HR committee is concerned with the volunteers, the participants and the events"},
-            {organization: this.organizations[1], role: "HR-TM Vice Director", cause: "Science and Technology", startDate: "Oct 2017", endDate: "Aug 2018", description: "HR-TM committee is concerned with the participants and the events."},
-            {organization: this.organizations[0], role: " Academic Member", cause: "Education", startDate: "Oct 2017", endDate: "Sept 2018"},
-            {organization: this.organizations[0], role: "Academic Head", cause: "Education", startDate: "Sept 2018", endDate: "Sept 2019"}
+            {organization: this.organizations[1], role: "HR Volunteer", cause: "Science and Technology", startMonth: "September", startYear: 2017, endMonth: "August", endYear: 2017, description: "HR committee is concerned with the volunteers, the participants and the events"},
+            {organization: this.organizations[1], role: "HR-TM Vice Director", cause: "Science and Technology", startMonth: "October", startYear: 2017, endMonth: "August", endYear: 2018, description: "HR-TM committee is concerned with the participants and the events."},
+            {organization: this.organizations[0], role: " Academic Member", cause: "Education", startMonth: "October", startYear: 2017, endMonth: "August", endYear: 2018},
+            {organization: this.organizations[0], role: "Academic Head", cause: "Education", startMonth: "September", startYear: 2017, endMonth: "August", endYear: 2019}
           ]
         },
 
@@ -158,10 +158,10 @@ export class ProfileService{
             {school: this.organizations[3], degree: "Bachelor's degree", fieldOfStudy: "Computer Engineering", startYear: "2014", endYear: "2019", grade: "Good"}
           ],
           volunteerExperience: [
-            {organization: this.organizations[1], role: "HR Volunteer", cause: "Science and Technology", startDate: "Sep 2016", endDate: "Aug 2017", description: "HR committee is concerned with the volunteers, the participants and the events"},
-            {organization: this.organizations[1], role: "HR-TM Vice Director", cause: "Science and Technology", startDate: "Oct 2017", endDate: "Aug 2018", description: "HR-TM committee is concerned with the participants and the events."},
-            {organization: this.organizations[0], role: " Academic Member", cause: "Education", startDate: "Oct 2017", endDate: "Sept 2018"},
-            {organization: this.organizations[0], role: "Academic Head", cause: "Education", startDate: "Sept 2018", endDate: "Sept 2019"}
+            {organization: this.organizations[1], role: "HR Volunteer", cause: "Science and Technology", startMonth: "September", startYear: 2017, endMonth: "January", endYear: 2017, description: "HR committee is concerned with the volunteers, the participants and the events"},
+            {organization: this.organizations[1], role: "HR-TM Vice Director", cause: "Science and Technology", startMonth: "September", startYear: 2017, endMonth: "January", endYear: 2018, description: "HR-TM committee is concerned with the participants and the events."},
+            {organization: this.organizations[0], role: " Academic Member", cause: "Education", startMonth: "September", startYear: 2017, endMonth: "January", endYear: 2018},
+            {organization: this.organizations[0], role: "Academic Head", cause: "Education", startMonth: "September", startYear: 2017, endMonth: "January", endYear: 2019}
           ]
         },
 

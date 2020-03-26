@@ -9,7 +9,7 @@ import { ProfileService } from '../../profile.service';
 })
 export class ContactInfoFormComponent implements OnInit {
 
-  @Input() currentIndex;
+  @Input() currentIndex: number;
 
   contactInfoForm = new FormGroup({
     phone: new FormControl(''),

@@ -9,7 +9,7 @@ import { ProfileService } from '../../profile.service';
 })
 export class IntroFormComponent implements OnInit {
 
-  @Input() currentIndex;
+  @Input() currentIndex: number;
 
   introForm = new FormGroup({
     firstName: new FormControl(''),

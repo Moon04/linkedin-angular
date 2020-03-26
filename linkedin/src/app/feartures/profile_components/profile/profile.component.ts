@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Organization } from 'src/app/_model/organization';
 import { ProfileService } from './../profile.service';
@@ -28,56 +28,51 @@ export class ProfileComponent implements OnInit {
   
   constructor(public profileService: ProfileService) {
     this.currentId = Number(JSON.parse(localStorage.getItem("currentUser")));
-
-   for (let i = 0; i < profileService.profiles.length; i++) {
-      if (profileService.profiles[i].id == this.currentId) {
-        this.currentIndex = i;
-      }
-     
-   }
-
-    console.log(this.currentId);
+    for (let i = 0; i < profileService.profiles.length; i++) {
+        if (profileService.profiles[i].id == this.currentId) {
+          this.currentIndex = i;
+        } 
+    }
    }
 
   ngOnInit(): void{
     this.organizations = this.profileService.organizations;
 
-    for (let i = 0; i < this.profileService.profiles[1].profileSkills.length; i++) {
-      this.skills.push(this.profileService.profiles[1].profileSkills[i]);
+    for (let i = 0; i < this.profileService.profiles[this.currentIndex].profileSkills.length; i++) 
+    {
+      this.skills.push(this.profileService.profiles[this.currentIndex].profileSkills[i]);
     }
   }
 
   setMoodEducationIndex(index: number){
     this.moodEducationIndex = index;
-    this.profileService.profiles[1].openEducationForm = !this.profileService.profiles[1].openEducationForm;
+    this.profileService.profiles[this.currentIndex].openEducationForm = !this.profileService.profiles[this.currentIndex].openEducationForm;
   }
 
   setMoodWorkIndex(index: number){
     this.moodWorkIndex = index;
-    this.profileService.profiles[1].openWorkExperienceForm = !this.profileService.profiles[1].openWorkExperienceForm;
+    this.profileService.profiles[this.currentIndex].openWorkExperienceForm = !this.profileService.profiles[this.currentIndex].openWorkExperienceForm;
   }
 
   setMoodVolunteerIndex(index: number){
     this.moodVolunteerIndex = index;
-    this.profileService.profiles[1].openVolunteerExperienceForm = !this.profileService.profiles[1].openVolunteerExperienceForm;
+    this.profileService.profiles[this.currentIndex].openVolunteerExperienceForm = !this.profileService.profiles[this.currentIndex].openVolunteerExperienceForm;
   }
 
   setMoodCourseIndex(index: number){
     this.moodCourseIndex = index;
-    this.profileService.profiles[1].openCourseForm = !this.profileService.profiles[1].openCourseForm;
+    this.profileService.profiles[this.currentIndex].openCourseForm = !this.profileService.profiles[this.currentIndex].openCourseForm;
   }
 
   setMoodProjectIndex(index: number){
     this.moodProjectIndex = index;
-    this.profileService.profiles[1].openProjectForm = !this.profileService.profiles[1].openProjectForm;
+    this.profileService.profiles[this.currentIndex].openProjectForm = !this.profileService.profiles[this.currentIndex].openProjectForm;
   }
 
   setMoodLanguageIndex(index: number){
     this.moodLanguageIndex = index;
-    this.profileService.profiles[1].openLanguageForm = !this.profileService.profiles[1].openLanguageForm;
+    this.profileService.profiles[this.currentIndex].openLanguageForm = !this.profileService.profiles[this.currentIndex].openLanguageForm;
   }
-
-
 
   deleteSkillFromView(skill: ProfileSkills){
     for (let index = 0; index < this.skills.length; index++) {
@@ -88,8 +83,8 @@ export class ProfileComponent implements OnInit {
   }
 
   saveSkills(){
-    this.profileService.profiles[1].profileSkills = this.skills;
-    this.profileService.profiles[1].openEditSkills = !this.profileService.profiles[1].openEditSkills;
+    this.profileService.profiles[this.currentIndex].profileSkills = this.skills;
+    this.profileService.profiles[this.currentIndex].openEditSkills = !this.profileService.profiles[this.currentIndex].openEditSkills;
   }
 
 }

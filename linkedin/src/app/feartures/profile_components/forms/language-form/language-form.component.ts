@@ -14,7 +14,7 @@ export class LanguageFormComponent implements OnInit {
     proficiency: new FormControl('')
   });
 
-  @Input() currentIndex;
+  @Input() currentIndex: number;
   @Input() moodIndex: number;
   mood: string = "Add";
 

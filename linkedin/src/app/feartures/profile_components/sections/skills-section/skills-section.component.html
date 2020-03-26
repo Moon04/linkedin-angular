@@ -13,7 +13,7 @@
         </a>
         <div class="skill" *ngFor="let skill of profileService.profiles[currentIndex].profileSkills">
           <div class="skill__title">
-            <h4 class="skill__name">{{skill.skillTitle}} </h4>
+            <h4 class="skill__name">{{skill.skillTitle}}</h4>
             <span class="skill__no-of-endorsments" *ngIf="skill.endorsements.length!==0">.{{skill.endorsements.length}}</span>
           </div>
           <div class="skill__description">

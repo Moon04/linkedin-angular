@@ -4,7 +4,9 @@ export interface VolunteerExperience{
     organization: Organization;
     role: string;
     cause?: string;
-    startDate?: string;
-    endDate?: string;
+    startYear?: number;
+    startMonth?: string;
+    endYear?: number;
+    endMonth?: string;
     description?: string;
 }
