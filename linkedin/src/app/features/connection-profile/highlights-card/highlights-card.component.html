@@ -8,7 +8,10 @@
           href="#"
           class="list-group-item dashboard__item list-group-item-action"
         >
-          <div class="dashboard__count">
+          <div
+            *ngIf="accounts[currentAccount].connections"
+            class="dashboard__count"
+          >
             {{ currentConnectionArray.length }} Mutual Connections
           </div>
 
@@ -38,14 +41,17 @@
           href="#"
           class="list-group-item dashboard__item list-group-item-action"
         >
-          <div class="dashboard__count">
+          <div *ngIf="commonEducation.length != 0" class="dashboard__count">
             You both studied at {{ this.commonEducation }}
           </div>
           <!-- <small
             >You both studied at Information Technology Institute (ITI) from
             2019 to 2020</small
           > -->
-          <div class="dashboard__description">
+          <div
+            *ngIf="commonEducation.length != 0"
+            class="dashboard__description"
+          >
             <button class="btn btn-primary float-center">Say hello</button>
           </div>
         </a>

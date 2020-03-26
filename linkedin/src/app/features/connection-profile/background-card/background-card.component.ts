@@ -17,33 +17,40 @@ export class BackgroundCardComponent implements OnInit {
   educationData: EducationInfo[] = [];
   volunteerData: VolunteerInfo[] = [];
   fillData() {
-    for (
-      let j = 0;
-      j < this.accounts[this.currentAccount].workPlace.length;
-      j++
-    ) {
-      this.workData.push(this.accounts[this.currentAccount].workPlace[j]);
+    if (this.accounts[this.currentAccount].workPlace) {
+      for (
+        let j = 0;
+        j < this.accounts[this.currentAccount].workPlace.length;
+        j++
+      ) {
+        this.workData.push(this.accounts[this.currentAccount].workPlace[j]);
+      }
     }
     //console.log(this.workData);
-
-    for (
-      let i = 0;
-      i < this.accounts[this.currentAccount].studyPlace.length;
-      i++
-    ) {
-      this.educationData.push(this.accounts[this.currentAccount].studyPlace[i]);
+    if (this.accounts[this.currentAccount].studyPlace) {
+      for (
+        let i = 0;
+        i < this.accounts[this.currentAccount].studyPlace.length;
+        i++
+      ) {
+        this.educationData.push(
+          this.accounts[this.currentAccount].studyPlace[i]
+        );
+      }
     }
     //console.log(this.educationData);
-    for (
-      let z = 0;
-      z < this.accounts[this.currentAccount].volunteerExperience.length;
-      z++
-    ) {
-      this.volunteerData.push(
-        this.accounts[this.currentAccount].volunteerExperience[z]
-      );
+    if (this.accounts[this.currentAccount].volunteerExperience) {
+      for (
+        let z = 0;
+        z < this.accounts[this.currentAccount].volunteerExperience.length;
+        z++
+      ) {
+        this.volunteerData.push(
+          this.accounts[this.currentAccount].volunteerExperience[z]
+        );
+      }
+      //console.log(this.volunteerData);
     }
-    //console.log(this.volunteerData);
   }
 
   constructor(public AccountService: AccountService) {}

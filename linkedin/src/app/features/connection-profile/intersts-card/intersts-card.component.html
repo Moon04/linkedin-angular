@@ -1,5 +1,5 @@
 <section class="p-5" id="Interests">
-  <div class="container interests">
+  <div *ngIf="accounts[currentAccount].intersts" class="container interests">
     <h2 class="interests__header">Interests</h2>
     <div *ngFor="let interst of interstsLeft; let i = index">
       <div class="row interests__container">

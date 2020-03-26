@@ -14,19 +14,23 @@ export class InterstsCardComponent implements OnInit {
   interstsLeft: Interst[] = [];
   interstsRight: Interst[] = [];
   fun() {
-    for (
-      let i = 0;
-      i < this.accounts[this.currentAccount].intersts.length / 2;
-      i++
-    ) {
-      this.interstsLeft.push(this.accounts[this.currentAccount].intersts[i]);
+    if (this.accounts[this.currentAccount].intersts) {
+      for (
+        let i = 0;
+        i < this.accounts[this.currentAccount].intersts.length / 2;
+        i++
+      ) {
+        this.interstsLeft.push(this.accounts[this.currentAccount].intersts[i]);
+      }
     }
-    for (
-      let i = this.accounts[this.currentAccount].intersts.length / 2;
-      i < this.accounts[this.currentAccount].intersts.length;
-      i++
-    ) {
-      this.interstsRight.push(this.accounts[this.currentAccount].intersts[i]);
+    if (this.accounts[this.currentAccount].intersts) {
+      for (
+        let i = this.accounts[this.currentAccount].intersts.length / 2;
+        i < this.accounts[this.currentAccount].intersts.length;
+        i++
+      ) {
+        this.interstsRight.push(this.accounts[this.currentAccount].intersts[i]);
+      }
     }
     // console.log(this.interstsLeft);
     // console.log(this.interstsRight);

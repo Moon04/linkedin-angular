@@ -208,9 +208,9 @@ export class AccountService {
           pastConnection: false
         }
       ],
-      // studyPlace: [
-      //   { title: "Helwan", logoURL: ["assets/images/Engineering.png"] }
-      // ],
+      studyPlace: [
+        { title: "Helwan", logoURL: ["assets/images/Engineering.png"] }
+      ],
       workPlace: [{ title: "ITI", logoURL: ["assets/images/itiLogo.png"] }],
       volunteerExperience: [
         {

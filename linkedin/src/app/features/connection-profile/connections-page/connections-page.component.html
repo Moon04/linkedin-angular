@@ -26,8 +26,12 @@
     <img class="image" src="{{ account.imageURL }}" />
     <div class="container">
       <h4>
-        <b (click)="clickConnection(i)" class="name"
-          >{{ account.firstName }} {{ account.lastName }}</b
+        <a
+          routerLink="certainconnection"
+          (click)="clickConnection(i)"
+          class="name"
+        >
+          {{ account.firstName }} {{ account.lastName }}</a
         >
       </h4>
       <p>{{ account.position }}</p>

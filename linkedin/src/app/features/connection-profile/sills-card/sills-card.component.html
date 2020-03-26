@@ -1,6 +1,9 @@
 <!-- <button (click)="fillSkillsList()">ege</button> -->
 <section class="p-3" id="Skills">
-  <div class="container section-p skills u-border">
+  <div
+    *ngIf="accounts[currentAccount].skills"
+    class="container section-p skills u-border"
+  >
     <div class="row">
       <div class="col-md-12">
         <h2>Skills & Endorsements</h2>

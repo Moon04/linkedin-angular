@@ -18,11 +18,16 @@ export class SillsCardComponent implements OnInit {
   endorsersNames: string[] = [];
 
   fillSkillsList() {
-    for (let j = 0; j < this.accounts[this.currentAccount].skills.length; j++) {
-      this.skillsList.push(this.accounts[this.currentAccount].skills[j]);
+    if (this.accounts[this.currentAccount].skills) {
+      for (
+        let j = 0;
+        j < this.accounts[this.currentAccount].skills.length;
+        j++
+      ) {
+        this.skillsList.push(this.accounts[this.currentAccount].skills[j]);
+      }
     }
     //console.log(this.skillsList);
-
     for (let i = 0; i < this.skillsList.length; i++) {
       for (let j = 0; j < this.skillsList[i].endorsers.length; j++)
         this.endorsersList.push(this.skillsList[i].endorsers[j]);
