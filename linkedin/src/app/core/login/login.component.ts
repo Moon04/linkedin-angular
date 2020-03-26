@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 
 // import { UsersService } from 'src/app/_services/users.service';
 import { Error } from 'src/app/_services/errors';
@@ -13,6 +13,10 @@ import { ProfileService } from 'src/app/feartures/profile_components/profile.ser
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  passType = 'password';
+  // show: boolean = true;
+
   getError(name) {
     const errorrr = this.myerrors.MyError.filter(function (e) {
       return e.name === name
@@ -31,17 +35,18 @@ export class LoginComponent implements OnInit {
 
   }
 
+
   onSubmit(form: NgForm) {
     const { email, password } = form.value;
 
     let auth = false;
-    let currentUser : number;
+    let currentUser: number;
     this.profilesService.profiles.forEach(e => {
-    // this.userService.User.forEach(e => {
+      // this.userService.User.forEach(e => {
       // console.log(e.email, e.password)
       if (e.profileIntro.email == email && e.profileIntro.password == password) {
         auth = true;
-       currentUser = e.id;
+        currentUser = e.id;
       }
     });
 
@@ -51,10 +56,15 @@ export class LoginComponent implements OnInit {
     else {
       console.log("Authorized");
       console.log(currentUser);
-      localStorage.setItem("currentUser", JSON.stringify(currentUser)) ;
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
       this.router.navigate(['/home']);
     }
   }
+
+  add(e) {
+    this.passType = this.passType == 'password' ? 'text' : 'password'
+  }
+
 
 }
 

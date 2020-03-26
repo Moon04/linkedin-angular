@@ -26,6 +26,8 @@ export class Regform4Component implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    // localStorage.removeItem("users");
+
     const { college, degree, specialization, startYear, endYear } = form.value;
 
     console.log(form)
@@ -68,7 +70,6 @@ export class Regform4Component implements OnInit {
       profileSkills: []
     });
 
-
     localStorage.setItem('users', JSON.stringify(this.profileService.profiles))
 
     // this.userService.User.push(this.authService.authUser);
@@ -84,7 +85,7 @@ export class Regform4Component implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    localStorage.clear();
   }
 
 }
