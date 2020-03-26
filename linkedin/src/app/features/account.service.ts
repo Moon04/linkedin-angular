@@ -323,6 +323,6 @@ export class AccountService {
       ]
     }
   ];
-
-  constructor(public ConnectionProfileService: ConnectionProfileService) {}
+  // public ConnectionProfileService: ConnectionProfileService
+  constructor() { }
 }
