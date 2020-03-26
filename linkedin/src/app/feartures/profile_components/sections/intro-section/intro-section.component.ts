@@ -12,16 +12,13 @@ export class IntroSectionComponent{
   moreStatus: boolean = false;
   contactInfoStatus: boolean = false;
 
-  @Input() currentIndex;
-
+  @Input() currentIndex: number;
   @Output() workMood = new EventEmitter<number>();
   @Output() educationMood = new EventEmitter<number>();
   @Output() volunteerMood = new EventEmitter<number>();
   @Output() courseMood = new EventEmitter<number>();
   @Output() projectMood = new EventEmitter<number>();
   @Output() languageMood = new EventEmitter<number>();
-
-
 
   taps: boolean[] = [false, false, false, false, false];
 

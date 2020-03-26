@@ -1,17 +1,19 @@
 <div class="account-peak-container">
 	<div class="account-peak-cover">
-		<div class="account-peak-image" [ngStyle]="{'background-image': 'url(' + account.imgURL + ')'}">
+		<div class="account-peak-image"
+			[ngStyle]="{'background-image': 'url(' + account.profileIntro.profilePhoto + ')'}">
 
 		</div>
 	</div>
-	<div class="account-peak-title">{{account.name}}</div>
-	<div class="account-peak-intro">{{account.intro}}</div>
+	<div class="account-peak-title">
+		{{account.profileIntro.basicInfo.firstName+" "+account.profileIntro.basicInfo.lastName}}</div>
+	<div class="account-peak-intro">{{account.profileAbout.about}}</div>
 	<hr />
 	<div class="account-peak-profile-viewers"> Who viewed your profile
-		<div>{{account.viewers.profile}}</div>
+		<div>{{account.profileDashboard.profileViews}}</div>
 	</div>
 	<div class="account-peak-post-viewers">Views of your post
-		<div>{{account.viewers.post}}</div>
+		<div>{{account.profileDashboard.articleViews}}</div>
 	</div>
 
 </div>

@@ -1,12 +1,12 @@
 <div class="connection-card-container">
 	<div class="connection-card-subcontainer">
-		<div class="connection-card-image" [ngStyle]="{'background-image': 'url(' +connection.imgURL+ ')' }"></div>
+		<div class="connection-card-image" [ngStyle]="{'background-image': 'url(' +con.imageURL+ ')' }"></div>
 		<div>
-			<div class="connection-card-name">{{connection.name}}</div>
-			<div class="connection-card-title">{{connection.title}}</div>
+			<div class="connection-card-name">{{con.firstName +" "+con.lastName}}</div>
+			<div class="connection-card-title">{{con.position}}</div>
 		</div>
 	</div>
 	<div class="connection-card-subcontainer">
-		<button>+ follow</button>
+		<button (click)="add()">connect</button>
 	</div>
 </div>

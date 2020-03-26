@@ -18,7 +18,7 @@ export class ProjectFormComponent implements OnInit {
     description: new FormControl('')
   });
 
-  @Input() currentIndex;
+  @Input() currentIndex: number;
   @Input() moodIndex: number;
   mood: string = "Add";
 

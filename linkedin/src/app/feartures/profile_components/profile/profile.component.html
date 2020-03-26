@@ -13,12 +13,12 @@
       </div>
 
       <div class="ad">
-        <p>{{profileService.profiles[currentIndex].profileIntro.firstName}}, unlock your full potential with LinkedIn Premium</p>
+        <p>{{profileService.profiles[currentIndex].profileIntro.basicInfo.firstName}}, unlock your full potential with LinkedIn Premium</p>
         <div id="ad-images">
           <img src={{profileService.profiles[currentIndex].profileIntro.profilePhoto}} id="ad-img">
           <i class="fas fa-key"></i>
         </div>
-        <h5>See ho's viewed your profile in the last 90 days</h5>
+        <h5>See who's viewed your profile in the last 90 days</h5>
         <button class="btn btn-outline-primary">Try for Free</button>
       </div>
 
@@ -52,24 +52,24 @@
         (workMood)="setMoodWorkIndex($event)"
         (educationMood)="setMoodEducationIndex($event)"
         (volunteerMood)="setMoodVolunteerIndex($event)"
-        *ngIf="profileService.profiles[currentIndex].profileBackground"
+        *ngIf="profileService.profiles[currentIndex].profileBackground.workExperience.length!==0||profileService.profiles[currentIndex].profileBackground.education.length!==0||profileService.profiles[currentIndex].profileBackground.volunteerExperience.length!==0"
         [currentIndex]="currentIndex"
       >
       </app-background-section>
 
       <!-- Skills Section -->
       <app-skills-section 
-        *ngIf="profileService.profiles[currentIndex].profileSkills"
+        *ngIf="profileService.profiles[currentIndex].profileSkills.length!==0"
         [currentIndex]="currentIndex"
       >
       </app-skills-section>
 
       <!-- Accomplishments -->
       <app-accomplishments-section 
-        *ngIf="profileService.profiles[currentIndex].profileAccomplishments"
+        *ngIf="profileService.profiles[currentIndex].profileAccomplishments.courses.length!==0||profileService.profiles[currentIndex].profileAccomplishments.projects.length!==0||profileService.profiles[currentIndex].profileAccomplishments.languages.length!==0"
         (courseMood)="setMoodCourseIndex($event)"
         (projectMood)="setMoodProjectIndex($event)"
-        (languageMood)="setMoodVolunteerIndex($event)"
+        (languageMood)="setMoodLanguageIndex($event)"
         [currentIndex]="currentIndex"
       >
       </app-accomplishments-section>
@@ -77,20 +77,25 @@
       <!-- The Interests section displays the companies that a user following -->
       <app-interests *ngIf="profileService.profiles[currentIndex].profileInterests" [profileIterests]="profileService.profiles[currentIndex].profileInterests"></app-interests>
       
+
       <!-- Edit Skill -->
       <div [ngClass]="{'modal': true, 'edit-skills': true, 'show-modal': profileService.profiles[currentIndex].openEditSkills}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h2 class="modal-title">Reorder Skills & Endorsements ({{profileService.profiles[currentIndex].profileSkills.length}})
+              <h2 class="modal-title">
+                Reorder Skills & Endorsements ({{profileService.profiles[currentIndex].profileSkills.length}})
               </h2>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span (click)="profileService.profiles[currentIndex].openEditSkills=!profileService.profiles[currentIndex].openEditSkills">&times;</span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                (click)="profileService.profiles[currentIndex].openEditSkills=!profileService.profiles[currentIndex].openEditSkills"
+              >
+                <span>&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <h3 class="skill-title">Top Skills
+              <h3 class="skill-title">
+                Top Skills
               </h3>
               <div class="row">
                 <div class="col-md-12">
@@ -113,7 +118,6 @@
           </div>
         </div>
       </div>
-
 
     </div>
   </div>

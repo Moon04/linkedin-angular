@@ -28,4 +28,5 @@ export interface Profile {
   profileSkills?: ProfileSkills[];
   profileAccomplishments?: ProfileAccomplishments;
   profileInterests?: ProfileInterest[];
+  connetions: number[];
 }

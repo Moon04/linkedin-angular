@@ -1,4 +1,6 @@
 <div class="home-connectors-container">
 	<div>Add to your feed</div>
-	<app-home-connectors-cards *ngFor="let sc of connectionSuggestion;" [connection]=sc></app-home-connectors-cards>
+	<app-home-connectors-cards *ngFor="let sc of connectionSuggestion;" [con]=sc
+		(addConnection)="addConnection($event)">
+	</app-home-connectors-cards>
 </div>

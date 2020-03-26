@@ -26,6 +26,8 @@ export class Regform4Component implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    // localStorage.removeItem("users");
+
     const { college, degree, specialization, startYear, endYear } = form.value;
 
     console.log(form)
@@ -39,7 +41,7 @@ export class Regform4Component implements OnInit {
     this.router.navigate(['/login']);
 
     this.profileService.profiles.push({
-      id: this.profileService.profiles.length,
+      id: this.profileService.profiles[this.profileService.profiles.length - 1].id + 1,
       openContactInfoForm: false,
       openIntroForm: false,
       openAboutForm: false,
@@ -51,8 +53,16 @@ export class Regform4Component implements OnInit {
       openProjectForm: false,
       openLanguageForm: false,
       openEditSkills: false,
-      profileIntro: this.authService.authUser,
-      profileDashboard: {},
+      profileIntro: {
+        basicInfo: this.authService.authUser,
+        profilePhoto: '../../assets/images/user.png',
+        connectionsCount: 0
+      },
+      profileDashboard: {
+        profileViews: 0,
+        articleViews: 0,
+        searchAppearance: 0
+      },
       profileAbout: {},
       profileAccomplishments: {
         courses: [],
@@ -65,9 +75,9 @@ export class Regform4Component implements OnInit {
         volunteerExperience: []
       },
       profileInterests: [],
-      profileSkills: []
+      profileSkills: [],
+      connetions: []
     });
-
 
     localStorage.setItem('users', JSON.stringify(this.profileService.profiles))
 
@@ -84,7 +94,7 @@ export class Regform4Component implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    localStorage.clear();
   }
 
 }

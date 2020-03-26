@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProfileSkills } from 'src/app/_model/profileSkills';
 import { ProfileService } from './../../profile.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { ProfileService } from './../../profile.service';
 })
 export class SkillsSectionComponent implements OnInit {
 
-  @Input() currentIndex;
+  @Input() currentIndex: number;
 
   constructor(public profileService: ProfileService) { }
 
