@@ -19,6 +19,7 @@ export class HighlightsCardComponent implements OnInit {
   educationData: string[] = [];
   myEducationData: string[] = [];
   commonEducation: string[] = [];
+  myAccount: Account;
 
   fun() {
     this.currentConnectionArray = [];
