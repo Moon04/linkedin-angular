@@ -4,8 +4,10 @@
     <div class="modal-content row">
       <div class="modal-header">
         <h5 class="modal-title" id="FullModalLabel">{{mood}} volunteer experience</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span (click)="this.profileService.profiles[currentIndex].openVolunteerExperienceForm=!this.profileService.profiles[currentIndex].openVolunteerExperienceForm">&times;</span>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          (click)="this.profileService.profiles[currentIndex].openVolunteerExperienceForm=!this.profileService.profiles[currentIndex].openVolunteerExperienceForm"
+        >
+          <span>&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -23,24 +25,32 @@
                 <input formControlName="role" class="form-control" type="text" id="role">
               </div>
               <div class="form-group">
-                <label for="cause" class="required">Cause</label>
+                <label for="cause">Cause</label>
                 <input formControlName="cause" class="form-control" type="text" id="cause">
               </div>
               <div class="form-group">
-                <div>
-                  <input type="checkbox" name="" id="CurrentlyWorking">
-                    <span>
-                     I am currently working in this role Transfare
-                    </span>
-                </div>
                 <div class="row">
                   <div class="col-sm-6">
-                    <label for="startDate" class="required">Start Date</label>
-                    <input formControlName="startDate" class="form-control" type="date" id="startDate">
+                    <label for="startDate">Start Date</label>
+                    <select formControlName="startMonth" class="form-control" id="startMonth">
+                      <option value="" disabled selected hidden>Month</option>
+                      <option value={{month}} *ngFor="let month of months">{{month}}</option>
+                    </select>
+                    <select formControlName="startYear" class="form-control" id="startYear">
+                      <option value="" disabled selected hidden>Year</option>
+                      <option value={{year}} *ngFor=" let year of yearsStart">{{year}}</option>
+                    </select>
                   </div>
                   <div class="col-sm-6">
-                    <label for="endDate" class="required">End Date</label>
-                    <input formControlName="endDate" class="form-control" type="date" id="endDate">               
+                    <label for="endDate">end Date</label>
+                    <select formControlName="endMonth" class="form-control" id="endMonth">
+                      <option value="" disabled selected hidden>Month</option>
+                      <option value={{month}} *ngFor="let month of months">{{month}}</option>
+                    </select>
+                    <select formControlName="endYear" class="form-control" id="endYear">
+                      <option value="" disabled selected hidden>Year</option>
+                      <option value={{year}} *ngFor=" let year of yearsStart">{{year}}</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -48,7 +58,6 @@
                 <label for="description">Description</label>
                 <textarea formControlName="description" class="form-control" id="description" cols="30" rows="4"></textarea>
               </div>
-              {{volunteerExperienceForm.value | json}}
             </div>
           </form>
       </div>

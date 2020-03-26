@@ -13,6 +13,7 @@ export class EducationFormComponent implements OnInit {
     school: new FormControl(''),
     degree: new FormControl(''),
     fieldOfStudy: new FormControl(''),
+    currentlyWorking: new FormControl(''),
     startYear: new FormControl(''),
     endYear: new FormControl(''),
     grade: new FormControl(''),
@@ -21,14 +22,20 @@ export class EducationFormComponent implements OnInit {
   });
 
 
-  @Input() currentIndex;
+  @Input() currentIndex: number;
   @Input() moodIndex: number;
   mood: string = "Add";
 
-  years: number[] = [];
+  yearsStart: number[] = [];
+  yearsEnd: number[] = []; 
+
   constructor(public profileService: ProfileService) { 
     for (let i = 2020; i >= 1900; i--) {
-      this.years.push(i);      
+      this.yearsStart.push(i);      
+    }
+
+    for (let i = 2030; i >= 1900; i--) {
+      this.yearsEnd.push(i);      
     }
   }
 

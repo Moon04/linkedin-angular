@@ -1,13 +1,5 @@
 import { Organization } from 'src/app/_model/organization';
-import { ProfileInterest } from 'src/app/_model/profileInterest';
-import { ProfileIntro } from 'src/app/_model/profileIntro';
-import { ProfileAbout } from 'src/app/_model/profileAbout';
-import { ProfileDashboard } from 'src/app/_model/profileDashboard';
-import { ProfileBackground } from 'src/app/_model/profileBackground';
-import { ProfileSkills } from 'src/app/_model/profileSkills';
-import { ProfileAccomplishments } from 'src/app/_model/ProfileAccomplishments';
 import { Profile } from 'src/app/_model/profile';
-import { ConnectionComponent } from './../../features/connection-profile/connection/connection.component';
 
 
 
@@ -37,18 +29,20 @@ export class ProfileService {
       openEditSkills: false,
 
       profileIntro: {
-        email: "mona@gmail.com",
-        password: "Mona_12345",
-        firstName: "Mona",
-        lastName: "Mohamed",
-        location: "Cairo",
-        recentJob: "Web Developer",
-        recentCompany: "IBM",
-        college: "Bla",
-        degree: "4",
-        specialization: "CompyScience",
-        startYear: "2015",
-        endYear: "2019",
+        basicInfo: {
+          email: "mona@gmail.com",
+          password: "Mona_12345",
+          firstName: "Mona",
+          lastName: "Mohamed",
+          location: "Cairo",
+          recentJob: "Web Developer",
+          recentCompany: "IBM",
+          college: "Bla",
+          degree: "4",
+          specialization: "CompyScience",
+          startYear: "2015",
+          endYear: "2019"
+        },
         profilePhoto: "assets/images/profile-photo.jpg",
         education: this.organizations[2],
         country: "Egypt",
@@ -77,10 +71,10 @@ export class ProfileService {
           { school: this.organizations[3], degree: "Bachelor's degree", fieldOfStudy: "Computer Engineering", startYear: "2014", endYear: "2019", grade: "Good" }
         ],
         volunteerExperience: [
-          { organization: this.organizations[1], role: "HR Volunteer", cause: "Science and Technology", startDate: "Sep 2016", endDate: "Aug 2017", description: "HR committee is concerned with the volunteers, the participants and the events" },
-          { organization: this.organizations[1], role: "HR-TM Vice Director", cause: "Science and Technology", startDate: "Oct 2017", endDate: "Aug 2018", description: "HR-TM committee is concerned with the participants and the events." },
-          { organization: this.organizations[0], role: " Academic Member", cause: "Education", startDate: "Oct 2017", endDate: "Sept 2018" },
-          { organization: this.organizations[0], role: "Academic Head", cause: "Education", startDate: "Sept 2018", endDate: "Sept 2019" }
+          { organization: this.organizations[1], role: "HR Volunteer", cause: "Science and Technology", startMonth: "September", startYear: 2017, endMonth: "August", endYear: 2017, description: "HR committee is concerned with the volunteers, the participants and the events" },
+          { organization: this.organizations[1], role: "HR-TM Vice Director", cause: "Science and Technology", startMonth: "October", startYear: 2017, endMonth: "August", endYear: 2018, description: "HR-TM committee is concerned with the participants and the events." },
+          { organization: this.organizations[0], role: " Academic Member", cause: "Education", startMonth: "October", startYear: 2017, endMonth: "August", endYear: 2018 },
+          { organization: this.organizations[0], role: "Academic Head", cause: "Education", startMonth: "September", startYear: 2017, endMonth: "August", endYear: 2019 }
         ]
       },
 
@@ -101,8 +95,9 @@ export class ProfileService {
         { interest: this.organizations[1] },
         { interest: this.organizations[2] },
         { interest: this.organizations[3] },
-      ],
-      connections: [2]
+      ]
+
+      , connetions: [2]
     },
 
     {
@@ -120,18 +115,20 @@ export class ProfileService {
       openEditSkills: false,
 
       profileIntro: {
-        email: "esraa@gmail.com",
-        password: "Esraa_12345",
-        firstName: "Esraa",
-        lastName: "Elnaggar",
-        location: "",
-        recentJob: "Front End Developer",
-        recentCompany: "IBM",
-        college: "FLA",
-        degree: "3.5",
-        specialization: "infoCom",
-        startYear: "2015",
-        endYear: "2019",
+        basicInfo: {
+          email: "esraa@gmail.com",
+          password: "Esraa_12345",
+          firstName: "Esraa",
+          lastName: "Elnaggar",
+          location: "",
+          recentJob: "Front End Developer",
+          recentCompany: "IBM",
+          college: "FLA",
+          degree: "3.5",
+          specialization: "infoCom",
+          startYear: "2015",
+          endYear: "2019"
+        },
         profilePhoto: "assets/images/profile-photo.jpg",
         education: this.organizations[2],
         country: "Egypt",
@@ -160,10 +157,10 @@ export class ProfileService {
           { school: this.organizations[3], degree: "Bachelor's degree", fieldOfStudy: "Computer Engineering", startYear: "2014", endYear: "2019", grade: "Good" }
         ],
         volunteerExperience: [
-          { organization: this.organizations[1], role: "HR Volunteer", cause: "Science and Technology", startDate: "Sep 2016", endDate: "Aug 2017", description: "HR committee is concerned with the volunteers, the participants and the events" },
-          { organization: this.organizations[1], role: "HR-TM Vice Director", cause: "Science and Technology", startDate: "Oct 2017", endDate: "Aug 2018", description: "HR-TM committee is concerned with the participants and the events." },
-          { organization: this.organizations[0], role: " Academic Member", cause: "Education", startDate: "Oct 2017", endDate: "Sept 2018" },
-          { organization: this.organizations[0], role: "Academic Head", cause: "Education", startDate: "Sept 2018", endDate: "Sept 2019" }
+          { organization: this.organizations[1], role: "HR Volunteer", cause: "Science and Technology", startMonth: "September", startYear: 2017, endMonth: "January", endYear: 2017, description: "HR committee is concerned with the volunteers, the participants and the events" },
+          { organization: this.organizations[1], role: "HR-TM Vice Director", cause: "Science and Technology", startMonth: "September", startYear: 2017, endMonth: "January", endYear: 2018, description: "HR-TM committee is concerned with the participants and the events." },
+          { organization: this.organizations[0], role: " Academic Member", cause: "Education", startMonth: "September", startYear: 2017, endMonth: "January", endYear: 2018 },
+          { organization: this.organizations[0], role: "Academic Head", cause: "Education", startMonth: "September", startYear: 2017, endMonth: "January", endYear: 2019 }
         ]
       },
 
@@ -184,9 +181,8 @@ export class ProfileService {
         { interest: this.organizations[1] },
         { interest: this.organizations[2] },
         { interest: this.organizations[3] },
-      ],
-
-      connetions: [2]
+      ]
+      , connetions: [2]
     }
   ] || JSON.parse(localStorage.getItem('users'));
 

@@ -3,9 +3,11 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content row">
       <div class="modal-header">
-        <h5 class="modal-title" id="FullModalLabel">ِAdd project</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span (click)="this.profileService.profiles[currentIndex].openProjectForm=!this.profileService.profiles[currentIndex].openProjectForm">&times;</span>
+        <h5 class="modal-title" id="FullModalLabel">ِ{{mood}} project</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+        (click)="this.profileService.profiles[currentIndex].openProjectForm=!this.profileService.profiles[currentIndex].openProjectForm"
+        >
+          <span>&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -16,32 +18,26 @@
               <input formControlName="projectName" class="form-control" type="text" id="projectName">
             </div>
             <div class="form-group">
-              <div>
-                <input type="checkbox" name="" id="CurrentlyWorking">
-                  <span>
-                   I am currently working in this role Transfare
-                  </span>
-              </div>
               <div class="row">
                 <div class="col-sm-6">
-                  <label for="startDate" class="required">Start Date</label>
+                  <label for="startDate">Start Date</label>
                   <input formControlName="startDate" class="form-control" type="date" id="startDate">
                 </div>
                 <div class="col-sm-6">
-                  <label for="endDate" class="required">End Date</label>
+                  <label for="endDate">End Date</label>
                   <input formControlName="endDate" class="form-control" type="date" id="endDate">               
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <label for="associatedWith" class="required">Associated with</label>
+              <label for="associatedWith">Associated with</label>
               <select formControlName="associatedWith" class="form-control" id="associatedWith">
                 <option value="" disabled selected hidden>-</option>
                 <option value={{i}} *ngFor="let org of profileService.organizations; let i=index">{{org.title}}</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="projectURL" class="required">Project URL</label>
+              <label for="projectURL">Project URL</label>
               <input formControlName="projectURL" class="form-control" type="text" id="projectURL">
             </div>
             <div class="form-group">

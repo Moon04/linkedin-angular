@@ -86,8 +86,8 @@ export class PostCardsComponent implements OnInit {
     if (myComment != "") {
       this.post.comments.push(new PostComments(this.post.comments.length + 1, myComment));
       this.comment.push({
-        firstName: this.myAccount.profileIntro.firstName,
-        lastName: this.myAccount.profileIntro.lastName,
+        firstName: this.myAccount.profileIntro.basicInfo.firstName,
+        lastName: this.myAccount.profileIntro.basicInfo.lastName,
         imageURL: this.myAccount.profileIntro.profilePhoto,
         id: this.myAccount.id
       })

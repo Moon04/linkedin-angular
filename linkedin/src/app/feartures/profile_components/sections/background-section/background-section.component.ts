@@ -8,7 +8,7 @@ import { ProfileService } from './../../profile.service';
 })
 export class BackgroundSectionComponent implements OnInit {
   
-  @Input() currentIndex;
+  @Input() currentIndex: number;
   
   @Output() workMood = new EventEmitter<number>();
   @Output() educationMood = new EventEmitter<number>();

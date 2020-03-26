@@ -13,16 +13,36 @@ export class VolunteerExperienceFormComponent implements OnInit {
     organization: new FormControl(''),
     role: new FormControl(''),
     cause: new FormControl(''),
-    startDate: new FormControl(''),
-    endDate: new FormControl(''),
+    startYear: new FormControl(''),
+    startMonth: new FormControl(''),
+    endYear: new FormControl(''),
+    endMonth: new FormControl(''),
     description: new FormControl('')
   });
 
-  @Input() currentIndex;
+  @Input() currentIndex: number;
   @Input() moodIndex: number;
   mood: string = "Add";
 
-  constructor(public profileService: ProfileService) { }
+  yearsStart: number[] = [];
+  yearsEnd: number[] = [];
+  months: string[];
+
+  constructor(public profileService: ProfileService) {
+    for (let i = 2020; i >= 1900; i--) {
+      this.yearsStart.push(i);      
+    }
+
+    for (let i = 2030; i >= 1900; i--) {
+      this.yearsEnd.push(i);      
+    }
+
+    this.months = [
+      'January', 'February', 'March', 'April', 'May',
+      'June', 'July', 'August', 'September', 'October',
+      'November', 'December'
+    ]
+   }
 
   ngOnInit(): void { }
 
@@ -34,8 +54,10 @@ export class VolunteerExperienceFormComponent implements OnInit {
         organization: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].organization,
         role: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].role,
         cause: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].cause,
-        startDate: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].startDate,
-        endDate: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].endDate,
+        startYear: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].startYear,
+        startMonth: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].startMonth,
+        endYear: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].endYear,
+        endMonth: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].endMonth,
         description: this.profileService.profiles[this.currentIndex].profileBackground.volunteerExperience[i].description
       });
     }
@@ -58,8 +80,10 @@ export class VolunteerExperienceFormComponent implements OnInit {
       organization: this.profileService.organizations[this.volunteerExperienceForm.value.organization],
       role: this.volunteerExperienceForm.value.role,
       cause: this.volunteerExperienceForm.value.cause,
-      startDate: this.volunteerExperienceForm.value.startDate,
-      endDate: this.volunteerExperienceForm.value.endDate,
+      startYear: this.volunteerExperienceForm.value.startYear,
+      startMonth: this.volunteerExperienceForm.value.startMonth,
+      endYear: this.volunteerExperienceForm.value.endYear,
+      endMonth: this.volunteerExperienceForm.value.endMonth,
       description: this.volunteerExperienceForm.value.description
     });
     this.profileService.profiles[this.currentIndex].openVolunteerExperienceForm = !this.profileService.profiles[this.currentIndex].openVolunteerExperienceForm;

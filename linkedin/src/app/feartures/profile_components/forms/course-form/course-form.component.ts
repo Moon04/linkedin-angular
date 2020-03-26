@@ -14,7 +14,7 @@ export class CourseFormComponent implements OnInit {
     associatedWith: new FormControl('')
   });
 
-  @Input() currentIndex;
+  @Input() currentIndex: number;
   @Input() moodIndex: number;
   mood: string = "Add";
 

@@ -84,9 +84,9 @@ export class PostsComponent implements OnInit {
       ]
       this.passedAccounts = [{
         id: this.myAccount.id,
-        firstName: this.myAccount.profileIntro.firstName,
-        lastName: this.myAccount.profileIntro.lastName,
-        postion: this.myAccount.profileIntro.recentJob,
+        firstName: this.myAccount.profileIntro.basicInfo.firstName,
+        lastName: this.myAccount.profileIntro.basicInfo.lastName,
+        postion: this.myAccount.profileIntro.basicInfo.recentJob,
         imageURL: this.myAccount.profileIntro.profilePhoto
       }, ...this.passedAccounts]
       this.passedAccountComments = [[], ...this.passedAccountComments]
@@ -126,9 +126,9 @@ export class PostsComponent implements OnInit {
       ), ...this.posts]
     this.passedAccounts = [{
       id: this.myAccount.id,
-      firstName: this.myAccount.profileIntro.firstName,
-      lastName: this.myAccount.profileIntro.lastName,
-      postion: this.myAccount.profileIntro.recentJob,
+      firstName: this.myAccount.profileIntro.basicInfo.firstName,
+      lastName: this.myAccount.profileIntro.basicInfo.lastName,
+      postion: this.myAccount.profileIntro.basicInfo.recentJob,
       imageURL: this.myAccount.profileIntro.profilePhoto
     }, ...this.passedAccounts];
     this.passedAccountComments = [[], ...this.passedAccountComments]

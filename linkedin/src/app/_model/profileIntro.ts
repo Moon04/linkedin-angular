@@ -1,20 +1,9 @@
 import { Organization } from './organization';
 import { DataRequire } from './../_models/data-require';
 
-export interface ProfileIntro{
+export interface ProfileIntro {
 
-    email: string;
-    password: string;
-    firstName?: string;
-    lastName?: string;
-    location?: string;
-    recentJob?: string;
-    recentCompany?: string;
-    college?: string;
-    degree?: string;
-    specialization?: string;
-    startYear?: string;
-    endYear?: string;
+    basicInfo: DataRequire;
     profilePhoto?: string;
     education?: Organization;
     country?: string;

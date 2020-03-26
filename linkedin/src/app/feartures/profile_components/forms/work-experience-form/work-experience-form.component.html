@@ -3,9 +3,11 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content row">
       <div class="modal-header">
-        <h5 class="modal-title" id="FullModalLabel">Add work experience</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span (click)="this.profileService.profiles[currentIndex].openWorkExperienceForm=!this.profileService.profiles[currentIndex].openWorkExperienceForm">&times;</span>
+        <h5 class="modal-title" id="FullModalLabel">{{mood}} work experience</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          (click)="this.profileService.profiles[currentIndex].openWorkExperienceForm=!this.profileService.profiles[currentIndex].openWorkExperienceForm"
+        >
+          <span >&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -36,23 +38,17 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="location" class="required">Location</label>
+              <label for="location">Location</label>
               <input formControlName="location" class="form-control" type="text" id="location">
             </div>
             <div class="form-group">
-              <div>
-                <input type="checkbox" name="" id="CurrentlyWorking">
-                  <span>
-                   I am currently working in this role Transfare
-                  </span>
-              </div>
               <div class="row">
                 <div class="col-sm-6">
-                  <label for="startDate" class="required">Start Date</label>
+                  <label for="startDate">Start Date</label>
                   <input formControlName="startDate" class="form-control" type="date" id="startDate">
                 </div>
                 <div class="col-sm-6">
-                  <label for="endDate" class="required">End Date</label>
+                  <label for="endDate">End Date</label>
                   <input formControlName="endDate" class="form-control" type="date" id="endDate">               
                 </div>
               </div>
@@ -66,7 +62,6 @@
               <textarea formControlName="description" class="form-control" id="description" cols="30" rows="4"></textarea>
             </div>
           </div>
-          {{workExperienceForm.value | json}}
         </form>
       </div>
       <div class="modal-footer">

@@ -9,7 +9,7 @@ import { ProfileService } from '../../profile.service';
 })
 export class SkillFormComponent implements OnInit {
 
-  @Input() currentIndex;
+  @Input() currentIndex: number;
 
   skillForm = new FormGroup({
     skill: new FormControl('')

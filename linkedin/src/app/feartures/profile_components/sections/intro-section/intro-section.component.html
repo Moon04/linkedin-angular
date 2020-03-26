@@ -46,7 +46,7 @@
                           </div>
                           <div>
                             <p class="font-weight-normal" style="font-size: 1.4rem;">
-                              {{profileService.profiles[currentIndex].profileIntro.firstName}}, your Intro is looking good! Check out other sections you can add to your profile
+                              {{profileService.profiles[currentIndex].profileIntro.basicInfo.firstName}}, your Intro is looking good! Check out other sections you can add to your profile
                             </p>
                           </div>
                         </div>
@@ -76,7 +76,7 @@
                             </div>
                             <div>
                               <p class="font-weight-normal" style="font-size: 1.4rem;">
-                                Looking good, {{profileService.profiles[currentIndex].profileIntro.firstName}}.
+                                Looking good, {{profileService.profiles[currentIndex].profileIntro.basicInfo.firstName}}.
                               </p>
                               <p style="font-size: 1.4rem;">
                                 This section is complete.</p>
@@ -339,10 +339,10 @@
           <div class="col-sm-6 user-info">
             <div class="p-sm-3">
               <div>
-                <h2 class="d-inline-block">{{profileService.profiles[currentIndex].profileIntro.firstName + ' ' + profileService.profiles[currentIndex].profileIntro.lastName}}</h2>
+                <h2 class="d-inline-block">{{profileService.profiles[currentIndex].profileIntro.basicInfo.firstName + ' ' + profileService.profiles[currentIndex].profileIntro.basicInfo.lastName}}</h2>
               </div>
               <div>
-                <h4 class="f-w">{{profileService.profiles[currentIndex].profileIntro.recentJob}}</h4>
+                <h4 class="f-w">{{profileService.profiles[currentIndex].profileIntro.basicInfo.recentJob}}</h4>
               </div>
               <div class="d-flex">
                 <!-- <h4 class="f-w">{{profileService.profiles[currentIndex].profileIntro.country}}</h4> back to add location -->
@@ -358,7 +358,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-6 p-sm-3 experiences">
+          <div class="col-sm-6 p-sm-3 experiences" *ngIf="profileService.profiles[currentIndex].profileIntro.education">
             <div class="d-flex justify-content-end align-items-center">
               <div class="sm-img"><img class="img-fluid" src={{profileService.profiles[currentIndex].profileIntro.education.logoURL}}> </div>
               <div> <a href="#" class="btn btn-link btn-black">{{profileService.profiles[currentIndex].profileIntro.education.title}}</a></div>
@@ -375,7 +375,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{profileService.profiles[currentIndex].profileIntro.firstName + ' ' + profileService.profiles[currentIndex].profileIntro.lastName}}</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{profileService.profiles[currentIndex].profileIntro.basicInfo.firstName + ' ' + profileService.profiles[currentIndex].profileIntro.basicInfo.lastName}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span (click)="contactInfoStatus = !contactInfoStatus">&times;</span>
           </button>
@@ -393,7 +393,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Your profile</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link">{{profileService.profiles[currentIndex].profileIntro.firstName}}.{{profileService.profiles[currentIndex].profileIntro.lastName}}@linkedin.com</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link">{{profileService.profiles[currentIndex].profileIntro.basicInfo.firstName}}.{{profileService.profiles[currentIndex].profileIntro.basicInfo.lastName}}@linkedin.com</a>
                 </div>
               </div>
             </div>
@@ -426,7 +426,7 @@
                 </div>
                 <div class="d-flex flex-column p-2">
                   <span>Email</span>
-                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.profiles[currentIndex].profileIntro.email">{{profileService.profiles[currentIndex].profileIntro.email}}</a>
+                  <a href="#" style="padding: 0%;" class="btn btn-link" *ngIf="profileService.profiles[currentIndex].profileIntro.basicInfo.email">{{profileService.profiles[currentIndex].profileIntro.basicInfo.email}}</a>
                 </div>
               </div>
             </div>
