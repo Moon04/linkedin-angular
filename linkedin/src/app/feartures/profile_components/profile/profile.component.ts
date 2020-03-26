@@ -33,15 +33,21 @@ export class ProfileComponent implements OnInit {
           this.currentIndex = i;
         } 
     }
+    console.log(this.currentId);
+    console.log(this.currentIndex);
+    console.log(profileService.profiles);
+    
    }
 
   ngOnInit(): void{
     this.organizations = this.profileService.organizations;
 
+   if(this.profileService.profiles[this.currentIndex].profileSkills){
     for (let i = 0; i < this.profileService.profiles[this.currentIndex].profileSkills.length; i++) 
     {
       this.skills.push(this.profileService.profiles[this.currentIndex].profileSkills[i]);
     }
+   }
   }
 
   setMoodEducationIndex(index: number){

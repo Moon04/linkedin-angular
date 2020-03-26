@@ -56,8 +56,13 @@ export class Regform4Component implements OnInit {
       profileIntro: {
         basicInfo: this.authService.authUser,
         profilePhoto: '../../assets/images/user.png',
+        connectionsCount: 0
       },
-      profileDashboard: {},
+      profileDashboard: {
+        profileViews: 0,
+        articleViews: 0,
+        searchAppearance: 0
+      },
       profileAbout: {},
       profileAccomplishments: {
         courses: [],

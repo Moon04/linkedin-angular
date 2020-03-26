@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm, NgModel } from '@angular/forms';
 
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
     this.profilesService.profiles.forEach(e => {
       // this.userService.User.forEach(e => {
       // console.log(e.email, e.password)
-      if (e.profileIntro.email == email && e.profileIntro.password == password) {
+      if (e.profileIntro.basicInfo.email == email && e.profileIntro.basicInfo.password == password) {
         auth = true;
         currentUser = e.id;
       }
