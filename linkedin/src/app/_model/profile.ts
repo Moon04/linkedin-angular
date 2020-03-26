@@ -7,9 +7,9 @@ import { ProfileAccomplishments } from './ProfileAccomplishments';
 import { ProfileInterest } from './profileInterest';
 
 
-export interface Profile{
+export interface Profile {
     id: number;
-    
+
     openContactInfoForm: boolean;
     openIntroForm: boolean;
     openAboutForm: boolean;
@@ -29,4 +29,6 @@ export interface Profile{
     profileSkills?: ProfileSkills[];
     profileAccomplishments?: ProfileAccomplishments;
     profileInterests?: ProfileInterest[];
+
+    connetions: number[];
 }

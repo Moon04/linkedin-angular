@@ -2,8 +2,8 @@ import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { PostService } from "src/app/_services/post.service";
 import { PostCardsComponent } from "./post-cards/post-cards.component";
 import { Post } from 'src/app/_models/post';
-import { AccountService } from 'src/app/_services/account.service';
-
+import { AccountService } from 'src/app/features/account.service';
+import { ProfileService } from 'src/app/feartures/profile_components/profile.service';
 
 @Component({
   selector: "app-posts",
@@ -12,37 +12,34 @@ import { AccountService } from 'src/app/_services/account.service';
 })
 export class PostsComponent implements OnInit {
   posts = PostService.returnPosts();
-  accounts = PostService.returnAccount();
-  myAccount = AccountService.returnAccount();
-  passedAccounts;
-  passedAccountComments;
-  passedData;
-
+  accounts = new AccountService().accounts;
+  myAccount = new ProfileService().profiles.filter(p => p.id == Number(localStorage.getItem('currentUser')))[0];
+  passedAccounts = [];
+  passedAccountComments = [];
+  passedData = [];
   constructor() {
   }
   ngOnInit() {
-    this.passedAccounts = this.buildPassedAccounts();
-    this.passedAccountComments = this.buildPassedAccountsComments();
-    this.passedData = this.buildPassedData();
+    this.buildPassedAccounts();
+    this.buildPassedAccountsComments();
+    this.buildPassedData();
   }
   buildPassedAccounts() {
-    let arr = []
     this.posts.forEach((p) => {
       if (this.myAccount.id == p.accountID) {
-        arr.push(this.myAccount)
+        this.passedAccounts.push(this.myAccount)
       }
       else {
         this.accounts.forEach((a) => {
           if (a.id == p.accountID) {
-            arr.push(a)
+            this.passedAccounts.push(a);
           }
+
         })
       }
     })
-    return arr;
   }
   buildPassedAccountsComments() {
-    let arr = []
     this.posts.forEach((p) => {
       let parr = []
       p.comments.forEach((c) => {
@@ -54,68 +51,88 @@ export class PostsComponent implements OnInit {
 
         })
       })
-      arr.push(parr)
+      this.passedAccountComments.push(parr)
     })
-    return arr;
   }
   buildPassedData() {
-    let arr = []
+    this.passedData = []
     for (let i = 0; i < this.posts.length; i++) {
-      arr.push([this.passedAccounts[i], this.posts[i], this.passedAccountComments[i]])
+      this.myAccount.connetions.forEach((c) => {
+        if (c == this.passedAccounts[i].id || this.posts[i].accountID == this.myAccount.id) {
+          this.passedData.push([this.passedAccounts[i], this.posts[i], this.passedAccountComments[i]])
+        }
+      })
+
     }
-    return arr;
   }
+  //Posting //Fixed
   addPost(e) {
     //id, post, time, isShared, sharedID, accountID, likes, comments
     let postBody = e.path[1].childNodes[0].value
     if (postBody != "") {
-
-      this.posts.splice(0, 0, new Post(
-        this.posts.length + 1,
-        postBody,
-        0,
-        false,
-        0,
-        AccountService.returnAccount().id,
-        0,
-        []
-      ))
-      this.passedAccounts.splice(0, 0, AccountService.returnAccount());
-      this.passedAccountComments = this.buildPassedAccountsComments();
-      this.passedData = this.buildPassedData();
+      this.posts = [
+        new Post(
+          this.posts.length + 1,
+          postBody,
+          0,
+          false,
+          0,
+          this.myAccount.id,
+          0,
+          []
+        ), ...this.posts
+      ]
+      this.passedAccounts = [{
+        id: this.myAccount.id,
+        firstName: this.myAccount.profileIntro.firstName,
+        lastName: this.myAccount.profileIntro.lastName,
+        postion: this.myAccount.profileIntro.recentJob,
+        imageURL: this.myAccount.profileIntro.profilePhoto
+      }, ...this.passedAccounts]
+      this.passedAccountComments = [[], ...this.passedAccountComments]
+      this.buildPassedData();
       e.path[1].childNodes[0].value = "";
     }
   }
   deletePost(id) {
-    let index;
+
+    let index = null;
     this.posts.forEach((p, i) => {
-      if (p.id == id) {
+
+      if (p.id == id && index == null) {
         index = i
+
       }
     })
-    console.log(this.posts)
+
     this.posts.splice(index, 1)
-    this.passedAccounts = this.buildPassedAccounts();
-    this.passedAccountComments = this.buildPassedAccountsComments();
-    this.passedData = this.buildPassedData();
+    this.passedAccounts.splice(index, 1)
+    this.passedAccountComments.splice(index, 1)
+    this.buildPassedData();
+
 
   }
   sharePost(id) {
-    console.log(id)
-
-    this.posts.splice(0, 0, new Post(
-      this.posts.length + 1,
-      "",
-      0,
-      true,
-      id,
-      AccountService.returnAccount().id,
-      0,
-      []
-    ))
-    this.passedAccounts.splice(0, 0, AccountService.returnAccount());
-    this.passedAccountComments = this.buildPassedAccountsComments();
-    this.passedData = this.buildPassedData();
+    this.posts = [
+      new Post(
+        this.posts.length + 1,
+        "",
+        0,
+        true,
+        id,
+        this.myAccount.id,
+        0,
+        []
+      ), ...this.posts]
+    this.passedAccounts = [{
+      id: this.myAccount.id,
+      firstName: this.myAccount.profileIntro.firstName,
+      lastName: this.myAccount.profileIntro.lastName,
+      postion: this.myAccount.profileIntro.recentJob,
+      imageURL: this.myAccount.profileIntro.profilePhoto
+    }, ...this.passedAccounts];
+    this.passedAccountComments = [[], ...this.passedAccountComments]
+    this.buildPassedData();
 
   }
 

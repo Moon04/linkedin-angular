@@ -252,8 +252,46 @@ export class AccountService {
       about: [
         "mean stack developer seeking an opportunity in a multi-national company to help me widen my knowledge and improve my skills"
       ]
+    },
+    {
+      id: 100,
+      firstName: "Maged",
+      lastName: "El-Zaafran",
+      position: "data analyst",
+      imageURL: ["assets/images/3.jpg"],
+      connections: [
+        {
+          id: 5,
+          firstName: "Ahmed",
+          lastName: "Amer",
+          position: "android developer",
+          imageURL: ["assets/images/1.jpg"],
+          pastConnection: false,
+          about: [
+            "c# developer seeking an opportunity in a multi-national company to help me widen my knowledge and improve my skills"
+          ]
+        },
+        {
+          id: 9,
+          firstName: "Nermeen",
+          lastName: "Assem",
+          position: "HR specialist",
+          pastConnection: false
+        }
+      ],
+      studyPlace: [
+        { title: "Cairo", logoURL: ["assets/images/Engineering.png"] }
+      ],
+      workPlace: [
+        { title: "ITworx", logoURL: ["assets/images/itworxLogo.png"] }
+      ],
+      country: "USA",
+      pastConnection: false,
+      about: [
+        "mean stack developer seeking an opportunity in a multi-national company to help me widen my knowledge and improve my skills"
+      ]
     }
   ];
 
-  constructor() {}
+  constructor() { }
 }

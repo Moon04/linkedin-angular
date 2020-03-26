@@ -14,48 +14,56 @@
   width: 80%;
 }
 .post-card-image {
-  height: 4rem;
-  width: 4rem;
+  height: 6rem;
+  width: 6rem;
   background-color: dodgerblue;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
 }
 .post-card-title {
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .post-card-time {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 .post-card-body {
-  padding: 0.5rem 1.5rem;
+  padding: 1rem 1.5rem 0.5rem;
+  font-size: 1.3rem;
 }
 .post-card-name {
-  width: 95%;
+  width: 98%;
   display: inline-block;
   box-sizing: border-box;
+  font-size: 1.3rem;
 }
 .post-card-menu {
   display: none;
   position: absolute;
   background-color: white;
-  right: 0;
+  right: -11px;
+  top:19px;
   box-shadow: 0px 0px 2px #2b2b2b;
 }
 .post-card-menu-edit, .post-card-menu-delete, .post-card-menu-hide {
   padding: 5px 20px;
   text-align: center;
   transition: all 0.2s linear;
+  font-size: 1.2rem;
 }
 .post-card-menu-edit:hover, .post-card-menu-delete:hover, .post-card-menu-hide:hover {
   background-color: dimgray;
   color: white;
 }
 .post-card-menu-container {
-  width: 5%;
+  width: 2%;
   display: inline-block;
   box-sizing: border-box;
   position: relative;
+}
+.post-card-menu-container fa-icon{
+  font-size: 2rem;
+  padding: none;
 }
 .post-card-menu-container:hover .post-card-menu {
   display: block;
@@ -70,11 +78,12 @@
   border: none;
   padding: 5px 10px;
   margin: 20px 10px 5px;
+  font-size: 1.2rem;
 }
 .post-card-likes {
   color: dodgerblue;
-  font-size: 0.9rem;
-  padding: 10px 24px;
+  font-size: 1.2rem;
+  padding: 10px 1.5rem;
 }
 .post-card-controls button {
   width: 33.3%;
@@ -85,6 +94,7 @@
   padding: 0.5rem 0rem;
   border-top: 1px solid dodgerblue;
   transition: all 0.2s linear;
+  font-size: 1.2rem;
 }
 .post-card-controls button:nth-child(2) {
   border-left: 1px solid dodgerblue;
@@ -97,13 +107,19 @@
 .post-card-comment-border {
   border-bottom: 1px solid lightgray;
 }
+.post-card-comment-add{
+  display: flex;
+  align-items: center;
+}
 .post-card-comment-add input {
   width: 80%;
   border: 1px solid lightgray;
   padding: 5px 20px;
   box-sizing: border-box;
   outline: none;
+  font-size: 1.3rem;
 }
+
 .post-card-comment-add button {
   padding: 6px 20px;
   box-sizing: border-box;
@@ -111,6 +127,8 @@
   background-color: dodgerblue;
   color: white;
   border: none;
+  font-size: 1.3rem;
+  
 }
 .post-card-comment-card {
   display: flex;
@@ -124,12 +142,13 @@
   display: flex;
   align-items: center;
   padding: 0px 15px;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 .post-card-comment-card-body {
   width: 100%;
   padding: 0px 65px 10px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 }
 .hidden {
   display: none;
@@ -153,4 +172,5 @@
 }
 .shared-post-preview-sub:last-child {
   padding: 5px 48px;
+  font-size: 1.2rem;
 }

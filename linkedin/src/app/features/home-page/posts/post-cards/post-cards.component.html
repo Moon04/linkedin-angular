@@ -1,10 +1,10 @@
 <div class="post-card-container" [ngClass]="{'hidden':isPostHidden}">
 	<div class="post-card-header">
 		<div class="post-card-header-sub">
-			<div class="post-card-image" [ngStyle]="{'background-image': 'url(' +account.imgURL+ ')'}"></div>
+			<div class="post-card-image" [ngStyle]="{'background-image': 'url(' +account.imageURL+ ')'}"></div>
 		</div>
 		<div class="post-card-header-sub">
-			<div class="post-card-name">{{account.name}}</div>
+			<div class="post-card-name">{{account.firstName+" "+account.lastName}}</div>
 			<div class="post-card-menu-container">
 				<fa-icon [icon]="faEllipsisH"></fa-icon>
 				<div class="post-card-menu">
@@ -14,7 +14,7 @@
 					<div class="post-card-menu-hide" [ngClass]="{'hidden':isMyPost}" (click)="hidePost()">hide</div>
 				</div>
 			</div>
-			<div class="post-card-title">{{account.title}}</div>
+			<div class="post-card-title">{{account.position}}</div>
 			<div class="post-card-time">{{time}}</div>
 		</div>
 	</div>
@@ -22,17 +22,18 @@
 		{{post.post}}
 	</div>
 	<div class="post-card-editControls" [ngClass]="{'hidden':!isEditing}">
-		<button (click)="save()">okay</button>
+		<button (click)="save($event)">okay</button>
 		<button (click)="cancel($event)">cancel</button>
 	</div>
 	<div [ngClass]="{'hidden':!post.isShared}">
 		<div class="shared-post-preview">
 			<div class="shared-post-preview-sub">
-				<div class="post-card-image" [ngStyle]="{'background-image': 'url(' +sharedPost.imgURL+ ')'}"></div>
-				<div class="post-card-name">{{sharedPost.name}}</div>
+				<div class="post-card-image" [ngStyle]="{'background-image': 'url(' +sharedAccount.imageURL+ ')'}">
+				</div>
+				<div class="post-card-name">{{sharedAccount.firstName+" "+sharedAccount.lastName}}</div>
 			</div>
 			<div class="shared-post-preview-sub">
-				{{sharedPost.post.post}}
+				{{sharedPost.post}}
 			</div>
 		</div>
 	</div>
@@ -52,8 +53,8 @@
 		<div *ngFor='let c of comment;let i = index' class="post-card-comment-border">
 			<div class="post-card-comment-card">
 				<div class="post-card-image post-card-comment-card-image"
-					[ngStyle]="{'background-image': 'url(' +c.imgURL+ ')'}"></div>
-				<div class="post-card-comment-card-title">{{c.name}}
+					[ngStyle]="{'background-image': 'url(' +c.imageURL+ ')'}"></div>
+				<div class="post-card-comment-card-title">{{c.firstName+" "+c.lastName}}
 				</div>
 			</div>
 			<div class="post-card-comment-card-body">

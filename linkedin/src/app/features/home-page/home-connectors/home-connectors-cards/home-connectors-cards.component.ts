@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-home-connectors-cards",
@@ -6,8 +6,17 @@ import { Component, OnInit, Input } from "@angular/core";
   styleUrls: ["./home-connectors-cards.component.css"]
 })
 export class HomeConnectorsCardsComponent implements OnInit {
-  @Input() connection;
-  constructor() {}
+  @Input() con;
+  @Output() addConnection = new EventEmitter();
+  constructor() {
 
-  ngOnInit() {}
+  }
+
+  ngOnInit() {
+
+  }
+  add() {
+    console.log("hi")
+    this.addConnection.emit(this.con.id);
+  }
 }

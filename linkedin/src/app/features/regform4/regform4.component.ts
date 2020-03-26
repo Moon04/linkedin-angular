@@ -39,7 +39,7 @@ export class Regform4Component implements OnInit {
     this.router.navigate(['/login']);
 
     this.profileService.profiles.push({
-      id: this.profileService.profiles.length,
+      id: this.profileService.profiles[this.profileService.profiles.length - 1].id + 1,
       openContactInfoForm: false,
       openIntroForm: false,
       openAboutForm: false,
@@ -65,7 +65,8 @@ export class Regform4Component implements OnInit {
         volunteerExperience: []
       },
       profileInterests: [],
-      profileSkills: []
+      profileSkills: [],
+      connetions: []
     });
 
 

@@ -9,7 +9,7 @@
 .account-peak-cover {
   background-image: url("src/assets/coverimage.jpg");
   background-size: cover;
-  height: 8rem;
+  height: 15rem;
   margin-bottom: 4rem;
 }
 .account-peak-image {
@@ -18,24 +18,27 @@
   position: relative;
   margin: auto;
   top: 75%;
-  height: 4rem;
-  width: 4rem;
+  height: 8rem;
+  width: 8rem;
   border-radius: 50%;
   border: 2px solid white;
 }
 .account-peak-title {
   font-weight: 600;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 .account-peak-intro {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   text-align: center;
   padding: 0.5rem 1.5rem;
 }
 .account-peak-profile-viewers, .account-peak-post-viewers {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   display: flex;
   padding: 0.2rem 2rem;
   justify-content: space-between;
+}
+.account-peak-post-viewers{
+  margin-bottom: 1rem;
 }

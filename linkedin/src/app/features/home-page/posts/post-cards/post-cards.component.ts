@@ -1,7 +1,9 @@
 import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 import { faEllipsisH, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { PostComments } from 'src/app/_models/comment';
-import { AccountService } from 'src/app/_services/account.service';
+import { ProfileService } from 'src/app/feartures/profile_components/profile.service';
+import { AccountService } from 'src/app/features/account.service';
+import { PostService } from 'src/app/_services/post.service';
 
 @Component({
   selector: "app-post-cards",
@@ -22,9 +24,11 @@ export class PostCardsComponent implements OnInit {
   isPostHidden = false;
   isEditing = false;
   beforeEdit;
-  sharedPost;
+  sharedPost;//Just Initialization
   sharedAccount;
-  myAccount = AccountService.returnAccount()
+  myAccount = new ProfileService().profiles.filter(p => p.id == Number(localStorage.getItem('currentUser')))[0];
+  listOfAccounts = new AccountService().accounts;
+  listOfPosts = PostService.returnPosts()
   @Output()
   deleteMyPost = new EventEmitter<any>();
   @Output()
@@ -37,17 +41,14 @@ export class PostCardsComponent implements OnInit {
     setInterval(() => {
       this.time = this.getTime();
     }, 60000);
-    this.sharedPost = this.post
+    this.sharedPost = this.post;
+    this.sharedAccount = this.account;
     if (this.post.isShared) {
-      for (let i = 0; i < this.posts.length; i++) {
-        let p = this.posts[i];
-        if (p[1].id == this.post.sharedID) {
-          if (!p[1].isShared) {
-            this.sharedPost = {
-              name: p[0].name,
-              imgURL: p[0].imgURL,
-              post: p[1]
-            }
+      for (let i = 0; i < this.listOfPosts.length; i++) {
+        let p = this.listOfPosts[i];
+        if (p.id == this.post.sharedID) {
+          if (!p.isShared) {
+            this.sharedPost = p
           }
           else {
             this.post.sharedID = p[1].sharedID
@@ -55,10 +56,13 @@ export class PostCardsComponent implements OnInit {
           }
         }
       }
+      this.listOfAccounts.forEach((a) => {
+        if (a.id == this.sharedPost.accountID) {
+          this.sharedAccount = a;
+        }
+      })
 
     }
-
-
 
   }
   addLike() {
@@ -81,8 +85,14 @@ export class PostCardsComponent implements OnInit {
     let myComment = e.path[1].childNodes[0].value;
     if (myComment != "") {
       this.post.comments.push(new PostComments(this.post.comments.length + 1, myComment));
-      this.comment.push(this.myAccount)
+      this.comment.push({
+        firstName: this.myAccount.profileIntro.firstName,
+        lastName: this.myAccount.profileIntro.lastName,
+        imageURL: this.myAccount.profileIntro.profilePhoto,
+        id: this.myAccount.id
+      })
     }
+    e.path[1].childNodes[0].value = "";
   }
   hidePost() {
     this.isPostHidden = !this.isPostHidden
@@ -91,11 +101,14 @@ export class PostCardsComponent implements OnInit {
     this.deleteMyPost.emit(this.post.id);
   }
   editPost() {
+
     this.beforeEdit = this.post.post;
     this.isEditing = !this.isEditing;
+
   }
-  save() {
+  save(e) {
     this.isEditing = !this.isEditing;
+    this.post.post = e.path[2].childNodes[1].textContent
   }
   cancel(e) {
     e.path[2].childNodes[1].textContent = this.beforeEdit
