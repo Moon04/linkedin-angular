@@ -2,13 +2,15 @@ import { Injectable } from "@angular/core";
 import { Account } from "./../_model/account";
 import { WorkInfo } from "./../_model/work-info";
 import { Title } from "@angular/platform-browser";
+import { ConnectionProfileService } from "./connection-profile/connection-profile.service";
 
 @Injectable({
   providedIn: "root"
 })
 export class AccountService {
   //currentAccount = Math.floor(Math.random() * 3 + 1);
-  currentAccount = 0;
+  // currentAccount = this.ConnectionProfileService.currentAccountID;
+  currentAccount: number;
 
   // this.currentAccount;
   accounts: Account[] = [
@@ -30,6 +32,7 @@ export class AccountService {
             "Java developer seeking an opportunity in a multi-national company to help me widen my knowledge and improve my skills"
           ]
         },
+
         {
           id: 6,
           firstName: "Fady",
@@ -205,14 +208,42 @@ export class AccountService {
           pastConnection: false
         }
       ],
-      studyPlace: [
-        { title: "Helwan", logoURL: ["assets/images/Engineering.png"] }
-      ],
+      // studyPlace: [
+      //   { title: "Helwan", logoURL: ["assets/images/Engineering.png"] }
+      // ],
       workPlace: [{ title: "ITI", logoURL: ["assets/images/itiLogo.png"] }],
+      volunteerExperience: [
+        {
+          title: "ACES",
+          logoURL: ["assets/images/aces.png"],
+          position: "Academic Committee head",
+          type: "Organization",
+          startDate: "September 2014",
+          endDate: "June 2019"
+        }
+      ],
       country: "France",
       pastConnection: false,
       about: [
         ".net developer seeking an opportunity in a multi-national company to help me widen my knowledge and improve my skills"
+      ],
+      skills: [
+        {
+          skillName: "C++",
+          SkillID: 1,
+          noEndorsements: 3,
+          endorsers: [
+            { endorserID: 16, endorserName: "Weaam Wagdy", skillID: 1 },
+            { endorserID: 20, endorserName: "Hady Hebat", skillID: 1 }
+          ]
+        }
+      ],
+      intersts: [
+        {
+          title: "Valeo",
+          logoURL: ["assets/images/valeo.jpg"],
+          followersNo: 27000
+        }
       ]
     },
     {
@@ -255,5 +286,5 @@ export class AccountService {
     }
   ];
 
-  constructor() {}
+  constructor(public ConnectionProfileService: ConnectionProfileService) {}
 }

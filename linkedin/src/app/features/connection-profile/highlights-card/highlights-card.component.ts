@@ -23,19 +23,23 @@ export class HighlightsCardComponent implements OnInit {
   fun() {
     this.currentConnectionArray = [];
     this.saveConnectionsOfCurrent();
+    if (this.accounts[this.currentAccount].studyPlace) {
+      for (
+        let i = 0;
+        i < this.accounts[this.currentAccount].studyPlace.length;
+        i++
+      ) {
+        this.educationData.push(
+          this.accounts[this.currentAccount].studyPlace[i].title
+        );
+      }
+    }
+    if (this.accounts[this.currentAccount].studyPlace) {
+      for (let i = 0; i < this.myAccountData.studyPlace.length; i++) {
+        this.myEducationData.push(this.myAccountData.studyPlace[i].title);
+      }
+    }
 
-    for (
-      let i = 0;
-      i < this.accounts[this.currentAccount].studyPlace.length;
-      i++
-    ) {
-      this.educationData.push(
-        this.accounts[this.currentAccount].studyPlace[i].title
-      );
-    }
-    for (let i = 0; i < this.myAccountData.studyPlace.length; i++) {
-      this.myEducationData.push(this.myAccountData.studyPlace[i].title);
-    }
     for (let i = 0; i < this.myEducationData.length; i++) {
       for (let j = 0; j < this.educationData.length; j++) {
         if (this.myEducationData[i] === this.educationData[j]) {

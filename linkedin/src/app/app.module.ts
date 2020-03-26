@@ -60,7 +60,8 @@ import { ProjectFormComponent } from "./feartures/profile_components/forms/proje
 import { LanguageFormComponent } from "./feartures/profile_components/forms/language-form/language-form.component";
 import { from } from "rxjs";
 import { ContactInfoFormComponent } from "./feartures/profile_components/forms/contact-info-form/contact-info-form.component";
-import { ConnectionComponent } from './features/connection-profile/connection/connection.component';
+import { ConnectionComponent } from "./features/connection-profile/connection/connection.component";
+import { ConnectionsPageComponent } from "./features/connection-profile/connections-page/connections-page.component";
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import { ConnectionComponent } from './features/connection-profile/connection/co
     ProjectFormComponent,
     LanguageFormComponent,
     ContactInfoFormComponent,
-    ConnectionComponent
+    ConnectionComponent,
+    ConnectionsPageComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -127,8 +129,12 @@ import { ConnectionComponent } from './features/connection-profile/connection/co
       { path: "register3", component: Regform3Component },
       { path: "register4", component: Regform4Component },
       { path: "register5", component: Regform5Component },
+      {
+        path: "home/connection/certainconnection",
+        component: ConnectionComponent
+      },
       { path: "home/myprofile", component: ProfileComponent },
-      { path: "home/connection", component: ConnectionComponent },
+      { path: "home/connection", component: ConnectionsPageComponent },
       { path: "home", component: HomePageComponent },
       { path: "**", component: ErrorpageComponent }
     ])
