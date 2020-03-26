@@ -58,6 +58,7 @@ export class LoginComponent implements OnInit {
       console.log(currentUser);
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
       this.router.navigate(['/home']);
+      console.log(this.profilesService.profiles);
     }
   }
 

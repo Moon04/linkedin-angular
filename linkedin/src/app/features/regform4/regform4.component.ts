@@ -53,7 +53,10 @@ export class Regform4Component implements OnInit {
       openProjectForm: false,
       openLanguageForm: false,
       openEditSkills: false,
-      profileIntro: this.authService.authUser,
+      profileIntro: {
+        basicInfo: this.authService.authUser,
+        profilePhoto: '../../assets/images/user.png',
+      },
       profileDashboard: {},
       profileAbout: {},
       profileAccomplishments: {
