@@ -129,7 +129,7 @@ export class ProfileService {
           startYear: "2015",
           endYear: "2019"
         },
-        profilePhoto: "assets/images/profile-photo.jpg",
+        profilePhoto: "assets/images/esraa-pp.jpeg",
         education: this.organizations[2],
         country: "Egypt",
         industry: "Computer Software",

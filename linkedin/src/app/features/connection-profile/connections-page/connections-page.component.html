@@ -1,38 +1,21 @@
+<app-header></app-header>
 <div class="row">
-  <div
-    *ngFor="let account of accounts; let i = index"
-    class="card"
-    class="col-md-4 col-sm-6 mb-4"
-  >
+  <div *ngFor="let account of accounts; let i = index" class="card" class="col-md-4 col-sm-6 mb-4">
     <img class="image" src="{{ account.imageURL }}" />
     <div class="container">
       <h4>
-        <a
-          routerLink="certainconnection"
-          (click)="clickConnection(i)"
-          class="name"
-        >
-          {{ account.firstName }} {{ account.lastName }}</a
-        >
+        <a routerLink="/certainconnection" (click)="clickConnection(i)" class="name">
+          {{ account.firstName }} {{ account.lastName }}</a>
       </h4>
       <p>{{ account.position }}</p>
     </div>
   </div>
-  <div
-    *ngFor="let account of accounts; let i = index"
-    class="card"
-    class="col-md-4 col-sm-6 mb-4"
-  >
+  <div *ngFor="let account of accounts; let i = index" class="card" class="col-md-4 col-sm-6 mb-4">
     <img class="image" src="{{ account.imageURL }}" />
     <div class="container">
       <h4>
-        <a
-          routerLink="certainconnection"
-          (click)="clickConnection(i)"
-          class="name"
-        >
-          {{ account.firstName }} {{ account.lastName }}</a
-        >
+        <a routerLink="/certainconnection" (click)="clickConnection(i)" class="name">
+          {{ account.firstName }} {{ account.lastName }}</a>
       </h4>
       <p>{{ account.position }}</p>
     </div>

@@ -1,7 +1,7 @@
-
+<app-header></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-md-4 order-md-2 mb-4" >
+    <div class="col-md-4 order-md-2 mb-4">
       <div style="display: flex;">
         <h4 style="margin-top: 5%; color: gray; width: 90%;">Edit public profile & URL</h4>
         <span style="width:10%; margin-top: 5%;"><i class="far fa-question-circle"></i></span>
@@ -13,7 +13,8 @@
       </div>
 
       <div class="ad">
-        <p>{{profileService.profiles[currentIndex].profileIntro.basicInfo.firstName}}, unlock your full potential with LinkedIn Premium</p>
+        <p>{{profileService.profiles[currentIndex].profileIntro.basicInfo.firstName}}, unlock your full potential with
+          LinkedIn Premium</p>
         <div id="ad-images">
           <img src={{profileService.profiles[currentIndex].profileIntro.profilePhoto}} id="ad-img">
           <i class="fas fa-key"></i>
@@ -26,61 +27,47 @@
     <div class="col-md-8 order-md-1">
 
       <!-- Profile Header Section -->
-      <app-intro-section 
-        (workMood)="setMoodWorkIndex($event)"
-        (educationMood)="setMoodEducationIndex($event)"
-        (volunteerMood)="setMoodVolunteerIndex($event)"
-        (courseMood)="setMoodCourseIndex($event)"
-        (projectMood)="setMoodProjectIndex($event)"
-        (languageMood)="setMoodLanguageIndex($event)"
-        [currentIndex]="this.currentIndex"
-      >
+      <app-intro-section (workMood)="setMoodWorkIndex($event)" (educationMood)="setMoodEducationIndex($event)"
+        (volunteerMood)="setMoodVolunteerIndex($event)" (courseMood)="setMoodCourseIndex($event)"
+        (projectMood)="setMoodProjectIndex($event)" (languageMood)="setMoodLanguageIndex($event)"
+        [currentIndex]="this.currentIndex">
       </app-intro-section>
 
       <!-- About section -->
-      <app-about-section 
-        *ngIf="profileService.profiles[currentIndex].profileAbout.about"
-        [currentIndex]="currentIndex"
-      >
+      <app-about-section *ngIf="profileService.profiles[currentIndex].profileAbout.about" [currentIndex]="currentIndex">
       </app-about-section>
 
       <!-- Dashboard section -->
       <app-dashboard-section [currentIndex]="currentIndex"></app-dashboard-section>
 
       <!-- background section -->
-      <app-background-section 
-        (workMood)="setMoodWorkIndex($event)"
-        (educationMood)="setMoodEducationIndex($event)"
+      <app-background-section (workMood)="setMoodWorkIndex($event)" (educationMood)="setMoodEducationIndex($event)"
         (volunteerMood)="setMoodVolunteerIndex($event)"
         *ngIf="profileService.profiles[currentIndex].profileBackground.workExperience.length!==0||profileService.profiles[currentIndex].profileBackground.education.length!==0||profileService.profiles[currentIndex].profileBackground.volunteerExperience.length!==0"
-        [currentIndex]="currentIndex"
-      >
+        [currentIndex]="currentIndex">
       </app-background-section>
 
       <!-- Skills Section -->
-      <app-skills-section 
-        *ngIf="profileService.profiles[currentIndex].profileSkills.length!==0"
-        [currentIndex]="currentIndex"
-      >
+      <app-skills-section *ngIf="profileService.profiles[currentIndex].profileSkills.length!==0"
+        [currentIndex]="currentIndex">
       </app-skills-section>
 
       <!-- Accomplishments -->
-      <app-accomplishments-section 
+      <app-accomplishments-section
         *ngIf="profileService.profiles[currentIndex].profileAccomplishments.courses.length!==0||profileService.profiles[currentIndex].profileAccomplishments.projects.length!==0||profileService.profiles[currentIndex].profileAccomplishments.languages.length!==0"
-        (courseMood)="setMoodCourseIndex($event)"
-        (projectMood)="setMoodProjectIndex($event)"
-        (languageMood)="setMoodLanguageIndex($event)"
-        [currentIndex]="currentIndex"
-      >
+        (courseMood)="setMoodCourseIndex($event)" (projectMood)="setMoodProjectIndex($event)"
+        (languageMood)="setMoodLanguageIndex($event)" [currentIndex]="currentIndex">
       </app-accomplishments-section>
 
       <!-- The Interests section displays the companies that a user following -->
-      <app-interests *ngIf="profileService.profiles[currentIndex].profileInterests" [profileIterests]="profileService.profiles[currentIndex].profileInterests"></app-interests>
-      
+      <app-interests *ngIf="profileService.profiles[currentIndex].profileInterests"
+        [profileIterests]="profileService.profiles[currentIndex].profileInterests"></app-interests>
+
 
       <!-- Edit Skill -->
-      <div [ngClass]="{'modal': true, 'edit-skills': true, 'show-modal': profileService.profiles[currentIndex].openEditSkills}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-        aria-hidden="true">
+      <div
+        [ngClass]="{'modal': true, 'edit-skills': true, 'show-modal': profileService.profiles[currentIndex].openEditSkills}"
+        tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
@@ -88,8 +75,7 @@
                 Reorder Skills & Endorsements ({{profileService.profiles[currentIndex].profileSkills.length}})
               </h2>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                (click)="profileService.profiles[currentIndex].openEditSkills=!profileService.profiles[currentIndex].openEditSkills"
-              >
+                (click)="profileService.profiles[currentIndex].openEditSkills=!profileService.profiles[currentIndex].openEditSkills">
                 <span>&times;</span>
               </button>
             </div>
@@ -100,12 +86,13 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="skill-edit" *ngFor="let skill of skills">
-                    <a class="pointer">                    
+                    <a class="pointer">
                       <i class="fas fa-thumbtack" style="font-size: 16px; margin-right: 2%; color: #1185c9;"></i>
                     </a>
                     <span class="skill-edit__skill">{{skill.skillTitle}}</span>
                     <i class="fas fa-align-justify float-md-right mr-3 skill-edit__icon"></i>
-                    <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon pointer" (click)="deleteSkillFromView(skill)"></i>
+                    <i class="fas fa-trash-alt float-md-right mr-3 skill-edit__icon pointer"
+                      (click)="deleteSkillFromView(skill)"></i>
                   </div>
                 </div>
               </div>
@@ -128,7 +115,8 @@
   <app-about-form [currentIndex]="currentIndex"></app-about-form>
   <app-work-experience-form [moodIndex]="moodWorkIndex" [currentIndex]="currentIndex"></app-work-experience-form>
   <app-education-form [moodIndex]="moodEducationIndex" [currentIndex]="currentIndex"></app-education-form>
-  <app-volunteer-experience-form [moodIndex]="moodVolunteerIndex" [currentIndex]="currentIndex"></app-volunteer-experience-form>
+  <app-volunteer-experience-form [moodIndex]="moodVolunteerIndex" [currentIndex]="currentIndex">
+  </app-volunteer-experience-form>
   <app-skill-form [currentIndex]="currentIndex"></app-skill-form>
   <app-course-form [moodIndex]="moodCourseIndex" [currentIndex]="currentIndex"></app-course-form>
   <app-project-form [moodIndex]="moodProjectIndex" [currentIndex]="currentIndex"></app-project-form>

@@ -130,11 +130,11 @@ import { ConnectionsPageComponent } from "./features/connection-profile/connecti
       { path: "register4", component: Regform4Component },
       { path: "register5", component: Regform5Component },
       {
-        path: "home/connection/certainconnection",
+        path: "certainconnection",
         component: ConnectionComponent
       },
-      { path: "home/myprofile", component: ProfileComponent },
-      { path: "home/connection", component: ConnectionsPageComponent },
+      { path: "myprofile", component: ProfileComponent },
+      { path: "connection", component: ConnectionsPageComponent },
       { path: "home", component: HomePageComponent },
       { path: "**", component: ErrorpageComponent }
     ])
@@ -149,4 +149,4 @@ import { ConnectionsPageComponent } from "./features/connection-profile/connecti
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

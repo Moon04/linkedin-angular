@@ -1,11 +1,30 @@
-<div class="header">
-	<div class="logo">
-		<img src="assets/logo.svg" width="120px" />
+<div style="background-color: #283E4A; border-bottom: 2px solid lightgrey;">
+	<div class="header container">
+		<div routerLink="/home" class="logo">
+			<img src="../../../favicon.ico" width="50%" />
+			<!-- <img src="assets/logo.svg" width="120px" /> -->
+		</div>
+		<ul class="navhe">
+			<li routerLink="/home" class="warpdiv">
+				<a class="fa fa-home iconhe"></a>
+				<span class="spanhe">Home</span>
+			</li>
+			<li routerLink="/connection" class="warpdiv">
+				<a class="fas fa-users iconhe"></a>
+				<span class="spanhe">My Network</span>
+			</li>
+			<li routerLink="/myprofile" class="warpdiv">
+				<a class="fas fa-user-circle iconhe"></a>
+				<span class="spanhe">View Profile</span>
+			</li>
+			<li (click)="signOut()" class="warpdiv">
+				<a class="fa fa-home iconhe"></a>
+				<span class="spanhe">Sign out</span>
+			</li>
+			<!-- <a routerLink="/home">Home</a> -->
+			<!-- <a routerLink="/connection">My Network</a> -->
+			<!-- <a routerLink="/myprofile">View Profile</a> -->
+			<!-- <a (click)="signOut()" style="cursor: pointer;padding-right: 0;">Sign Out</a> -->
+		</ul>
 	</div>
-	<nav>
-		<a routerLink="/home">Home</a>
-		<a routerLink="connection">My Network</a>
-		<a routerLink="myprofile">View Profile</a>
-		<a (click)="signOut()">Sign Out</a>
-	</nav>
 </div>
